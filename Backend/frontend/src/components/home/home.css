@@ -1,0 +1,11 @@
+.emgBtn{
+    background-color: lime;
+    color: black;
+    font-weight: bold;
+}
+.emgBtn:hover{
+    background-color: gray;
+    color: lime;
+}
+
+

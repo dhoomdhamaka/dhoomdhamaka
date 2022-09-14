@@ -1,0 +1,4 @@
+{
+    "jwtPrivateKey": "",
+    "db":"mongodb+srv://dhoomdhamaka:test@cluster0.0u6sboc.mongodb.net/tests"
+}

@@ -1,0 +1,18 @@
+.swiper {
+    width: 98%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.swiper-slide {
+    overflow: hidden;
+    border-radius: .5rem;
+    height: 400px;
+    width: 300px;
+}
+
+.swiper-slide img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}

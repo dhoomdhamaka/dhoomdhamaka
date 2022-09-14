@@ -1,0 +1,132 @@
+#introCarousel,
+.carousel-inner,
+.carousel-item,
+.carousel-item.active {
+    /* height: 85vh; */
+}
+
+.carousel-item:nth-child(1) {
+    /* background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg'); */
+    /* background-image: url('https://i.postimg.cc/Jn0X0pDS/1.jpg'); */
+     /* background-image: url('https://bit.ly/3PgHvEV'); */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.carousel-item:nth-child(2) {
+    /* background-image: url('https://mdbootstrap.com/img/Photos/Others/images/77.jpg'); */
+    /* background-image: url("https://i.postimg.cc/SQXZtrTZ/2.jpg"); */
+    /* background-image: url('https://c4.wallpaperflare.com/wallpaper/222/981/89/candles-cake-cake-bokeh-wallpaper-preview.jpg'); */
+     /* background-image: url('https://wallpapercave.com/wp/wp2749902.jpg'); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.carousel-item:nth-child(3) {
+    /* background-image: url('https://mdbootstrap.com/img/Photos/Others/images/78.jpg'); */
+    /* background-image: url('https://i.postimg.cc/Jh4x3cH5/3.jpg'); */
+        /* background-image: url('https://www.teahub.io/photos/full/143-1439591_happy-birthday-wishes-images-happy-birthday-nanba-quotes.png'); */
+    /* background: -webkit-linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8)), url("https://www.teahub.io/photos/full/143-1439591_happy-birthday-wishes-images-happy-birthday-nanba-quotes.png");
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8)), url("https://www.teahub.io/photos/full/143-1439591_happy-birthday-wishes-images-happy-birthday-nanba-quotes.png"); */
+    /* The least supported option. */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+
+/* Height for devices larger than 576px */
+@media (min-width: 992px) {
+    #introCarousel {
+        margin-top: -58.59px;
+    }
+
+    #introCarousel,
+    .carousel-inner,
+    .carousel-item,
+    .carousel-item.active {
+        height: 80vh;
+    }
+}
+
+.masky {
+    /* position: relative;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5); */
+}
+
+.carousel-caption {
+    bottom: 110px;
+}
+
+/* ld dve  */
+
+.carousel-caption h5 {
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 25px;
+    font-family: merienda;
+}
+
+/* for small device  */
+.carousel-caption h6 {
+    font-size: 35px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 25px;
+    color: #fff;
+    font-family: merienda;
+}
+
+/* p big size */
+
+
+.carousel-caption p {
+    width: 60%;
+    margin: auto;
+    font-size: 18px;
+    line-height: 1.9;
+    font-family: poppins;
+}
+
+/* p small size */
+
+.carousel-caption .desp {
+    width: 60%;
+    margin: auto;
+    font-size: 14px;
+    line-height: 1.9;
+    font-family: poppins;
+}
+
+/* button with anchor tag big size */
+
+.carousel-caption a {
+    text-transform: uppercase;
+    background: #262626;
+    padding: 10px 30px;
+    display: inline-block;
+    color: #fff;
+    margin-top: 15px;
+}
+
+/* button with anchor tag small size */
+
+.carousel-caption .desb {
+    text-transform: uppercase;
+    /* background: #262626; */
+    padding: 5px 15px;
+    display: inline-block;
+    color: #fff;
+    /* size: 10%; */
+    margin-top: 15px;
+}
+
+.carousel {
+    width: 98%;
+    margin: auto;
+    margin-top: 14px;
+}
