@@ -1,8 +1,9 @@
 //requirements
 
+const { crypto } = require("crypto");
 const express = require("express");
 const router = express.Router();
-const crypto = require("node:crypto");
+// const crypto = require("node:crypto");
 const nodemailer = require("nodemailer");
 const { User } = require("../model/user");
 
