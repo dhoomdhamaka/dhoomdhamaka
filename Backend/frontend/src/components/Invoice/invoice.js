@@ -12,7 +12,7 @@ function Invoice() {
   const [currentInvoc, setCurrentInvoc] = useState();
   const [display, setDisplay] = useState(false);
 
-  useEffect(async() => {
+  useEffect(() => {
     function doLogout() {
       localStorage.clear("bandhanUserToken");
       dispatch(authActions.logout());
@@ -34,11 +34,15 @@ function Invoice() {
           doLogout();
         });
     }
-    await axios.get("api/invoice/getUserOrders").then((res) => {
+    axios.get("api/invoice/getUserOrders").then((res) => {
       if(res.status === 200){
         setInvoiceDatas(res.data);
       }
     });
+
+    return () => {
+      console.log('This will be logged on unmount');
+    };
     
   }, []);
   // console.log(InvoiceDatas);
@@ -61,7 +65,10 @@ function Invoice() {
                   <button
                     type="button"
                     className="btn btn-secondary"
-                    onClick={() => detailsCall121(item)}
+                    onClick={() => {
+                      setDisplay(false)
+                      detailsCall121(item)
+                      }}
                   >
                     Details
                   </button>

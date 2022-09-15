@@ -19,7 +19,7 @@ function PaymentDetail(props) {
     script.onload = async () => {
       try {
         const result = await axios.post(
-          "http://localhost:3001/api/payment/create-order",
+          "api/payment/create-order",
           {
             amount: orderAmount * 100,
           }

@@ -7,14 +7,20 @@ function InvoiceDetails(props) {
 
     const dat = props.data
 
-    useEffect(()=>{
+    // useEffect(()=>{
         axios.get(`api/payment/getByOrderId/${props.data.orderId}`).then((res) => {
+          // console.log(res.data[0].eventCharge)
             if (res.status === 200) {
+              if(res.data[0].eventCharge != undefined){
 
-              setTotalCh(res.data[0].eventCharge);
+                setTotalCh(res.data[0].eventCharge);
+              }else{
+                setTotalCh(0);
+
+              }
             }
-          });
-    },[])
+          })
+    // },[])
 
   return (
     <div>
