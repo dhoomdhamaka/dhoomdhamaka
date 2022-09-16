@@ -332,11 +332,12 @@ router.post("/", auth, async (req, res) => {
     AdditionalService,
   
   });
-  // const name_Of_The_Event = checkBoxValues.name_Of_The_Event;
-  // const newEventName = EventName({
-  //   userId,
-  //   name_Of_The_Event,
-  // });
+  const name_Of_The_Event = eventName
+  const newEventName = EventName({
+    userId,
+    name_Of_The_Event,
+    orderId
+  });
 
 
   BirthdayForm.find({userId:req.id}).then((already)=>{
@@ -412,7 +413,7 @@ newPaymentfullDhoom.save().then(() => {
 
   newBirthdayInfo.save()
   .then(()=>console.log("saved"))
-  // newEventName.save().then(() => console.log("successfully event name saved"));
+  newEventName.save().then(() => console.log("successfully event name saved"));
 
   })
 }

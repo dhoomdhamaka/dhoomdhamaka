@@ -11,7 +11,7 @@ function Eventcarousel() {
           data-mdb-ride="carousel"
         >
           <div class="carousel-controls">
-            <ol class="carousel-indicators">
+            <ol class="carousel-indicators d-none d-md-inline-flex ">
               <li
                 data-mdb-target="#carousel"
                 data-mdb-slide-to="0"
@@ -172,7 +172,7 @@ function Eventcarousel() {
               /> */}
               <div class="container">
                 <h2>Baby shower</h2>
-                <p>Web Developer</p>
+                <p>“Wishing all the best for you and your baby-to-be.”</p>
               </div>
             </div>
             <div
@@ -186,7 +186,7 @@ function Eventcarousel() {
               />
               <div class="container">
                 <h2>corporate function</h2>
-                <p>Web Developer</p>
+                <p>“Your most unhappy customers are your greatest source of learning.</p>
               </div>
             </div>
             <div

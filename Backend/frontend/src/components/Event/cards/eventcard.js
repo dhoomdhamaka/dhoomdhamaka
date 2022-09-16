@@ -63,9 +63,9 @@ function Eventcard() {
                   </div>
                   <div class="description-prod">
                     <p>
-                      Description Product tell me how to change playlist height
-                      size like 600px in html5 player. player good work now
-                      check this link
+                    May your wisdom 
+                    increase as you move out of your teenage years
+                    .I wish you the best on this milestone birthday.
                     </p>
                   </div>
                   <div class="card-footer">

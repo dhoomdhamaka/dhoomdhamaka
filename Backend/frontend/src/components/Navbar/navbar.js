@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 import { NavLink, useNavigate } from "react-router-dom";
@@ -56,8 +56,8 @@ const Navbar = () => {
           className="collapse navbar-collapse justify-content-end"
           id="navbarNavDropdown"
         >
-          <ul className="navbar-nav d-flex align-items-center me-5">
-            <li className="nav-item mb-sm-2 nvbrBtn ">
+          <ul className="navbar-nav d-flex nvbrBtn align-items-center me-5">
+            <li className="nav-item mb-3 mb-md-2 mb-xl-2">
               <Link
                 to="/"
                 type="button"
@@ -67,7 +67,7 @@ const Navbar = () => {
                 HOME
               </Link>
             </li>
-            <li class="nav-item mb-sm-2">
+            <li class="nav-item mb-3 mb-md-2 mb-xl-2">
               <Link
                 to="/events"
                 type="button"
@@ -76,7 +76,7 @@ const Navbar = () => {
                 Events
               </Link>
             </li>
-            <li class="nav-item mb-sm-2">
+            <li class="nav-item mb-3 mb-md-2 mb-xl-2">
               <Link
                 to="/becomevendor"
                 type="button"
@@ -85,33 +85,19 @@ const Navbar = () => {
                 Become a Vendor
               </Link>
             </li>
-
-            {/* <li className="nav-item mb-sm-2">
-            <a
-              to="/"
-              type="button"
-              className="btn btn-warning btn-rounded me-1 fw-bold"
-            >
-              <NavLink to="/" className="text-white">
-                Register
-              </NavLink>
-            </a>
-          </li> */}
-           
             {!isLoggedIn && (
-              <li class="nav-item mb-sm-2">
+              <li class="nav-item mb-3 mb-md-2 mb-xl-2">
                 <Link
                   to="/login"
                   type="button"
                   class="   nvbrBtn  me-4"
                 >
                   LOGIN
-                  {/* <LoginIcon className="ps-1" /> */}
                 </Link>
               </li>
             )}
              {!isLoggedIn && (
-              <li className="nav-item mb-sm-2">
+              <li className="nav-item mb-3 mb-md-2 mb-xl-2">
                 <Link
                   to="/register"
                   type="button"
@@ -122,7 +108,7 @@ const Navbar = () => {
               </li>
             )}
             {!!isLoggedIn && (
-              <li class="nav-item mb-sm-2">
+              <li class="nav-item mb-3 mb-md-2 mb-xl-2">
                 <Link 
                   to="/myacc"
                   type="button"
@@ -133,7 +119,7 @@ const Navbar = () => {
               </li>
             )}
             {!!isLoggedIn && (
-              <li class="nav-item mb-sm-2">
+              <li class="nav-item mb-3 mb-md-2 mb-xl-2">
                 <button
                   type="button"
                   onClick={handleLogout}

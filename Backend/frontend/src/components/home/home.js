@@ -203,21 +203,21 @@ export default function Home() {
           <div className="col-md-5">
             <div class="image hover-zoom text-center">
               <img
-                className=" rounded shadow-5-strong"
+                className=" logoimageabout rounded shadow-5-strong"
                 src="./images/newlogo.jpg"
                 // src="https://bit.ly/3dOEBcx"
-                width={"500px"}
-                height={"300px"}
+                // width={"400px"}
+                // height={"300px"}
                 alt="dhoom"
               />
             </div>
           </div>
-          <div className="col-md-6 ps-0 ms-0">
+          <div className="col-md-6 ps-0 ms-0 container">
             <div class="content mt-5 text-md-center">
               <h3 className=" text-black fw-bold mb-3 text-center fs-3">
                 Our Best Services Just For You
               </h3>
-              <p className="p-3 ms-sm-4 ms-md-2">
+              <p className="p-3 ms-sm-4 ms-md-2 text-center">
                 Dhoom Dhamaka is an online service provider platform which makes
                 your occasion grand, royal and memorable. We all run after any
                 function to see how the preparations are going, instead of
@@ -225,13 +225,15 @@ export default function Home() {
                 assist you in one click and take all your responsibility.
                 Because, it's time to celebrate now!!!
               </p>
-              <div className=" ms-sm-4">
-                <button
+              <div className=" ms-sm-4 text-center ">
+                {/* <button */}
                  
-                  className="btn btn-black mt-4"
-                >
-                 <a  href="/termsandconditions"> Terms and condition</a>
-                </button>
+                  {/* className="btn btn-black mt-4" */}
+                {/* > */}
+             <Link to="./termsandconditions" className="btn btn-dark text-light">Terms and Conditions</Link>
+
+                 {/* <a className="text-white" href="/termsandconditions"> Terms and condition</a> */}
+                {/* </button> */}
               </div>
             </div>
           </div>

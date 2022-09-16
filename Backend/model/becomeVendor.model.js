@@ -41,24 +41,7 @@ const vendorSchema = new mongoose.Schema({
         maxlength : 200,
         unique : true
     },
-    // imgName :{
-    //     type : String,
-    //     required : true,
-    //     minlength : 3,
-    //     maxlength : 200,
-    //     unique : true
-    // },
-    // name : String,
-    // email : String,
-    // city : String,
-    // vendorType: String,
-    // imgName: String,
-    // area: String,
-    image : {
-        data : Buffer,
-        contentType : String
-    }
-},{
+    },{
     timestamps:true
 })
 

@@ -392,8 +392,8 @@ function Finalbirthdayform() {
                           </div>
                         </div>
 
-                        <div class="row">
-                          <div class="col-md-6 mb-4">
+                        <div class="row ">
+                          <div class="col-md-6 mb-4 ">
                             <div class="form-floating mb-3">
                               <input
                                 {...register("fromTime")}
@@ -445,63 +445,16 @@ function Finalbirthdayform() {
                           )}
                         </div>
 
-                        {/* <div class="btn-group mb-4">
-                        <input
-                          type="radio"
-                          class="btn-check"
-                          name="options"
-                          id="option1"
-                          autocomplete="off"
-                          disabled
-                        />
-                        <label class="btn btn-warning" for="option1">
-                          Gender
-                        </label>
-                        <input
-                        {...register('gender')}
-                          type="radio"
-                          class="btn-check"
-                          name="male"
-                          id="male"
-                          value={"Male"}
-                        />
-                        <label class="btn btn-primary" for="option11">
-                          Male
-                        </label>
-                        <input
-                        {...register('gender')}
-                          type="radio"
-                          class="btn-check"
-                          name="gender"
-                          value="Female"
-                          id="female"
-                        />
-                        <label class="btn btn-primary" for="option2">
-                          Female
-                        </label>
-
-                        <input
-                        {...register('gender')}
-                          type="radio"
-                          class="btn-check"
-                          name="gender"
-                          value={"others"}
-                          id="others"
-                        />
-                        <label class="btn btn-primary" for="option3">
-                          Others
-                        </label>
-                      </div> */}
-                        <div class="btn-group mb-4">
+                        <div class="btn-group-sm  mb-4 ">
                           <input
                             type="radio"
-                            class="btn-check"
+                            class="btn-check "
                             name="options"
                             id="option1"
                             autocomplete="off"
                             disabled
                           />
-                          <label class="btn btn-warning" for="option1">
+                          <label class="btn btn-warning me-1 " for="option1">
                             Gender
                           </label>
                           <input
@@ -513,7 +466,7 @@ function Finalbirthdayform() {
                             value={"Male"}
                             autocomplete="off"
                           />
-                          <label class="btn btn-primary" for="male">
+                          <label class="btn btn-primary me-1 " for="male">
                             Male
                           </label>
                           <input
@@ -524,7 +477,7 @@ function Finalbirthdayform() {
                             value={"Female"}
                             id="female"
                           />
-                          <label class="btn btn-primary" for="female">
+                          <label class="btn btn-primary me-1 " for="female">
                             Female
                           </label>
 
@@ -536,7 +489,7 @@ function Finalbirthdayform() {
                             value={"Others"}
                             id="others"
                           />
-                          <label class="btn btn-primary" for="others">
+                          <label class="btn btn-primary me-1 " for="others">
                             Others
                           </label>
                         </div>

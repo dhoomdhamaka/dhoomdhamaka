@@ -18,7 +18,7 @@ function Footer() {
              style={{backgroundColor: "#50e645"}}
              >
       {/* <!-- Left --> */}
-      <div class="me-5">
+      <div class="me-4">
         <span>Get connected with us on social networks:</span>
       </div>
       {/* <!-- Left --> */}

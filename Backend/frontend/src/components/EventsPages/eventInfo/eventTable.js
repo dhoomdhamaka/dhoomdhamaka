@@ -34,7 +34,7 @@ function EventTable(props) {
 
 
   // let prewedding = props.prewedding
-  let prewedding = props.prewedding
+  let prewedding = Object.keys(props.prewedding).length > 1 && props.prewedding
   let postwedding =Object.keys(props.postwedding).length > 1 && props.postwedding
   let babyshower =Object.keys(props.babyshower).length > 1 && props.babyshower
   let birthday =Object.keys(props.birthday).length > 1 && props.birthday
@@ -42,7 +42,7 @@ function EventTable(props) {
   let corporate =Object.keys(props.corporate).length > 1 && props.corporate
   let familyfunction =Object.keys(props.familyfunction).length > 1 && props.familyfunction
   let wedding =Object.keys(props.wedding).length > 1 && props.wedding
- 
+   console.log("lll",props.birthday);
 
   useEffect(()=>{
     axios.get("api/eventInfo/getname").then((res) => {
@@ -56,7 +56,7 @@ function EventTable(props) {
       const ll = res.data;
       if (ll.length > 0) {
         setpersonalprewedding(ll[0]);
-        console.log(personalprewedding);
+        // console.log(personalprewedding);
       }
       
     })
@@ -115,6 +115,8 @@ function EventTable(props) {
       const ll = res.data;
       if (ll.length > 0) {
         setpersonalbirthday(ll[0]);
+        console.log("oooookkkkk",res.data);
+        console.log(personalbirthday)
       }
     })
     .catch((err) => {
@@ -168,7 +170,7 @@ function EventTable(props) {
   },[]);
   
 
-  console.log("preweddingpersonal",personalprewedding);
+  // console.log("preweddingpersonal",personalprewedding);
 
 return (
 <>

@@ -73,7 +73,7 @@ function PaymentDetail(props) {
   }
 
   return (
-    <div className="row justify-content-center my-4">
+    <div className="row justify-content-center m-2 m-xl-0 m-md-0 my-4">
     <h1 className="fw-bolder mb-3">Payment Status</h1>
       <div className="col-xl-6 col-md-8">
         <div className="card border border-2 rounded shadow-3-strong border-dark p-md-4 ">

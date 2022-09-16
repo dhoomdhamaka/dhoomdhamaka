@@ -14,7 +14,7 @@ function PhotographyGallery() {
   };
 
   return (
-    <div className="App p-5 m-5">
+    <div className="p-md-5 m-md-5">
       {/* <!-- Gallery --> */}
       <p
         className=" text-center pb-5"

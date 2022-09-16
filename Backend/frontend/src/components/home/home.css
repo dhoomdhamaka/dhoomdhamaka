@@ -7,5 +7,20 @@
     background-color: gray;
     color: lime;
 }
+.logoimageabout{
+
+}
+@media only screen and (max-width: 600px) {
+    .logoimageabout {
+    width: 380px;
+    height: 300px;
+  }
+}
 
 
+@media only screen and (min-width: 800px) {
+    .logoimageabout {
+    width: 550px;
+    height: 300px;
+  }
+}

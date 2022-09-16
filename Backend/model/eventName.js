@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const eventNameSchema = new mongoose.Schema({
     userId : String,
+    orderId : String,
     name_Of_The_Event : String
 })
 

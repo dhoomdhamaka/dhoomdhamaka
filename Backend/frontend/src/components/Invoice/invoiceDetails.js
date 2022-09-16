@@ -70,115 +70,115 @@ function InvoiceDetails(props) {
                       {dat.shows != undefined && <tr>
                         <td>Shows</td>
                         <td>
-                          <i class="fas fa-rupee-sign"></i> {dat.shows}
+                          <i class="fas fa-indian-rupee-sign"></i> {dat.shows}
                         </td>
                       </tr>}
                       {dat.decoration != undefined && <tr>
                         <td>Decoration</td>
                         <td>
-                          <i class="fas fa-rupee-sign"></i> {dat.decoration}
+                          <i class="fas fa-indian-rupee-sign"></i> {dat.decoration}
                         </td>
                       </tr>}
                       {dat.invitaion != undefined && <tr>
                         <td>Invitation</td>
                         <td>
-                          <i class="fas fa-rupee-sign"></i> {dat.invitaion}
+                          <i class="fas fa-indian-rupee-sign"></i> {dat.invitaion}
                         </td>
                       </tr>}
                       {dat.venue != undefined && <tr>
                         <td>Venue</td>
                         <td>
-                          <i class="fas fa-rupee-sign"></i> {dat.venue}
+                          <i class="fas fa-indian-rupee-sign"></i> {dat.venue}
                         </td>
                       </tr>}
                       {dat.photography != undefined && <tr>
                         <td>Photography</td>
                         <td>
-                          <i class="fas fa-rupee-sign"></i> {dat.photography}
+                          <i class="fas fa-indian-rupee-sign"></i> {dat.photography}
                         </td>
                       </tr>}
                       {dat.mehandi != undefined && <tr>
                         <td>Mehandi</td>
                         <td>
-                          <i class="fas fa-rupee-sign"></i> {dat.mehandi}
+                          <i class="fas fa-indian-rupee-sign"></i> {dat.mehandi}
                         </td>
                       </tr>}
                       {dat.panditJi != undefined && <tr>
                         <td>Pandit Ji</td>
                         <td>
-                          <i class="fas fa-rupee-sign"></i> {dat.panditJi}
+                          <i class="fas fa-indian-rupee-sign"></i> {dat.panditJi}
                         </td>
                       </tr>}
                       {dat.beauty != undefined && <tr>
                         <td>Beauty</td>
                         <td>
-                          <i class="fas fa-rupee-sign"></i> {dat.beauty}
+                          <i class="fas fa-indian-rupee-sign"></i> {dat.beauty}
                         </td>
                       </tr>}
                       {dat.muhDikhai != undefined && <tr>
                         <td>Muh Dikhai</td>
                         <td>
-                          <i class="fas fa-rupee-sign"></i> {dat.muhDikhai}
+                          <i class="fas fa-indian-rupee-sign"></i> {dat.muhDikhai}
                         </td>
                       </tr>}
                       {dat.subharambh != undefined && <tr>
                         <td>Subharambh Yatra</td>
                         <td>
-                          <i class="fas fa-rupee-sign"></i> {dat.subharambh}
+                          <i class="fas fa-indian-rupee-sign"></i> {dat.subharambh}
                         </td>
                       </tr>}
                       {dat.honeymoon != undefined && <tr>
                         <td>Honeymoon</td>
                         <td>
-                          <i class="fas fa-rupee-sign"></i> {dat.honeymoon}
+                          <i class="fas fa-indian-rupee-sign"></i> {dat.honeymoon}
                         </td>
                       </tr>}
                       {dat.shooting != undefined && <tr>
                         <td>Shooting</td>
                         <td>
-                          <i class="fas fa-rupee-sign"></i> {dat.shooting}
+                          <i class="fas fa-indian-rupee-sign"></i> {dat.shooting}
                         </td>
                       </tr>}
                       {dat.bachelorParty != undefined && <tr>
                         <td>Bachelors Party</td>
                         <td>
-                          <i class="fas fa-rupee-sign"></i> {dat.bachelorParty}
+                          <i class="fas fa-indian-rupee-sign"></i> {dat.bachelorParty}
                         </td>
                       </tr>}
                       {dat.hosting != undefined && <tr>
                         <td>Hosting</td>
                         <td>
-                          <i class="fas fa-rupee-sign"></i> {dat.hosting}
+                          <i class="fas fa-indian-rupee-sign"></i> {dat.hosting}
                         </td>
                       </tr>}
                       {dat.weddingType != undefined && <tr>
                         <td>Wedding Type</td>
                         <td>
-                          <i class="fas fa-rupee-sign"></i> {dat.weddingType}
+                          <i class="fas fa-indian-rupee-sign"></i> {dat.weddingType}
                         </td>
                       </tr>}
                       {dat.catering != undefined && <tr>
                         <td>Catering</td>
                         <td>
-                          <i class="fas fa-rupee-sign"></i> {dat.catering}
+                          <i class="fas fa-indian-rupee-sign"></i> {dat.catering}
                         </td>
                       </tr>}
                       {dat.addtional != undefined && <tr>
                         <td>Additional</td>
                         <td>
-                          <i class="fas fa-rupee-sign"></i> {dat.addtional}
+                          <i class="fas fa-indian-rupee-sign"></i> {dat.addtional}
                         </td>
                       </tr>}
                       {dat.emergency != undefined && <tr>
                         <td>Emergency</td>
                         <td>
-                          <i class="fas fa-rupee-sign"></i> {dat.emergency}
+                          <i class="fas fa-indian-rupee-sign"></i> {dat.emergency}
                         </td>
                       </tr>}
                       {dat.premium != undefined && <tr>
                         <td>Premium</td>
                         <td>
-                          <i class="fas fa-rupee-sign"></i> {dat.premium}
+                          <i class="fas fa-indian-rupee-sign"></i> {dat.premium}
                         </td>
                       </tr>}
                       </tbody>
@@ -220,9 +220,9 @@ function InvoiceDetails(props) {
                         fontFamily: "Arial, Helvetica, sans-serif",
                       }}
                     >
-                      Total:
+                      Total : 
                       <span>
-                        <i class="fas fa-dollar-sign"></i> {totalCharge}
+                        <i class="fas fa-indian-rupee-sign ms-2"></i> {totalCharge}
                       </span>
                     </p>
                   </div>

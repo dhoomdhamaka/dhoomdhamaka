@@ -15,8 +15,8 @@ export function Birthdayinfo(props) {
 
   console.log("vanthutu", props.birthday);
   return (
-    <>
-      {birthday && (
+    
+      props.birthday && (
         <>
           <div style={{ minHeight: "100vh" }}>
             <div className="container">
@@ -457,8 +457,8 @@ export function Birthdayinfo(props) {
           </div>
           <hr className="my-5" />
         </>
-      )}
-    </>
+      )
+ 
 
     //
   );

@@ -12,6 +12,8 @@ function Payment() {
   const [datas, setdata] = useState([]);
   const [currentDetail, setCurrentDetail] = useState();
   const [display, setDisplay] = useState(false);
+  const [invDisp, setInvDisp] = useState(false);
+
 
   useEffect(() => {
     function doLogout() {
@@ -38,6 +40,9 @@ function Payment() {
     axios.get("api/payment/getPaymentLists").then((res) => {
       if (res.status === 200) {
         setdata(res.data);
+        if (res.data.length > 0) {
+          setInvDisp(true);
+        }
       }
     });
   }, []);
@@ -62,7 +67,7 @@ function Payment() {
 
   return (
     <div className="mb-10 mt-5" style={{minHeight: "80vh"}}>
-      <div className="row justify-content-center mx-5">
+      {invDisp && <div className="row justify-content-center mx-5">
         {datas.map((item, i) => {
           return (
             <div className="col-md-4" key={i}>
@@ -81,70 +86,27 @@ function Payment() {
             </div>
           );
         })}
-      </div>
+        
+      </div>}
+      {!invDisp && (
+        <div className="row justify-content-center mt-5 my-auto">
+          <div className="col-10 col-md-6 col-xl-4">
+            <div className="card rounded-5 shadow-3-strong ">
+              <div className="card-body text-center">
+                <img src="./images/sademoj.PNG" width={"150px"} className="text-center"/>
+                <h1 className="fs-1 fw-bold text-center text-black">OOPS !!!</h1>
+                <p className="text-muted">No events booked Yet</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
 
       {display && <PaymentDetail data={currentDetail} />}
     </div>
   );
 
-  {
-    /* <div className="row justify-content-center">
-        <div className="col-md-8 mt-4 mb-7">
-          <h3 className=" fw-bold text-center mb-4">Invoices</h3>
-          <table class="table align-middle mb-0 bg-white">
-            <thead class="bg-light">
-              <tr className=" text-center">
-                <th className=" fw-bolder text-capitalize">Title</th>
-                <th className=" fw-bolder text-capitalize">Amount</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className=" text-center">
-                  <p class="fw-normal mb-1">Designer</p>
-                  <p class="text-muted mb-0">UI/UX</p>
-                </td>
-                <td className=" text-center">₹10,0000</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div className="row justify-content-center">
-        <div className=" col-md-4">
-          <div class="card text-center rounded shadow-5-strong mb-7">
-            <div class="card-body border-5">
-              <h5 class="card-title mb-4 mt-3 fw-bold">Payment</h5>
-
-              <div className="row justify-content-center">
-                <div className="col-md-8">
-                  <div class="form-floating mb-5">
-                    <input
-                      type="number"
-                      id="form12"
-                      class="form-control mb-4"
-                      placeholder="Enter Amount"
-                      value={orderAmount}
-                      onChange={(e) => setamount(e.target.value)}
-                    />
-                    <label for="floatingInput">Enter amount ₹</label>
-                  </div>
-                </div>
-              </div>
-              <button
-                href="{#}"
-                type={"button"}
-                class="btn btn-primary btn-block btn-lg"
-                disabled={loading}
-                onClick={loadRazorpay}
-              >
-                Proceed to payment <i class="fas fa-long-arrow-alt-right"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div> */
-  }
   // </div>
   // );
 }
