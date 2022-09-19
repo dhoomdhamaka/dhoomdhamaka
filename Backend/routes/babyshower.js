@@ -161,7 +161,7 @@ router.post("/", auth, async (req, res) => {
   let AdditionalPromiseDate;
   let AdditionalService;
 
-  if (data.OtherServices.length > 1) {
+  if (data.OtherServices.length > 0) {
   if (data.OtherServices.includes("mehandi")) {
     mehandiStatus = "pending";
     mehandiReason = "-";
@@ -181,7 +181,7 @@ router.post("/", auth, async (req, res) => {
   }
 
 
-  if (data.OtherServices.length > 1) {
+  if (data.OtherServices.length > 0) {
   if (data.OtherServices.includes("venue")) {
     venueStatus = "pending";
     venueReason = "-";
@@ -200,7 +200,7 @@ router.post("/", auth, async (req, res) => {
   venueService = null;
 }
 
-if (data.OtherServices.length > 1) {
+if (data.OtherServices.length > 0) {
   if (data.OtherServices.includes("photography")) {
     photographyStatus = "pending";
     photographyReason = "-";
@@ -243,7 +243,7 @@ if (data.OtherServices.length > 1) {
     showsPromiseDate = null;
     showsService = null;
   }
-  if (data.OtherServices.length > 1) {
+  if (data.OtherServices.length > 0) {
   if (data.OtherServices.includes("invitation")) {
     invitationStatus = "pending";
     invitationReason = "-";
@@ -272,7 +272,7 @@ if (data.OtherServices.length > 1) {
     decorationPromiseDate = null;
     decorationService = null;
   }
-  if (data.OtherServices.length > 1) {
+  if (data.OtherServices.length > 0) {
   if (!!data.OtherServices.includes("hosting")) {
     hostingStatus = "pending";
     hostingReason = "-";
@@ -290,7 +290,7 @@ if (data.OtherServices.length > 1) {
   hostingPromiseDate = null;
   hostingService = null;
 }
-if (data.OtherServices.length > 1) {
+if (data.OtherServices.length > 0) {
   if (!!data.OtherServices.includes("pooja_pandit_ji")) {
     pandit_JiStatus = "pending";
     pandit_JiReason = "-";
@@ -309,7 +309,7 @@ if (data.OtherServices.length > 1) {
   pandit_JiService = null;
 }
 
-if (data.OtherServices.length > 1) {
+if (data.OtherServices.length > 0) {
   if (!!data.OtherServices.includes("beauty")) {
     beautyStatus = "pending";
     beautyReason = "-";
@@ -395,6 +395,7 @@ if (data.OtherServices.length > 1) {
   const newEventName = EventName({
     userId,
     name_Of_The_Event,
+    eventName,
     orderId
   });
  

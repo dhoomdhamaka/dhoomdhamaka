@@ -42,7 +42,7 @@ function EventTable(props) {
   let corporate =Object.keys(props.corporate).length > 1 && props.corporate
   let familyfunction =Object.keys(props.familyfunction).length > 1 && props.familyfunction
   let wedding =Object.keys(props.wedding).length > 1 && props.wedding
-   console.log("lll",props.birthday);
+  //  console.log("lll",props.birthday);
 
   useEffect(()=>{
     axios.get("api/eventInfo/getname").then((res) => {
@@ -86,9 +86,11 @@ function EventTable(props) {
       const ll = res.data;
       if (ll.length > 0) {
         setpersonalwedding(ll[0]);
+        console.log("okkkk");
       }
     })
     .catch((err) => {
+      console.log("nooookkkk");
       console.log(err);
     });
 
@@ -169,6 +171,7 @@ function EventTable(props) {
 
   },[]);
   
+  // console.log(props);
 
   // console.log("preweddingpersonal",personalprewedding);
 

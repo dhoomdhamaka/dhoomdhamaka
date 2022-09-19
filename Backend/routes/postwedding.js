@@ -64,8 +64,8 @@ router.post("/", auth, async (req, res) => {
     foodb = true;
   }
   if (
-    Honneymoon.DestinationIndia.length > 1 ||
-    Honneymoon.DestinationAbroad.length > 1
+    Honneymoon.DestinationIndia.length > 0 ||
+    Honneymoon.DestinationAbroad.length > 0
   ) {
     Honneymoonb = true;
   }
@@ -76,7 +76,7 @@ router.post("/", auth, async (req, res) => {
   let muh_DikhaiConfirmation;
 
   if (muhDikhal[0] != undefined) {
-    if (muhDikhal[0].length > 1) {
+    if (muhDikhal[0].length > 0) {
       (muh_DikhaiReason = "-"), (muh_DikhaiConfirmation = "Not Confirmed");
       (muh_Dikhaistatus = "pending"), (muh_DikhaiPromiseDate = "");
     }
@@ -90,8 +90,8 @@ router.post("/", auth, async (req, res) => {
   let honeymoonPromiseDate;
 
   if (
-    Honneymoon.DestinationIndia.length > 1 ||
-    Honneymoon.DestinationAbroad.length > 1
+    Honneymoon.DestinationIndia.length > 0 ||
+    Honneymoon.DestinationAbroad.length > 0
   ) {
     (honeymoonReason = "-"), (honeymoonConfirmation = "Not Confirmed");
     (honeymoonstatus = "pending"), (honeymoonPromiseDate = "");
@@ -106,7 +106,7 @@ router.post("/", auth, async (req, res) => {
   let subaarambhYatraPromiseDate;
 
   if (SubaarambhYatra[0] != undefined) {
-    if (SubaarambhYatra[0].length > 1) {
+    if (SubaarambhYatra[0].length > 0) {
       (subaarambhYatraReason = "-"), (subaarambhYatraConfirmation = "Not Confirmed");
       (subaarambhYatrastatus = "pending"), (subaarambhYatraPromiseDate = "");
     }
@@ -194,6 +194,7 @@ if (data.SpecialService) {
   const newEventName = EventName({
     userId,
     name_Of_The_Event,
+    eventName,
     orderId
   });
 

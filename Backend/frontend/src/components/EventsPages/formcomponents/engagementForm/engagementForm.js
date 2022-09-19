@@ -191,6 +191,7 @@ function EngagementForm() {
       dancevalue,
       invitationvalue,
       checkedMehandi,
+      checkedBeauty
     };
     // premium notification
     const userDate = data.date;
@@ -230,7 +231,7 @@ function EngagementForm() {
           });
         }
         if(res.data === "saved"){
-          if (diffDays < 5) {
+          if (diffDays <= 5) {
             toast.success("you are under premium booking!!!", {
               position: toast.POSITION.TOP_CENTER,
             });
@@ -989,6 +990,10 @@ function EngagementForm() {
                           class="form-check-input"
                           id="beauty"
                           value="beauty"
+                          checked={checkedBeauty}
+                          onChange={() => {
+                            setCheckedBeauty(!checkedBeauty);
+                          }}
                         />
                       </div>
                     </div>
@@ -1307,7 +1312,7 @@ function EngagementForm() {
               <h4>
                 <strong style={{ color: "red" }}>
                   {" "}
-                  <a href={"/termsandconditions"} > Terms and Conditions </a>
+                  <a href={"/termsandconditions"} > Terms and Conditions apply</a>
                 </strong>
               </h4>
             </div>

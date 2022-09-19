@@ -50,7 +50,7 @@ router.post("/", auth, async (req, res) => {
   // };
   const Decoration = {
     RegularDecoration: checkBoxValues.decorationvalue?checkBoxValues.decorationvalue:"-",
-    ThemeDecoration: data.DecorationType?data.DecorationType:"-",
+    // ThemeDecoration: data.DecorationType?data.DecorationType:"-",
   };
   const SpecialService = data.SpecialService?data.SpecialService:"-";
 console.log(req.body);
@@ -178,7 +178,7 @@ console.log(req.body);
   let AdditionalService;
 
 
-  if (data.OtherServices.length > 1) {
+  if (data.OtherServices.length > 0) {
   if (data.OtherServices.includes("venue")) {
     venueStatus = "pending";
     venueReason = "-";
@@ -196,7 +196,7 @@ console.log(req.body);
   venuePromiseDate = null;
   venueService = null;
 }
-  if (data.OtherServices.length > 1) {
+  if (data.OtherServices.length > 0) {
   if (data.OtherServices.includes("photography")) {
     photographyStatus = "pending";
     photographyReason = "-";
@@ -214,7 +214,7 @@ console.log(req.body);
   photographyPromiseDate = null;
   photographyService = null;
 }
-  if (data.OtherServices.length > 1) {
+  if (data.OtherServices.length > 0) {
   if (data.OtherServices.includes("invitation")) {
     invitationStatus = "pending";
     invitationReason = "-";
@@ -232,7 +232,7 @@ console.log(req.body);
   invitationPromiseDate = null;
   invitationService = null;
 }
-  if (data.OtherServices.length > 1) {
+  if (data.OtherServices.length > 0) {
   if (!!data.OtherServices.includes("hosting")) {
     hostingStatus = "pending";
     hostingReason = "-";
@@ -352,6 +352,7 @@ console.log(req.body);
   const newEventName = EventName({
     userId,
     name_Of_The_Event,
+    eventName,
     orderId
   });
  

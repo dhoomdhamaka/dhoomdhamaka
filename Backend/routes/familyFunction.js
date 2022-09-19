@@ -184,7 +184,7 @@ router.post("/", auth, async (req, res) => {
   let AdditionalPromiseDate;
   let AdditionalService;
 
-  if (data.OtherServices.length > 1) {
+  if (data.OtherServices.length > 0) {
   if (data.OtherServices.includes("mehandi")) {
     mehandiStatus = "pending";
     mehandiReason = "-";
@@ -213,7 +213,7 @@ router.post("/", auth, async (req, res) => {
     AdditionalPromiseDate = null;
     AdditionalService = null;
   }
-  if (data.OtherServices.length > 1) {
+  if (data.OtherServices.length > 0) {
   if (data.OtherServices.includes("venue")) {
     venueStatus = "pending";
     venueReason = "-";
@@ -231,7 +231,7 @@ router.post("/", auth, async (req, res) => {
   venuePromiseDate = null;
   venueService = null;
 }
-  if (data.OtherServices.length > 1) {
+  if (data.OtherServices.length > 0) {
   if (data.OtherServices.includes("photography")) {
     photographyStatus = "pending";
     photographyReason = "-";
@@ -272,7 +272,7 @@ router.post("/", auth, async (req, res) => {
     showsPromiseDate = null;
     showsService = null;
   }
-  if (data.OtherServices.length > 1) {
+  if (data.OtherServices.length > 0) {
   if (data.OtherServices.includes("invitation")) {
     invitationStatus = "pending";
     invitationReason = "-";
@@ -301,7 +301,7 @@ router.post("/", auth, async (req, res) => {
     decorationPromiseDate = null;
     decorationService = null;
   }
-  if (data.OtherServices.length > 1) {
+  if (data.OtherServices.length > 0) {
   if (!!data.OtherServices.includes("hosting")) {
     hostingStatus = "pending";
     hostingReason = "-";
@@ -319,7 +319,7 @@ router.post("/", auth, async (req, res) => {
   hostingPromiseDate = null;
   hostingService = null;
 }
-  if (data.OtherServices.length > 1) {
+  if (data.OtherServices.length > 0) {
   if (!!data.OtherServices.includes("pooja_pandit_ji")) {
     pandit_JiStatus = "pending";
     pandit_JiReason = "-";
@@ -337,7 +337,7 @@ router.post("/", auth, async (req, res) => {
   pandit_JiPromiseDate = null;
   pandit_JiService = null;
 }
-  if (data.OtherServices.length > 1) {
+  if (data.OtherServices.length > 0) {
   if (!!data.OtherServices.includes("beauty")) {
     beautyStatus = "pending";
     beautyReason = "-";
@@ -416,6 +416,7 @@ router.post("/", auth, async (req, res) => {
   const newEventName = EventName({
     userId,
     name_Of_The_Event,
+    eventName,
     orderId
   });
  

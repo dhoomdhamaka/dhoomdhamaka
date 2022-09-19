@@ -272,6 +272,8 @@ function Weddingform() {
       dancevalue,
       invitationvalue,
       checkedMehandi,
+      checkedMehandishow,
+      checkedBeauty
     };
     const userDate = data.date;
     const changeFormat = new Date(userDate);
@@ -310,7 +312,7 @@ function Weddingform() {
           });
         }
         if(res.data === "saved"){
-          if (diffDays < 7) {
+          if (diffDays <= 7) {
             toast.success("you are under premium booking!!!", {
               position: toast.POSITION.TOP_CENTER,
             });
@@ -1611,7 +1613,7 @@ function Weddingform() {
                     <div class="col-md-3">
                       <div class="mb-3">
                         <label
-                          for="bbeauty"
+                          for="bbbeauty"
                           class="form-check-label"
                           value=""
                           style={{ marginRight: "15px" }}
@@ -1622,15 +1624,19 @@ function Weddingform() {
                           {...register("OtherServices")}
                           type="checkbox"
                           class="form-check-input"
-                          id="bbeauty"
+                          id="bbbeauty"
                           value="beauty"
+                          checked={checkedBeauty}
+                          onChange={() => {
+                            setCheckedBeauty(!checkedBeauty);
+                          }}
                         />
                       </div>
                     </div>
-                    {/* <div class="col-md-3">
+                    <div class="col-md-3">
                       <div class="mb-3">
                         <label
-                          for="Mehandi"
+                          for="Mehandi2"
                           class="form-check-label"
                           value=" "
                           style={{ marginRight: "15px" }}
@@ -1641,7 +1647,7 @@ function Weddingform() {
                           {...register("OtherServices")}
                           type="checkbox"
                           class="form-check-input"
-                          id="Mehandi"
+                          id="Mehandi2"
                           value={"mehandi"}
                           checked={checkedMehandi}
                           onChange={() => {
@@ -1649,7 +1655,7 @@ function Weddingform() {
                           }}
                         />
                       </div>
-                    </div> */}
+                    </div>
                     <div class="col-md-3">
                       <div class="mb-3">
                         <label
@@ -1942,7 +1948,7 @@ function Weddingform() {
               <h4>
                 <strong style={{ color: "red" }}>
                   {" "}
-                  <a href={"/termsandconditions"} > Terms and Conditions </a>
+                  <a href={"/termsandconditions"} > Terms and Conditions apply</a>
                 </strong>
               </h4>
             </div>

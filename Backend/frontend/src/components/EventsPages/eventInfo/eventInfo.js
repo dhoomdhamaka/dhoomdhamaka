@@ -160,7 +160,7 @@ function EventInfo() {
 
   return (
     <div className=" mt-5 mb-5 ps-5 pe-5 ms-3 me-3 pb-5 pt-3">
-      <div className="vh-100  ">
+      <div className=" " style={{minHeight:"100vh"}}>
         {invDisp && (
           <EventTable
             prewedding={

@@ -212,7 +212,7 @@ function Finalbirthdayform() {
           });
         }
         if(res.data === "saved"){
-          if (diffDays < 5) {
+          if (diffDays <= 5) {
             toast.success("you are under premium booking!!!", {
               position: toast.POSITION.TOP_CENTER,
             });
@@ -1265,7 +1265,7 @@ function Finalbirthdayform() {
               <h4>
                 <strong style={{ color: "red" }}>
                   {" "}
-                  <a href={"/termsandconditions"} > Terms and Conditions </a>
+                  <a href={"/termsandconditions"} > Terms and Conditions apply</a>
                 </strong>
               </h4>
             </div>

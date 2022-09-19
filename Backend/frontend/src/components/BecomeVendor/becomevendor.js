@@ -1,6 +1,9 @@
 import axios from "axios";
 import React, { useReducer, useState } from "react";
 import "./becomevendor.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 function LoginReducer(state, action) {
   switch (action.type) {
@@ -23,7 +26,7 @@ const initialState = {
   area: "",
   phoneNo: "",
   email: "",
-  year: "",
+  // year: "",
   // isLoading: false,
   // error: "",
   // isLoggedIn: false
@@ -31,9 +34,9 @@ const initialState = {
 
 export default function Becomevendor() {
   const [state, dispatch] = useReducer(LoginReducer, initialState);
-  const { name, email, city, vendorType, area, phoneNo, year } = state;
-  const [file, setFile] = useState();
-      const [fileName, setFileName] = useState("");
+  const { name, email, city, vendorType, area, phoneNo } = state;
+  // const [file, setFile] = useState();
+      // const [fileName, setFileName] = useState("");
   axios.defaults.withCredentials = true;
 
   const handleChange = (e) => {
@@ -44,11 +47,13 @@ export default function Becomevendor() {
     });
   };
 
+  const navigate = useNavigate(); 
+
   
-  const saveFile = (e) => {
-    setFile(e.target.files[0]);
-    setFileName(e.target.files[0].name);
-  };
+  // const saveFile = (e) => {
+  //   setFile(e.target.files[0]);
+  //   setFileName(e.target.files[0].name);
+  // };
 
   const handleSub = async(e) => {
     e.preventDefault();
@@ -59,11 +64,11 @@ export default function Becomevendor() {
       vendorType,
       area,
       phoneNo,
-      year,
+      // year,
     };
     console.log(frmDet);
     const formData = new FormData();
-        formData.append("file", file);
+        // formData.append("file", file);
         // formData.append("fileName", fileName);
         formData.append("name", name)
         formData.append("city", city)
@@ -71,12 +76,18 @@ export default function Becomevendor() {
         formData.append("vendorType", vendorType)
         formData.append("area", area)
         formData.append("phoneNo", phoneNo)
-        formData.append("year", year)
+        // formData.append("year", year)
         try {
           const res = await axios.post(
             "/api/becomeVendor",
             formData
           );
+          toast.success("Form submitted Successfully", {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+          setTimeout(() => {
+            navigate("/")                                 
+          }, 2000);
           console.log(res);
         } catch (ex) {
           console.log(ex);
@@ -161,34 +172,7 @@ export default function Becomevendor() {
                   </div>
                 </div>
               </div>
-              {/* <div class="row row-space">
-                <div class="col-2">
-                  <div class="input-group">
-                    Samples photos{" "}
-                    <input
-                      class="input--style-1 js-datepicker"
-                      type="file"
-                      //   placeholder="Photos"
-                      accept=".png, .jpg, .jpeg"
-                      name="testImg"
-                      onChange={saveFile}
-                    ></input>
-                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                  </div>
-                </div>
-                <div class="col-2">
-                  <div class="input-group">
-                    <input
-                      class="input--style-1 js-datepicker"
-                      type="text"
-                      placeholder="Firm in Existence (Years)"
-                      name="year"
-                      onChange={handleChange}
-                    ></input>
-                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                  </div>
-                </div>
-              </div> */}
+              
               <div>
               {/* <span className="fs-2">Note</span> */}
               <p className="text-danger fw-bold" > <span className="fs-5 text-dark">Note : </span> Send images to <a href="mailto:Dhoomdhamaka0@gmail.com"> dhoomdhamaka0@gmail.com</a></p>

@@ -100,7 +100,10 @@ const engagementSchema = new mongoose.Schema(
       photography: {
         type: Object,
       },
-      mehandi: {
+      Mehandi: {
+        type: Object,
+      },
+      Beauty: {
         type: Object,
       },
       venues: {

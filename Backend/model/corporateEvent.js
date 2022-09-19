@@ -73,9 +73,6 @@ const CorporateEventSchema = new mongoose.Schema(
       RegularDecoration: {
         type: String,
       },
-      ThemeDecoration: {
-        type: String,
-      },
     },
     SpecialService: {
       type: String,

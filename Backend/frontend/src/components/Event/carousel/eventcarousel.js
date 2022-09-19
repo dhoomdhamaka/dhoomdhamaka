@@ -1,5 +1,5 @@
 import React from "react";
-import './eventcarousel.css'
+import "./eventcarousel.css";
 
 function Eventcarousel() {
   return (
@@ -186,7 +186,10 @@ function Eventcarousel() {
               />
               <div class="container">
                 <h2>corporate function</h2>
-                <p>“Your most unhappy customers are your greatest source of learning.</p>
+                <p>
+                  “Your most unhappy customers are your greatest source of
+                  learning.
+                </p>
               </div>
             </div>
             <div
@@ -200,7 +203,10 @@ function Eventcarousel() {
               /> */}
               <div class="container">
                 <h2>Family function</h2>
-                <p>Web Developer</p>
+                <p>
+                  Having somewhere to go is home. Having someone to love is
+                  family. And having both is a blessing.
+                </p>
               </div>
             </div>
           </div>

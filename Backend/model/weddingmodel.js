@@ -180,6 +180,12 @@ const weddingSchema = new mongoose.Schema(
       photography: {
         type: Object,
       },
+      Mehandi: {
+        type: Object,
+      },
+      Beauty: {
+        type: Object,
+      },
       venues: {
         venue1: {
           name: {

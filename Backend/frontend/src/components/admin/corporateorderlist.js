@@ -484,6 +484,15 @@ function Orderslist(props) {
                         </div>
                       </td>
                     </tr>
+                    <tr>
+                      <td>
+                        <div scope="row" className="fw-bold ">
+                         <h4> Cancel Order Status : 
+                          <span className="btn btn-success btn-sm">{forms[0].cancelstatus}</span></h4>
+                           
+                        </div>
+                      </td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -1099,7 +1108,14 @@ function Orderslist(props) {
                   350
                 </div>
               </td>
-              <td>
+             
+            </tr>
+            <tr>
+            <th>&nbsp;&nbsp;&nbsp;</th>
+            <div>
+            &nbsp;&nbsp;&nbsp;
+            </div>
+            <td>
                 <div
                   className="btn btn-success btn-sm"
                   onClick={() => points(400)}
@@ -1412,14 +1428,14 @@ function Orderslist(props) {
               </td>
             </tr>
           </tbody>
-          <tr rowspan="5" className="text-center">
+          <tr rowspan="5" className="text-start">
             <th></th>
-            <th></th>
+            {/* <th></th> */}
             <button
               type="button"
               onClick={() => updatePaymentDetails()}
               className="my-3 btn btn-success"
-              disabled={updtBtn}
+              disabled={updtBtnPayment}
             >
               Update
             </button>

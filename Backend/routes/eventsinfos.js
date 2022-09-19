@@ -30,10 +30,32 @@ const { User } = require("../model/user");
 const { PaymentfullDhoom } = require("../model/paymentfullmodel");
 const { InvoiceDhoom } = require("../model/invoicemodel");
 
+router.get("/getEventBookLists", auth, (req, res) => {
+  EventName.find({ userId: req.id }, (err, doc) => {
+    if (doc) {
+      res.json(doc);
+    }
+  });
+});
+
 router.get("/prewedding", auth, (req, res) => {
   PreWeddingForm.find({ userId: req.id }, (err, doc) => {
     if (doc) {
-      res.json(doc);
+      let resDat;
+      if (doc) {
+        resDat = [...doc];
+        PreweddingInfo.find({ orderId: doc[0].orderId }, (err, doc1) => {
+          if (doc1) {
+            resDat.push(...doc1);
+            res.send(resDat);
+          } else {
+            console.log(err);
+          }
+        });
+        // res.json(doc);
+      } else {
+        console.log(err);
+      }
     }
   });
 });
@@ -42,15 +64,41 @@ router.get("/babyshower", auth, (req, res) => {
   console.log("req rec eventinfo");
   BabyShowerForm.find({ userId: req.id }, (err, doc) => {
     if (doc) {
-      res.json(doc);
+      let resDat;
+      if (doc) {
+        resDat = [...doc];
+        BabyShowerInfo.find({ orderId: doc[0].orderId }, (err, doc1) => {
+          if (doc1) {
+            resDat.push(...doc1);
+            res.send(resDat);
+          } else {
+            console.log(err);
+          }
+        });
+        // res.json(doc);
+      } else {
+        console.log(err);
+      }
     }
   });
 });
 router.get("/wedding", auth, (req, res) => {
   console.log("req rec eventinfo");
   WeddingForm.find({ userId: req.id }, (err, doc) => {
+    let resDat;
     if (doc) {
-      res.json(doc);
+      resDat = [...doc];
+      WeddingInfo.find({ orderId: doc[0].orderId }, (err, doc1) => {
+        if (doc1) {
+          resDat.push(...doc1);
+          res.send(resDat);
+        } else {
+          console.log(err);
+        }
+      });
+      // res.json(doc);
+    } else {
+      console.log(err);
     }
   });
 });
@@ -58,7 +106,21 @@ router.get("/engagement", auth, (req, res) => {
   console.log("req rec eventinfo");
   EngagementForm.find({ userId: req.id }, (err, doc) => {
     if (doc) {
-      res.json(doc);
+      let resDat;
+      if (doc) {
+        resDat = [...doc];
+        EngagementInfo.find({ orderId: doc[0].orderId }, (err, doc1) => {
+          if (doc1) {
+            resDat.push(...doc1);
+            res.send(resDat);
+          } else {
+            console.log(err);
+          }
+        });
+        // res.json(doc);
+      } else {
+        console.log(err);
+      }
     }
   });
 });
@@ -66,7 +128,21 @@ router.get("/postwedding", auth, (req, res) => {
   console.log("req rec eventinfo");
   PostWeddingForm.find({ userId: req.id }, (err, doc) => {
     if (doc) {
-      res.json(doc);
+      let resDat;
+      if (doc) {
+        resDat = [...doc];
+        PostWeddinngInfo.find({ orderId: doc[0].orderId }, (err, doc1) => {
+          if (doc1) {
+            resDat.push(...doc1);
+            res.send(resDat);
+          } else {
+            console.log(err);
+          }
+        });
+        // res.json(doc);
+      } else {
+        console.log(err);
+      }
     }
   });
 });
@@ -74,7 +150,21 @@ router.get("/birthday", auth, (req, res) => {
   console.log("req rec eventinfo");
   BirthdayForm.find({ userId: req.id }, (err, doc) => {
     if (doc) {
-      res.json(doc);
+      let resDat;
+      if (doc) {
+        resDat = [...doc];
+        BirthdayInfo.find({ orderId: doc[0].orderId }, (err, doc1) => {
+          if (doc1) {
+            resDat.push(...doc1);
+            res.send(resDat);
+          } else {
+            console.log(err);
+          }
+        });
+        // res.json(doc);
+      } else {
+        console.log(err);
+      }
     }
   });
 });
@@ -82,7 +172,21 @@ router.get("/corporate", auth, (req, res) => {
   console.log("req rec eventinfo");
   CorporateEventForm.find({ userId: req.id }, (err, doc) => {
     if (doc) {
-      res.json(doc);
+      let resDat;
+      if (doc) {
+        resDat = [...doc];
+        CorporateInfo.find({ orderId: doc[0].orderId }, (err, doc1) => {
+          if (doc1) {
+            resDat.push(...doc1);
+            res.send(resDat);
+          } else {
+            console.log(err);
+          }
+        });
+        // res.json(doc);
+      } else {
+        console.log(err);
+      }
     }
   });
 });
@@ -90,7 +194,21 @@ router.get("/familyfunction", auth, (req, res) => {
   console.log("req rec eventinfo");
   FamilyFunctionForm.find({ userId: req.id }, (err, doc) => {
     if (doc) {
-      res.json(doc);
+      let resDat;
+      if (doc) {
+        resDat = [...doc];
+        FamilyFunctionInfo.find({ orderId: doc[0].orderId }, (err, doc1) => {
+          if (doc1) {
+            resDat.push(...doc1);
+            res.send(resDat);
+          } else {
+            console.log(err);
+          }
+        });
+        // res.json(doc);
+      } else {
+        console.log(err);
+      }
     }
   });
 });
@@ -775,7 +893,6 @@ router.delete("/babydlt/:orderId", (req, res) => {
     }
   });
 
-  
   InvoiceDhoom.remove({ orderId: req.params.orderId }, (err, doc) => {
     if (err) {
       console.log(err);
@@ -1058,7 +1175,7 @@ router.delete("/weddingdlt/:orderId", (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      console.log("Invoice Deleted BBy");
+      console.log("eventname Deleted wed");
     }
   });
   PaymentfullDhoom.remove({ orderId: req.params.orderId }, (err, doc) => {

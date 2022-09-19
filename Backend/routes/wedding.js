@@ -96,6 +96,8 @@ console.log(req.body);
       ? checkBoxValues.invitationvalue
       : "-",
     photography: checkBoxValues.photovalue ? checkBoxValues.photovalue : "-",
+    Mehandi: checkBoxValues.checkedMehandi ? checkBoxValues.checkedMehandi : "-",
+    Beauty: checkBoxValues.checkedBeauty ? checkBoxValues.checkedBeauty : "-",
     venues: {
       venue1: {
         name: data.venue_1_name ? data.venue_1_name : "-",
@@ -237,24 +239,32 @@ console.log(req.body);
     // cateringStatus,
     // isVerified,
   });
-  if (data.OtherServices.length > 1) {
+  if (data.service.length > 0) {
   if (data.service.includes("Mehandi")) {
+    console.log("ok meh");
     mehandiStatus = "pending";``
     mehandiReason = "-";
     mehandiPromiseDate = "";
     mehandiService = "Not Confirmed";
-  } else {
+  } 
+  else {
     mehandiStatus = null;
     mehandiReason = null;
     mehandiPromiseDate = null;
     mehandiService = null;
   }
-} else {
+
+}else { 
   mehandiStatus = null;
   mehandiReason = null;
   mehandiPromiseDate = null;
   mehandiService = null;
 }
+
+
+/// confusion : 
+
+
   if (data.SpecialService) {
     AdditionalStatus = "pending";
     AdditionalReason = "-";
@@ -266,7 +276,15 @@ console.log(req.body);
     AdditionalPromiseDate = null;
     AdditionalService = null;
   }
-  if (data.OtherServices.length > 1) {
+  if (data.OtherServices.length > 0) {
+    if (data.OtherServices.includes("mehandi")) {
+      console.log("meh");
+      mehandiStatus = "pending";
+      mehandiReason = "-";
+      mehandiPromiseDate = "";
+      mehandiService = "Not Confirmed";
+    
+    }
   if (data.OtherServices.includes("venue")) {
     venueStatus = "pending";
     venueReason = "-";
@@ -284,7 +302,7 @@ console.log(req.body);
   venuePromiseDate = null;
   venueService = null;
 }
-  if (data.OtherServices.length > 1) {
+  if (data.OtherServices.length > 0) {
   if (data.OtherServices.includes("photography")) {
     photographyStatus = "pending";
     photographyReason = "-";
@@ -336,7 +354,7 @@ console.log(req.body);
     showsPromiseDate = null;
     showsService = null;
   }
-  if (data.OtherServices.length > 1) {
+  if (data.OtherServices.length >= 1) {
   if (data.OtherServices.includes("invitation")) {
     invitationStatus = "pending";
     invitationReason = "-";
@@ -401,7 +419,7 @@ console.log(req.body);
   pandit_JiPromiseDate = null;
   pandit_JiService = null;
 }
-  if (data.OtherServices.length > 1) {
+  if (data.OtherServices.length > 0) {
   if (!!data.OtherServices.includes("beauty")) {
     beautyStatus = "pending";
     beautyReason = "-";
@@ -479,6 +497,7 @@ console.log(req.body);
   const newEventName = EventName({
     userId,
     name_Of_The_Event,
+    eventName,
     orderId
   });
 
@@ -489,7 +508,7 @@ WeddingForm.find({userId:req.id}).then((already)=>{
    }
    else{
   newWeddingForm.save().then(() => {
-    res.status(200).send("saved");
+    // res.status(200).send("saved");
         
 //payment Setting
 
@@ -561,6 +580,7 @@ newPaymentfullDhoom.save().then(() => {
   newEventName.save().then(() => console.log("successfully event name saved"));
 
   newWeddingInfo.save().then(() => console.log("success infowed saved"));
+
 });
 }
 

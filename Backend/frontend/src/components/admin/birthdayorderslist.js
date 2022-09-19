@@ -411,12 +411,22 @@ Delete
                     }}
                   />  
                   </td>
-                <td><div className='btn btn-warning btn-sm' onClick={(val)=>cancelorder("Refund")}>Refund</div></td>
+                <td><div className='btn btn-warning btn-sm' 
+                onClick={(val)=>cancelorder("Refund")}>Refund</div></td>
                 
                   </tr>
                   <tr>
                   <td><div scope="row" className="fw-bold">Refunded Amount : {forms[0].refund}</div></td>
                   </tr>
+                  <tr>
+                      <td>
+                        <div scope="row" className="fw-bold ">
+                         <h4> Cancel Order Status : 
+                          <span className="btn btn-success btn-sm">{forms[0].cancelstatus}</span></h4>
+                           
+                        </div>
+                      </td>
+                    </tr>
               
               </tbody>
               </table>
@@ -1025,12 +1035,45 @@ Delete
           <td><div className='btn btn-success btn-sm' onClick={()=>points(250)}>250</div></td>
           <td><div className='btn btn-success btn-sm' onClick={()=>points(300)}>300</div></td>
           <td><div className='btn btn-success btn-sm' onClick={()=>points(350)}>350</div></td>
-          <td><div className='btn btn-success btn-sm' onClick={()=>points(400)}>400</div></td>
-          <td><div className='btn btn-success btn-sm' onClick={()=>points(450)}>450</div></td>
-          <td><div className='btn btn-success btn-sm' onClick={()=>points(500)}>500</div></td>
-          <td><div className='btn btn-danger btn-sm' onClick={()=>points(0)}>0</div></td>
-
         </tr>     
+        <tr>
+            <th>&nbsp;&nbsp;&nbsp;</th>
+            <div>
+            &nbsp;&nbsp;&nbsp;
+            </div>
+            <td>
+                <div
+                  className="btn btn-success btn-sm"
+                  onClick={() => points(400)}
+                >
+                  400
+                </div>
+              </td>
+              <td>
+                <div
+                  className="btn btn-success btn-sm"
+                  onClick={() => points(450)}
+                >
+                  450
+                </div>
+              </td>
+              <td>
+                <div
+                  className="btn btn-success btn-sm"
+                  onClick={() => points(500)}
+                >
+                  500
+                </div>
+              </td>
+              <td>
+                <div
+                  className="btn btn-danger btn-sm"
+                  onClick={() => points(0)}
+                >
+                  0
+                </div>
+              </td>
+            </tr>
         <tr>
           <th>Vouchers</th>
           <td>{datavoucher}</td>

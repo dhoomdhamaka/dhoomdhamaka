@@ -17,6 +17,7 @@ const { InvoiceDhoom } = require("../model/invoicemodel");
 //routes
 router.post("/", auth, async (req, res) => {
   const data = req.body.data;
+  console.log(req.body);
   const checkBoxValues = req.body.checkBoxValues;
 
   const eventName = " Engagement Event"
@@ -49,7 +50,8 @@ router.post("/", auth, async (req, res) => {
   const OtherServiceValues = {
     invitation: checkBoxValues.invitationvalue?checkBoxValues.invitationvalue:"-",
     photography: checkBoxValues.photovalue?checkBoxValues.photovalue:"-",
-    mehandi: checkBoxValues.checkedMehandi?checkBoxValues.checkedMehandi:"-",
+    Mehandi: checkBoxValues.checkedMehandi?checkBoxValues.checkedMehandi:"-",
+    Beauty: checkBoxValues.checkedBeauty ? checkBoxValues.checkedBeauty : "-",
     venues: {
       venue1: {
         name: data.Venue_1_Name?data.Venue_1_Name:"-",
@@ -189,7 +191,7 @@ router.post("/", auth, async (req, res) => {
   let hostingService;
 
 
-  if (data.OtherServices.length > 1) {
+  if (data.OtherServices.length > 0) {
   if (data.OtherServices.includes("mehandi")) {
     mehandiStatus = "pending";
     mehandiReason = "-";
@@ -206,7 +208,7 @@ router.post("/", auth, async (req, res) => {
     mehandiPromiseDate = null;
     mehandiService = null;
   }
-  if (data.OtherServices.length > 1) {
+  if (data.OtherServices.length > 0) {
   if (data.OtherServices.includes("venue")) {
     venueStatus = "pending";
     venueReason = "-";
@@ -224,7 +226,7 @@ router.post("/", auth, async (req, res) => {
   venuePromiseDate = null;
   venueService = null;
 }
-  if (data.OtherServices.length > 1) {
+  if (data.OtherServices.length > 0) {
   if (data.OtherServices.includes("photography")) {
     photographyStatus = "pending";
     photographyReason = "-";
@@ -265,7 +267,7 @@ router.post("/", auth, async (req, res) => {
     showsPromiseDate = null;
     showsService = null;
   }
-  if (data.OtherServices.length > 1) {
+  if (data.OtherServices.length > 0) {
   if (data.OtherServices.includes("invitation")) {
     invitationStatus = "pending";
     invitationReason = "-";
@@ -294,7 +296,7 @@ router.post("/", auth, async (req, res) => {
     decorationPromiseDate = null;
     decorationService = null;
   }
-  if (data.OtherServices.length > 1) {
+  if (data.OtherServices.length > 0) {
   if (!!data.OtherServices.includes("hosting")) {
     hostingStatus = "pending";
     hostingReason = "-";
@@ -312,7 +314,7 @@ router.post("/", auth, async (req, res) => {
   hostingPromiseDate = null;
   hostingService = null;
 }
-  if (data.OtherServices.length > 1) {
+  if (data.OtherServices.length > 0) {
   if (!!data.OtherServices.includes("Pooja Pandit")) {
     pandit_JiStatus = "pending";
     pandit_JiReason = "-";
@@ -330,7 +332,7 @@ router.post("/", auth, async (req, res) => {
   pandit_JiPromiseDate = null;
   pandit_JiService = null;
 }
-  if (data.OtherServices.length > 1) {
+  if (data.OtherServices.length > 0) {
   if (!!data.OtherServices.includes("beauty")) {
     beautyStatus = "pending";
     beautyReason = "-";
@@ -422,6 +424,7 @@ router.post("/", auth, async (req, res) => {
   const newEventName = EventName({
     userId,
     name_Of_The_Event,
+    eventName,
     orderId
   });
 
@@ -431,7 +434,7 @@ router.post("/", auth, async (req, res) => {
      }
      else{
   newEngagementForm.save().then(() => {
-    res.status(200).send("saved");
+    // res.status(200).send("saved");
         
 //payment Setting
 

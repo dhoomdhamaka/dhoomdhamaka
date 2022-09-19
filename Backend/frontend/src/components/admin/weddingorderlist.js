@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import PaymentDetail from "../payment/paymentDetail";
-import AdminInvoice from "./adminInvoice"
+import AdminInvoice from "./adminInvoice";
 
 function Orderslist(props) {
   const forms = props.formdata;
   const [updtBtn, setUpdtBtn] = useState(true);
   const [postInfo, setPostInfo] = useState("");
 
-  const [refundamount, setrefundamount]= useState()
+  const [refundamount, setrefundamount] = useState();
   const [invitation, setInvitation] = useState(false);
   const [invitationReas, setInvitationReas] = useState(null);
   const [invitationstats, setInvitationstats] = useState(null);
@@ -98,24 +98,22 @@ function Orderslist(props) {
   const [invocDetails, setInvocDetails] = useState(null);
 
   useEffect(() => {
-    axios
-      .get(`api/wedding/paymentDetails/${forms[0].orderId}`)
-      .then((res) => {
-        if (res.status === 200) {
-          setPaymentDetails(res.data[0]);
-          setShowPaymentStatus(true);
-          setEventCharge(res.data[0].eventCharge);
-          setBookingCharge(res.data[0].bookingCharge);
-          setConfirmationCharge(res.data[0].confirmationCharge);
-          setPendingCharge(res.data[0].pendingCharge);
-        }
-      });
-      axios.get(`api/invoice/getDetails/${forms[0].orderId}`).then((res) => {
-        setInvocDetails(res.data[0]);
-        
-        setInvocStatus(true)
-        console.log("aaguthu");
-      });
+    axios.get(`api/wedding/paymentDetails/${forms[0].orderId}`).then((res) => {
+      if (res.status === 200) {
+        setPaymentDetails(res.data[0]);
+        setShowPaymentStatus(true);
+        setEventCharge(res.data[0].eventCharge);
+        setBookingCharge(res.data[0].bookingCharge);
+        setConfirmationCharge(res.data[0].confirmationCharge);
+        setPendingCharge(res.data[0].pendingCharge);
+      }
+    });
+    axios.get(`api/invoice/getDetails/${forms[0].orderId}`).then((res) => {
+      setInvocDetails(res.data[0]);
+
+      setInvocStatus(true);
+      console.log("aaguthu");
+    });
     axios
       .get(`api/adminuserlist/weddingpointsvoucher/${forms[0].userId}`)
       .then((res) => {
@@ -248,24 +246,28 @@ function Orderslist(props) {
       }
     });
   }, []);
-  function cancelorder(value){
-    if(value=== "Accepted"){
-      axios.post(`api/eventInfo/weddingaccepted/${forms[0].orderId}`).then((res) => {
-      });
+  function cancelorder(value) {
+    if (value === "Accepted") {
+      axios
+        .post(`api/eventInfo/weddingaccepted/${forms[0].orderId}`)
+        .then((res) => {});
     }
-    if(value=== "Declined"){
-      axios.post(`api/eventInfo/weddingdeclined/${forms[0].orderId}`).then((res) => {
-      });
+    if (value === "Declined") {
+      axios
+        .post(`api/eventInfo/weddingdeclined/${forms[0].orderId}`)
+        .then((res) => {});
     }
-    if(value=== "Refund"){
-      axios.post(`api/eventInfo/weddingrefund/${forms[0].orderId}`,{refundamount}).then((res) => {
-      });
+    if (value === "Refund") {
+      axios
+        .post(`api/eventInfo/weddingrefund/${forms[0].orderId}`, {
+          refundamount,
+        })
+        .then((res) => {});
     }
   }
-  function dlt(){
-    axios.delete(`api/eventInfo/weddingdlt/${forms[0].orderId}`)
-    window.location.reload(); 
-  
+  function dlt() {
+    axios.delete(`api/eventInfo/weddingdlt/${forms[0].orderId}`);
+    window.location.reload();
   }
   function Status(value) {
     if (value === "venue") {
@@ -293,18 +295,18 @@ function Orderslist(props) {
     axios
       .post(`api/adminuserlist/weddingpoints/${forms[0].userId}`, { val })
       .then((res) => {});
-      window.location.reload(); 
+    window.location.reload();
   }
   function voucher(val) {
     axios
       .post(`api/adminuserlist/weddingvoucher/${forms[0].userId}`, { val })
       .then((res) => {});
-      window.location.reload(); 
+    window.location.reload();
   }
 
   function updateEventDetails() {
     const eventDatas = {
-      orderId : postInfo.orderId,
+      orderId: postInfo.orderId,
       invitationConf,
       invitationPromiseDat,
       invitationReas,
@@ -363,17 +365,16 @@ function Orderslist(props) {
       .post("/api/wedding/updateInfos", { eventDatas })
       .then((res) => {
         // console.log(res);
-        if (res.status===200) {
-          alert("success")
-          setUpdtBtn(true) 
-
+        if (res.status === 200) {
+          alert("success");
+          setUpdtBtn(true);
         }
       })
       .catch((err) => {
         console.log(err);
       });
   }
-  
+
   function updatePaymentDetails() {
     const paymentUpdation = {
       orderId: paymentDetails.orderId,
@@ -432,92 +433,158 @@ function Orderslist(props) {
     <div className="row my-12">
       <h3 className="fs-4 mb-3">Details</h3>
       <div className="col">
-
-      {forms[0] && (<div >
-                <div class="card w-75">
-                <div class="card-body">
+        {forms[0] && (
+          <div>
+            <div class="card w-75">
+              <div class="card-body">
                 <h5 class="card-title red">Delete Order</h5>
                 <table class="table ">
-              <tbody> 
-              <tr>
-              
-            
-<td><button type="button" class="btn btn-danger" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
-Delete
-</button></td>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <button
+                          type="button"
+                          class="btn btn-danger"
+                          data-mdb-toggle="modal"
+                          data-mdb-target="#exampleModal"
+                        >
+                          Delete
+                        </button>
+                      </td>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title " id="exampleModalLabel">Delete User</h5>
-        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">Delete all the order information</div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-warning" data-mdb-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-danger" onClick={(val)=>dlt()}>Delete</button>
-      </div>
-    </div>
-  </div>
-</div>
+                      <div
+                        class="modal fade"
+                        id="exampleModal"
+                        tabindex="-1"
+                        aria-labelledby="exampleModalLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title " id="exampleModalLabel">
+                                Delete User
+                              </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-mdb-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              Delete all the order information
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn btn-warning"
+                                data-mdb-dismiss="modal"
+                              >
+                                Close
+                              </button>
+                              <button
+                                type="button"
+                                class="btn btn-danger"
+                                onClick={(val) => dlt()}
+                              >
+                                Delete
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
 
-              {/* <td><div className='btn btn-warning btn-sm' onClick={(val)=>dlt()}>Delete</div></td> */}
-                  </tr>                
-              
-              </tbody>
-              </table>
-                </div>
-              </div>      
-              
+                      {/* <td><div className='btn btn-warning btn-sm' onClick={(val)=>dlt()}>Delete</div></td> */}
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              
-              
-           )}
+            </div>
+          </div>
+        )}
 
-           
-           <hr class="my-5"/>
+        <hr class="my-5" />
 
-      {forms[0].cancelrequest && (<div >
-                <div class="card w-75">
-                <div class="card-body">
+        {forms[0].cancelrequest && (
+          <div>
+            <div class="card w-75">
+              <div class="card-body">
                 <h5 class="card-title red">Cancel Order</h5>
                 <table class="table ">
-              <tbody> 
-              <tr>
-                    <th scope="row" className="fw-bold col-md-8 ">Cancel Request</th>
-          <td><div className='btn btn-danger btn-sm' onClick={(val)=>cancelorder("Accepted")}>Accept</div></td>
-          <td><div className='btn btn-warning btn-sm' onClick={(val)=>cancelorder("Declined")}>Decline</div></td>
-                  </tr>
-                 <tr>
-                    <td scope="row" className="fw-bold">Refund Amount</td>
-                    <td>
-                  <input
-                 
-                    type={"number"}
-                    placeholder={"enter refund amount"}
-                    // value={refundamount}
-                    onChange={(e) => {
-                      setrefundamount(e.target.value);
-                      // setUpdtBtn(false);
-                    }}
-                  />  
-                  </td>
-                <td><div className='btn btn-warning btn-sm' onClick={(val)=>cancelorder("Refund")}>Refund</div></td>
-                
-                  </tr>
-                  <tr>
-                  <td><div scope="row" className="fw-bold">Refunded Amount : {forms[0].refund}</div></td>
-                  </tr>
-              
-              </tbody>
-              </table>
-                </div>
-              </div>      
-              <hr class="my-5"/>
+                  <tbody>
+                    <tr>
+                      <th scope="row" className="fw-bold col-md-8 ">
+                        Cancel Request
+                      </th>
+                      <td>
+                        <div
+                          className="btn btn-danger btn-sm"
+                          onClick={(val) => cancelorder("Accepted")}
+                        >
+                          Accept
+                        </div>
+                      </td>
+                      <td>
+                        <div
+                          className="btn btn-warning btn-sm"
+                          onClick={(val) => cancelorder("Declined")}
+                        >
+                          Decline
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td scope="row" className="fw-bold">
+                        Refund Amount
+                      </td>
+                      <td>
+                        <input
+                          type={"number"}
+                          placeholder={"enter refund amount"}
+                          // value={refundamount}
+                          onChange={(e) => {
+                            setrefundamount(e.target.value);
+                            // setUpdtBtn(false);
+                          }}
+                        />
+                      </td>
+                      <td>
+                        <div
+                          className="btn btn-warning btn-sm"
+                          onClick={(val) => cancelorder("Refund")}
+                        >
+                          Refund
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div scope="row" className="fw-bold">
+                          Refunded Amount : {forms[0].refund}
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div scope="row" className="fw-bold ">
+                          <h4>
+                            {" "}
+                            Cancel Order Status :
+                            <span className="btn btn-success btn-sm">
+                              {forms[0].cancelstatus}
+                            </span>
+                          </h4>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              
-           )}
+            </div>
+            <hr class="my-5" />
+          </div>
+        )}
         <table className="table bg-white rounded shadow-sm  table-hover">
           <thead>
             <tr>
@@ -537,7 +604,7 @@ Delete
             </tr>
           </thead>
           <tbody>
-          {!!additional && (
+            {!!additional && (
               <tr>
                 <th>Additional Service</th>
                 <td className="text-start ps-0 ms-0 pe-5">
@@ -1040,246 +1107,254 @@ Delete
                 </td>
               </tr>
             )}
-            {!!shows && <tr>
-              <th>Shows</th>
-              <td className="text-start ps-0 ms-0 pe-5">
-                <input
-                  type={"date"}
-                  value={showsPromiseDat}
-                  onChange={(e) => {
-                    setShowsPromiseDate(e.target.value);
-                    setUpdtBtn(false);
-                  }}
-                  className={"input"}
-                />
-              </td>
-              <td>
-                <div
-                  type="button"
-                  className="btn btn-sm btn btn-info"
-                  onClick={() => {
-                    if (showsConf == "Not Confirmed") {
-                      setShowsConf("Confirmed");
-                    } else if (showsConf == "Confirmed") {
-                      setShowsConf("Not Confirmed");
-                    } else {
-                      alert("Refresh the Page.Internet Connection Lost");
-                    }
-                    setUpdtBtn(false);
-                  }}
-                >
-                  {showsConf}
-                </div>
-              </td>
-              <td>
-                <input
-                  type={"text"}
-                  value={showsReas}
-                  onChange={(e) => {
-                    setShowsReas(e.target.value);
-                    setUpdtBtn(false);
-                  }}
-                />
-              </td>
-              <td>
-                <div
-                  type="button"
-                  className="btn btn-sm btn-info"
-                  onClick={() => {
-                    if (showsstats == "pending") {
-                      setShowsstats("Completed");
-                    } else if (showsstats == "Completed") {
-                      setShowsstats("pending");
-                    } else {
-                      alert("Refresh the Page.Internet Connection Lost");
-                    }
-                    setUpdtBtn(false);
-                  }}
-                >
-                  {showsstats}
-                </div>
-              </td>
-            </tr>}
-            {!!pandit_Ji && <tr>
-              <th>Pandi Ji</th>
-              <td className="text-start ps-0 ms-0 pe-5">
-                <input
-                  type={"date"}
-                  value={pandit_JiPromiseDat}
-                  onChange={(e) => {
-                    setPandit_JiPromiseDate(e.target.value);
-                    setUpdtBtn(false);
-                  }}
-                  className={"input"}
-                />
-              </td>
-              <td>
-                <div
-                  type="button"
-                  className="btn btn-sm btn btn-info"
-                  onClick={() => {
-                    if (pandit_JiConf == "Not Confirmed") {
-                      setPandit_JiConf("Confirmed");
-                    } else if (pandit_JiConf == "Confirmed") {
-                      setPandit_JiConf("Not Confirmed");
-                    } else {
-                      alert("Refresh the Page.Internet Connection Lost");
-                    }
-                    setUpdtBtn(false);
-                  }}
-                >
-                  {pandit_JiConf}
-                </div>
-              </td>
-              <td>
-                <input
-                  type={"text"}
-                  value={pandit_JiReas}
-                  onChange={(e) => {
-                    setPandit_JiReas(e.target.value);
-                    setUpdtBtn(false);
-                  }}
-                />
-              </td>
-              <td>
-                <div
-                  type="button"
-                  className="btn btn-sm btn-info"
-                  onClick={() => {
-                    if (pandit_Jistats == "pending") {
-                      setPandit_Jistats("Completed");
-                    } else if (pandit_Jistats == "Completed") {
-                      setPandit_Jistats("pending");
-                    } else {
-                      alert("Refresh the Page.Internet Connection Lost");
-                    }
-                    setUpdtBtn(false);
-                  }}
-                >
-                  {pandit_Jistats}
-                </div>
-              </td>
-            </tr>}
-            {!!mehandi && <tr>
-              <th>Mehandi</th>
-              <td className="text-start ps-0 ms-0 pe-5">
-                <input
-                  type={"date"}
-                  value={mehandiPromiseDat}
-                  onChange={(e) => {
-                    setMehandiPromiseDate(e.target.value);
-                    setUpdtBtn(false);
-                  }}
-                  className={"input"}
-                />
-              </td>
-              <td>
-                <div
-                  type="button"
-                  className="btn btn-sm btn btn-info"
-                  onClick={() => {
-                    if (mehandiConf == "Not Confirmed") {
-                      setMehandiConf("Confirmed");
-                    } else if (mehandiConf == "Confirmed") {
-                      setMehandiConf("Not Confirmed");
-                    } else {
-                      alert("Refresh the Page.Internet Connection Lost");
-                    }
-                    setUpdtBtn(false);
-                  }}
-                >
-                  {mehandiConf}
-                </div>
-              </td>
-              <td>
-                <input
-                  type={"text"}
-                  value={mehandiReas}
-                  onChange={(e) => {
-                    setMehandiReas(e.target.value);
-                    setUpdtBtn(false);
-                  }}
-                />
-              </td>
-              <td>
-                <div
-                  type="button"
-                  className="btn btn-sm btn-info"
-                  onClick={() => {
-                    if (mehandistats == "pending") {
-                      setMehandistats("Completed");
-                    } else if (mehandistats == "Completed") {
-                      setMehandistats("pending");
-                    } else {
-                      alert("Refresh the Page.Internet Connection Lost");
-                    }
-                    setUpdtBtn(false);
-                  }}
-                >
-                  {mehandistats}
-                </div>
-              </td>
-            </tr>}
-            {!!hosting && <tr>
-              <th>Hosting</th>
-              <td className="text-start ps-0 ms-0 pe-5">
-                <input
-                  type={"date"}
-                  value={hostingPromiseDat}
-                  onChange={(e) => {
-                    setHostingPromiseDate(e.target.value);
-                    setUpdtBtn(false);
-                  }}
-                  className={"input"}
-                />
-              </td>
-              <td>
-                <div
-                  type="button"
-                  className="btn btn-sm btn btn-info"
-                  onClick={() => {
-                    if (hostingConf == "Not Confirmed") {
-                      setHostingConf("Confirmed");
-                    } else if (hostingConf == "Confirmed") {
-                      setHostingConf("Not Confirmed");
-                    } else {
-                      alert("Refresh the Page.Internet Connection Lost");
-                    }
-                    setUpdtBtn(false);
-                  }}
-                >
-                  {hostingConf}
-                </div>
-              </td>
-              <td>
-                <input
-                  type={"text"}
-                  value={hostingReas}
-                  onChange={(e) => {
-                    setHostingReas(e.target.value);
-                    setUpdtBtn(false);
-                  }}
-                />
-              </td>
-              <td>
-                <div
-                  type="button"
-                  className="btn btn-sm btn-info"
-                  onClick={() => {
-                    if (hostingstats == "pending") {
-                      setHostingstats("Completed");
-                    } else if (hostingstats == "Completed") {
-                      setHostingstats("pending");
-                    } else {
-                      alert("Refresh the Page.Internet Connection Lost");
-                    }
-                    setUpdtBtn(false);
-                  }}
-                >
-                  {hostingstats}
-                </div>
-              </td>
-            </tr>}
+            {!!shows && (
+              <tr>
+                <th>Shows</th>
+                <td className="text-start ps-0 ms-0 pe-5">
+                  <input
+                    type={"date"}
+                    value={showsPromiseDat}
+                    onChange={(e) => {
+                      setShowsPromiseDate(e.target.value);
+                      setUpdtBtn(false);
+                    }}
+                    className={"input"}
+                  />
+                </td>
+                <td>
+                  <div
+                    type="button"
+                    className="btn btn-sm btn btn-info"
+                    onClick={() => {
+                      if (showsConf == "Not Confirmed") {
+                        setShowsConf("Confirmed");
+                      } else if (showsConf == "Confirmed") {
+                        setShowsConf("Not Confirmed");
+                      } else {
+                        alert("Refresh the Page.Internet Connection Lost");
+                      }
+                      setUpdtBtn(false);
+                    }}
+                  >
+                    {showsConf}
+                  </div>
+                </td>
+                <td>
+                  <input
+                    type={"text"}
+                    value={showsReas}
+                    onChange={(e) => {
+                      setShowsReas(e.target.value);
+                      setUpdtBtn(false);
+                    }}
+                  />
+                </td>
+                <td>
+                  <div
+                    type="button"
+                    className="btn btn-sm btn-info"
+                    onClick={() => {
+                      if (showsstats == "pending") {
+                        setShowsstats("Completed");
+                      } else if (showsstats == "Completed") {
+                        setShowsstats("pending");
+                      } else {
+                        alert("Refresh the Page.Internet Connection Lost");
+                      }
+                      setUpdtBtn(false);
+                    }}
+                  >
+                    {showsstats}
+                  </div>
+                </td>
+              </tr>
+            )}
+            {!!pandit_Ji && (
+              <tr>
+                <th>Pandi Ji</th>
+                <td className="text-start ps-0 ms-0 pe-5">
+                  <input
+                    type={"date"}
+                    value={pandit_JiPromiseDat}
+                    onChange={(e) => {
+                      setPandit_JiPromiseDate(e.target.value);
+                      setUpdtBtn(false);
+                    }}
+                    className={"input"}
+                  />
+                </td>
+                <td>
+                  <div
+                    type="button"
+                    className="btn btn-sm btn btn-info"
+                    onClick={() => {
+                      if (pandit_JiConf == "Not Confirmed") {
+                        setPandit_JiConf("Confirmed");
+                      } else if (pandit_JiConf == "Confirmed") {
+                        setPandit_JiConf("Not Confirmed");
+                      } else {
+                        alert("Refresh the Page.Internet Connection Lost");
+                      }
+                      setUpdtBtn(false);
+                    }}
+                  >
+                    {pandit_JiConf}
+                  </div>
+                </td>
+                <td>
+                  <input
+                    type={"text"}
+                    value={pandit_JiReas}
+                    onChange={(e) => {
+                      setPandit_JiReas(e.target.value);
+                      setUpdtBtn(false);
+                    }}
+                  />
+                </td>
+                <td>
+                  <div
+                    type="button"
+                    className="btn btn-sm btn-info"
+                    onClick={() => {
+                      if (pandit_Jistats == "pending") {
+                        setPandit_Jistats("Completed");
+                      } else if (pandit_Jistats == "Completed") {
+                        setPandit_Jistats("pending");
+                      } else {
+                        alert("Refresh the Page.Internet Connection Lost");
+                      }
+                      setUpdtBtn(false);
+                    }}
+                  >
+                    {pandit_Jistats}
+                  </div>
+                </td>
+              </tr>
+            )}
+            {!!mehandi && (
+              <tr>
+                <th>Mehandi</th>
+                <td className="text-start ps-0 ms-0 pe-5">
+                  <input
+                    type={"date"}
+                    value={mehandiPromiseDat}
+                    onChange={(e) => {
+                      setMehandiPromiseDate(e.target.value);
+                      setUpdtBtn(false);
+                    }}
+                    className={"input"}
+                  />
+                </td>
+                <td>
+                  <div
+                    type="button"
+                    className="btn btn-sm btn btn-info"
+                    onClick={() => {
+                      if (mehandiConf == "Not Confirmed") {
+                        setMehandiConf("Confirmed");
+                      } else if (mehandiConf == "Confirmed") {
+                        setMehandiConf("Not Confirmed");
+                      } else {
+                        alert("Refresh the Page.Internet Connection Lost");
+                      }
+                      setUpdtBtn(false);
+                    }}
+                  >
+                    {mehandiConf}
+                  </div>
+                </td>
+                <td>
+                  <input
+                    type={"text"}
+                    value={mehandiReas}
+                    onChange={(e) => {
+                      setMehandiReas(e.target.value);
+                      setUpdtBtn(false);
+                    }}
+                  />
+                </td>
+                <td>
+                  <div
+                    type="button"
+                    className="btn btn-sm btn-info"
+                    onClick={() => {
+                      if (mehandistats == "pending") {
+                        setMehandistats("Completed");
+                      } else if (mehandistats == "Completed") {
+                        setMehandistats("pending");
+                      } else {
+                        alert("Refresh the Page.Internet Connection Lost");
+                      }
+                      setUpdtBtn(false);
+                    }}
+                  >
+                    {mehandistats}
+                  </div>
+                </td>
+              </tr>
+            )}
+            {!!hosting && (
+              <tr>
+                <th>Hosting</th>
+                <td className="text-start ps-0 ms-0 pe-5">
+                  <input
+                    type={"date"}
+                    value={hostingPromiseDat}
+                    onChange={(e) => {
+                      setHostingPromiseDate(e.target.value);
+                      setUpdtBtn(false);
+                    }}
+                    className={"input"}
+                  />
+                </td>
+                <td>
+                  <div
+                    type="button"
+                    className="btn btn-sm btn btn-info"
+                    onClick={() => {
+                      if (hostingConf == "Not Confirmed") {
+                        setHostingConf("Confirmed");
+                      } else if (hostingConf == "Confirmed") {
+                        setHostingConf("Not Confirmed");
+                      } else {
+                        alert("Refresh the Page.Internet Connection Lost");
+                      }
+                      setUpdtBtn(false);
+                    }}
+                  >
+                    {hostingConf}
+                  </div>
+                </td>
+                <td>
+                  <input
+                    type={"text"}
+                    value={hostingReas}
+                    onChange={(e) => {
+                      setHostingReas(e.target.value);
+                      setUpdtBtn(false);
+                    }}
+                  />
+                </td>
+                <td>
+                  <div
+                    type="button"
+                    className="btn btn-sm btn-info"
+                    onClick={() => {
+                      if (hostingstats == "pending") {
+                        setHostingstats("Completed");
+                      } else if (hostingstats == "Completed") {
+                        setHostingstats("pending");
+                      } else {
+                        alert("Refresh the Page.Internet Connection Lost");
+                      }
+                      setUpdtBtn(false);
+                    }}
+                  >
+                    {hostingstats}
+                  </div>
+                </td>
+              </tr>
+            )}
           </tbody>
           <tr rowspan="5" className="text-center">
             <th></th>
@@ -1366,6 +1441,10 @@ Delete
                   350
                 </div>
               </td>
+            </tr>
+            <tr>
+              <th>&nbsp;&nbsp;&nbsp;</th>
+              <div>&nbsp;&nbsp;&nbsp;</div>
               <td>
                 <div
                   className="btn btn-success btn-sm"
@@ -1599,6 +1678,14 @@ Delete
               <td>{forms[0].Services[6]}</td>
             </tr>
             <tr>
+              <th>Mehandi </th>
+              <td>{forms[0].OtherServiceValues.Mehandi}</td>
+            </tr>
+            <tr>
+              <th>Beauty </th>
+              <td>{forms[0].OtherServiceValues.Beauty}</td>
+            </tr>
+            <tr>
               <th>Services </th>
               <td>{forms[0].Services[7]}</td>
             </tr>
@@ -1798,7 +1885,11 @@ Delete
         )}
         <hr className="my-5" />
         {!!showInvocStatus && (
-          <AdminInvoice ordId={forms[0].orderId} details={invocDetails} updateInvoiceDetails={updateInvoiceDetails} />
+          <AdminInvoice
+            ordId={forms[0].orderId}
+            details={invocDetails}
+            updateInvoiceDetails={updateInvoiceDetails}
+          />
         )}
       </div>
     </div>

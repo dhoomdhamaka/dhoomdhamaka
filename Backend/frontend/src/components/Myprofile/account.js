@@ -9,6 +9,7 @@ import Points from "./../pointsandvouchers";
 import Invoice from "../Invoice/invoice";
 import "./account.css";
 import EventInfo from "../EventsPages/eventInfo/eventInfo";
+import Eventcards from "../EventsPages/EventDetails/eventcards";
 export default function Account() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -54,8 +55,8 @@ export default function Account() {
     });
   }, []);
   return (
-    <div className=" row vh-100">
-      {!eveDisp && (
+    <div className=" row " style={{minHeight:"100vh"}}>
+      {/* {!eveDisp && ( */}
         <div>
           {/* <!-- Tabs navs --> */}
           <ul class="nav nav-pills nav-fill mb-3" id="ex1" role="tablist">
@@ -152,7 +153,8 @@ export default function Account() {
               role="tabpanel"
               aria-labelledby="ex2-tab-3"
             >
-              <EventInfo />
+              {/* <EventInfo /> */}
+              <Eventcards />
             </div>
             <div
               class="tab-pane fade"
@@ -181,8 +183,8 @@ export default function Account() {
           </div>
           {/* <!-- Tabs content --> */}
         </div>
-      )}
-      {eveDisp && (
+      {/* )} */}
+      {/* {eveDisp && (
         <div className="text-center mt-5 pt-5">
           <h1 style={{ "fontVariant": "small-caps", "fontSize":"50px" }} className="fw-bolder mb-3">
             Dhoom Dhamaka
@@ -195,7 +197,7 @@ export default function Account() {
             menu or use a desktop/laptop
           </p>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

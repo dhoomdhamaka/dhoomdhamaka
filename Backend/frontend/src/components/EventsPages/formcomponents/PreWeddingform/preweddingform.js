@@ -21,13 +21,13 @@ const schema = yup.object().shape({
   ToDate: yup.string().required("To date must be required"),
   ShootingDate: yup.string().required("Shooting date must be required"),
   BachelorPartyDate: yup
-    .string()
-    .required("Bachelor's Party Date must be required"),
+    .string(),
+    // .required("Bachelor's Party Date must be required"),
   city: yup.string().required("city name must be required"),
   No_Of_Guests: yup
-    .number()
-    .typeError("No of Guests must be required")
-    .required("No of Guests must be required"),
+    .number().__inputTyp,
+    // .typeError("No of Guests must be required"),
+    // .required("No of Guests must be required"),
   Estimate_Budget_Maximum: yup
     .string()
     .required("Estimate Budget Maximum must be required"),
@@ -201,7 +201,7 @@ function PreweddingForm() {
           });
         }
         if(res.data === "saved"){
-          if (diffDays < 6) {
+          if (diffDays <= 6) {
             toast.success("you are under premium booking!!!", {
               position: toast.POSITION.TOP_CENTER,
             });
@@ -1376,7 +1376,7 @@ function PreweddingForm() {
               <h4>
                 <strong style={{ color: "red" }}>
                   {" "}
-                  <a href={"/termsandconditions"} > Terms and Conditions </a>
+                  <a href={"/termsandconditions"} > Terms and Conditions apply</a>
                 </strong>
               </h4>
             </div>

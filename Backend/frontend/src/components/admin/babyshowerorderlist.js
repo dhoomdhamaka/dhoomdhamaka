@@ -236,17 +236,23 @@ function Orderslist(props) {
     if (value === "Accepted") {
       axios
         .post(`api/eventInfo/babyaccepted/${forms[0].orderId}`)
-        .then((res) => {});
+        .then((res) => {
+          window.location.reload(); 
+        });
     }
     if (value === "Declined") {
       axios
         .post(`api/eventInfo/babydeclined/${forms[0].orderId}`)
-        .then((res) => {});
+        .then((res) => {
+          window.location.reload(); 
+        });
     }
     if (value === "Refund") {
       axios
         .post(`api/eventInfo/babyrefund/${forms[0].orderId}`, { refundamount })
-        .then((res) => {});
+        .then((res) => {
+          window.location.reload(); 
+        });
     }
   }
 
@@ -549,6 +555,15 @@ function Orderslist(props) {
                       <td>
                         <div scope="row" className="fw-bold">
                           Refunded Amount : {forms[0].refund}
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div scope="row" className="fw-bold ">
+                         <h4> Cancel Order Status : 
+                          <span className="btn btn-success btn-sm">{forms[0].cancelstatus}</span></h4>
+                           
                         </div>
                       </td>
                     </tr>
@@ -1356,7 +1371,14 @@ function Orderslist(props) {
                   350
                 </div>
               </td>
-              <td>
+            </tr>
+
+            <tr>
+            <th>&nbsp;&nbsp;&nbsp;</th>
+            <div>
+            &nbsp;&nbsp;&nbsp;
+            </div>
+            <td>
                 <div
                   className="btn btn-success btn-sm"
                   onClick={() => points(400)}
@@ -1389,6 +1411,7 @@ function Orderslist(props) {
                 </div>
               </td>
             </tr>
+
             <tr>
               <th>Vouchers</th>
               <td>{datavoucher}</td>

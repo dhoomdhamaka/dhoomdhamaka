@@ -236,13 +236,13 @@ function CorporateForm() {
       .post("/api/corporateEvent", { data, checkboxValue })
       .then((res) => {
         console.log(res.data);
-        if(res.data === "already"){
+        if (res.data === "already") {
           toast.success("Already form submitted", {
             position: toast.POSITION.TOP_RIGHT,
           });
         }
-        if(res.data === "saved"){
-          if (diffDays < 5) {
+        if (res.data === "saved") {
+          if (diffDays <= 5) {
             toast.success("you are under premium booking!!!", {
               position: toast.POSITION.TOP_CENTER,
             });
@@ -251,7 +251,7 @@ function CorporateForm() {
             position: toast.POSITION.TOP_RIGHT,
           });
           setTimeout(() => {
-            navigate("/")                                 
+            navigate("/");
           }, 2000);
         }
       })
@@ -363,7 +363,6 @@ function CorporateForm() {
                           class="w-100 shadow-4-strong rounded mb-4"
                           alt="Waves at Sea"
                         />
-
                       </div>
                     </div>
                   </div>
@@ -377,10 +376,10 @@ function CorporateForm() {
 
                     <div class="row">
                       <div class="col-md-6 mb-4">
-                        <div class="form-floating mb-4">
-                          <label for="typeOfFunction" class="form-label">
+                        {/* <label for="typeOfFunction" class="form-label mt-0">
                             Type of Function
-                          </label>
+                          </label> */}
+                        <div class="form-floating mb-4">
                           <select
                             {...register("type_Of_Function")}
                             id="typeOfFunction"
@@ -388,9 +387,14 @@ function CorporateForm() {
                             aria-label="Default select example"
                           >
                             <option
-                              // {...register("type_Of_Function")}
-                              value=""
-                            ></option>
+                              className="fw-bolder"
+                              selected
+                              hidden
+                              disabled
+                            >
+                              Type of Function
+                            </option>
+
                             <option id="school" value="school">
                               school
                             </option>
@@ -539,7 +543,9 @@ function CorporateForm() {
             })}
           >
             <div class="card-header py-4 px-5 bg-light border-0">
-              <h4 class="mb-0 fw-bolder fs-3 text-center">Corporate Event Booking</h4>
+              <h4 class="mb-0 fw-bolder fs-3 text-center">
+                Corporate Event Booking
+              </h4>
             </div>
 
             <div class="card-body px-5">
@@ -780,7 +786,7 @@ function CorporateForm() {
                         />
                       </div>
                     </div>
-                    <div class="col-md-6">
+                    {/* <div class="col-md-6">
                       <div class="mb-3">
                         <br />
                         <label
@@ -803,7 +809,7 @@ function CorporateForm() {
                           }}
                         />
                       </div>
-                    </div>
+                    </div> */}
 
                     {checkedRegulardecoration && (
                       <div class="col-md-6">
@@ -820,7 +826,7 @@ function CorporateForm() {
                         </div>
                       </div>
                     )}
-                    {checkedDecoration && (
+                    {/* {checkedDecoration && (
                       <div class="col-md-6">
                         <div class="mb-3">
                           <label
@@ -860,7 +866,7 @@ function CorporateForm() {
                           </select>
                         </div>
                       </div>
-                    )}
+                    )} */}
                   </div>
                 </div>
               </div>
@@ -892,16 +898,13 @@ function CorporateForm() {
                             value={"veg"}
                           />
 
-                          <label
-                            class="form-check-label"
-                            for="veg"
-                          >
+                          <label class="form-check-label" for="veg">
                             Veg
                           </label>
                         </div>
                       </div>
                     </div>
-                    
+
                     <div class="col-md-4">
                       <div class="mb-3">
                         <div class="form-check">
@@ -914,10 +917,7 @@ function CorporateForm() {
                             id="jain"
                           />
 
-                          <label
-                            class="form-check-label"
-                            for="jain"
-                          >
+                          <label class="form-check-label" for="jain">
                             Jain
                           </label>
                         </div>
@@ -1371,20 +1371,22 @@ function CorporateForm() {
                   will contact you within 12-24 hours to discuss in more detail.
                 </strong>
               </h4>
-              <h1 class="my-2" /> 
+              <h1 class="my-2" />
               <h3>
                 <strong>Note 2 : </strong>
               </h3>
               <h4>
                 <strong style={{ color: "red" }}>
                   {" "}
-                  <a href={"/termsandconditions"} > Terms and Conditions </a>
+                  <a href={"/termsandconditions"}>
+                    {" "}
+                    Terms and Conditions apply
+                  </a>
                 </strong>
               </h4>
             </div>
 
             <div class="card-footer text-end py-4 px-5 bg-light border-0">
-             
               <button type="submit" class="btn btn-primary btn-rounded">
                 Submit
               </button>

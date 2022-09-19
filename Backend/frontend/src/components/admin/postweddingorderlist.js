@@ -342,7 +342,15 @@ Delete
                   <tr>
                   <td><div scope="row" className="fw-bold">Refunded Amount : {forms[0].refund}</div></td>
                   </tr>
-              
+                  <tr>
+                      <td>
+                        <div scope="row" className="fw-bold ">
+                         <h4> Cancel Order Status : 
+                          <span className="btn btn-success btn-sm">{forms[0].cancelstatus}</span></h4>
+                           
+                        </div>
+                      </td>
+                    </tr>
               </tbody>
               </table>
                 </div>
@@ -711,7 +719,14 @@ Delete
                   350
                 </div>
               </td>
-              <td>
+             
+            </tr>
+            <tr>
+            <th>&nbsp;&nbsp;&nbsp;</th>
+            <div>
+            &nbsp;&nbsp;&nbsp;
+            </div>
+            <td>
                 <div
                   className="btn btn-success btn-sm"
                   onClick={() => points(400)}

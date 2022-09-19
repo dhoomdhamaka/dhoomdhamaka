@@ -28,7 +28,7 @@ router.post("/", auth, async (req, res) => {
   const City = data.city?data.city:"-";
   const FromDate = data.fromDate;
   const ToData = data.ToDate;
-  const BachelorsPartyDate = data.BachelorPartyDate;
+  const BachelorsPartyDate = data.BachelorPartyDate?data.BachelorPartyDate:"-";
   const ShootingDate = data.ShootingDate;
   const MinBudget = data.Estimate_Budget_Minimum;
   const MaxBudget = data.Estimate_Budget_Maximum;
@@ -50,7 +50,7 @@ router.post("/", auth, async (req, res) => {
     },
     musicvalues: checkBoxValues.musicvalue?checkBoxValues.musicvalue:"-",
     dancevalues: checkBoxValues.dancevalue? checkBoxValues.dancevalue:"-",
-    noofguests: data.No_Of_Guests?data.No_Of_Guests:"-",
+    noofguests: data.No_Of_Guests && data.No_Of_Guests,
   };
 
   const Shooting = {
@@ -235,11 +235,12 @@ router.post("/", auth, async (req, res) => {
 
   // const name_Of_The_Event = checkBoxValues.name_Of_The_Event;
   const name_Of_The_Event = req.body.name_Of_The_Event
-  console.log(name_Of_The_Event);
+  // console.log(name_Of_The_Event);
 
   const newEventName = EventName({
     userId,
     name_Of_The_Event,
+    eventName,
     orderId
   });
 

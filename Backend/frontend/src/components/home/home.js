@@ -105,7 +105,7 @@ export default function Home() {
                     </div>
                   </div>
                   <h3 className="text-center fw-bold mb-2 mt-2 text-white">
-                    decoration
+                    Decoration
                   </h3>
                   <p className="mb-1 text-white text-muted">
                     It Helps to Bright your future.
@@ -162,7 +162,7 @@ export default function Home() {
                     </div>
                   </div>
                   <h3 className="text-center fw-bold mb-3 mt-2 text-white">
-                    catering
+                    Catering
                   </h3>
                   <p className="mb-3 text-white text-muted">
                     Food is the secret of energy.

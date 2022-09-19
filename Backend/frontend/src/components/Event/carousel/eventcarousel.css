@@ -26,12 +26,14 @@
 .home .carousel-item h2{
 	font-size: 80px;
 	color: #ffffff;
-	margin:0 0 10px;
+	/* margin:0 0 10px; */
+	margin-top: 10px;
 	opacity: 0;
 }
 .home .carousel-item p{
 	font-size: 30px;
-	margin:0;
+	/* margin:0; */
+	margin-bottom: 180px;
 	color: #eeeeee;
 	opacity:0;
 }
@@ -128,10 +130,12 @@
   	width: 60px;
   }
   .home .carousel-item h2{
+		margin:0;
   	font-size: 45px;
   }
   .home .carousel-item p{
   	font-size: 22px;
+		margin:0;
   }
 }
 
