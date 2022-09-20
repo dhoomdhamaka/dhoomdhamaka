@@ -51,14 +51,14 @@ function PaymentDetail(props) {
               window.location.reload();
             }
           },
-          prefill: {
-            name: "example name",
-            email: "email@example.com",
-            contact: "111111",
-          },
-          notes: {
-            address: "example address",
-          },
+          // prefill: {
+          //   name: "example name",
+          //   email: "email@example.com",
+          //   contact: "111111",
+          // },
+          // notes: {
+          //   address: "example address",
+          // },
           theme: {
             color: "#32a852",
           },
