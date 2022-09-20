@@ -806,28 +806,46 @@ function FamilyfunctionForm() {
                             aria-label="Default select example"
                           >
                             <option
-                              value="Ballon_Decoration"
-                              id="Ballon_Decoration"
+                              value="Traditional_Decoration"
+                              id="Traditional_Decoration"
                             >
-                              Ballon Decoration
+                              Traditional
                             </option>
                             <option
-                              id="CandyDecoration"
-                              value="Candy Decoration"
+                              id="SingleColor_Decoration"
+                              value="SingleColor_Decoration"
                             >
-                              Candy Decoration
+                              Single Color
                             </option>
                             <option
-                              id="CartoonDecoration"
-                              value="Cartoon Decoration"
+                              id="MultiColor_Decoration"
+                              value="MultiColor_Decoration"
                             >
-                              Cartoon Decoration
+                              Multi Color
                             </option>
                             <option
-                              id="Jungle Party Decoration"
-                              value="Jungle Party Decoration"
+                              id="Musical_Decoration"
+                              value="Musical_Decoration"
                             >
-                              Jungle Party Decoration
+                              Musical
+                            </option>
+                            <option
+                              id="FairyTale_Decoration"
+                              value="FairyTale_Decoration"
+                            >
+                              Fairy tale
+                            </option>
+                            <option
+                              id="Devotional_Decoration"
+                              value="Devotional_Decoration"
+                            >
+                              Devotional
+                            </option>
+                            <option
+                              id="Retro_Decoration"
+                              value="Retro_Decoration"
+                            >
+                              Retro
                             </option>
                           </select>
                         </div>
