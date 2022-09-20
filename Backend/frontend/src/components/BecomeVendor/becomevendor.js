@@ -151,7 +151,7 @@ export default function Becomevendor() {
                   <div class="input-group">
                     <input
                       class="input--style-1 js-datepicker"
-                      type="text"
+                      type={"number"}
                       placeholder="Phone"
                       name="phoneNo"
                       onChange={handleChange}
@@ -163,7 +163,7 @@ export default function Becomevendor() {
                   <div class="input-group">
                     <input
                       class="input--style-1 js-datepicker"
-                      type="text"
+                      type="email"
                       placeholder="E-mail ID"
                       name="email"
                       onChange={handleChange}

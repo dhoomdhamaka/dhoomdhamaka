@@ -43,12 +43,12 @@ const Vendor = mongoose.model('Vendor', vendorSchema)
 
 const validateVendor = (vendor) => {
     const schema = Joi.object({
-        name: Joi.string().max(20).required(),
-        city: Joi.string().max(20).required(),
-        email: Joi.string().max(20).required().email(),
-        vendorType: Joi.string().max(20).required(),
-        area: Joi.string().max(200).required(),
-        phoneNo: Joi.string().max(200).required(),
+        name: Joi.string().max(150).required(),
+        city: Joi.string().max(100).required(),
+        email: Joi.string().max(150).required().email(),
+        vendorType: Joi.string().max(150).required(),
+        area: Joi.string().max(300).required(),
+        phoneNo: Joi.string().max(20).required(),
         // year: Joi.string().max(1024).required(),
         // image: Joi.required()
       });
