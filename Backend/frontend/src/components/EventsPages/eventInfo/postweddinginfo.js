@@ -19,7 +19,7 @@ export function Postweddinginfo(props) {
       <>
         <div style={{ minHeight: "100vh" }}>
           <div className="container">
-          <h3
+            <h3
               className=" text-center fw-bold mb-2"
               style={{ fontVariant: "small-caps", display: "block" }}
             >
@@ -90,9 +90,8 @@ export function Postweddinginfo(props) {
           </div>
           <div class="my-5" />
           <div>
-            
             <div className="row justify-content-center">
-              <div className="col-md-8 text-center">
+              <div className="col-md-8 text-center table-responsive">
                 <table class="table align-middle mb-0 bg-white mb-8">
                   <thead>
                     <tr>

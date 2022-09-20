@@ -92,7 +92,8 @@ function PaymentDetail(props) {
                 </td>
               </tr>
             </tbody>
-          </table>
+          </table>  
+          <div className="table-responsive">
           <table class="table">
             <thead class="table">
               <tr className="bg-light">
@@ -225,6 +226,7 @@ function PaymentDetail(props) {
               </tr>
             </tbody>{" "}
           </table>
+          </div>
         </div>
       </div>
     </div>

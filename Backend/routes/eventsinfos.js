@@ -46,7 +46,7 @@ router.get("/prewedding", auth, (req, res) => {
         resDat = [...doc];
         PreweddingInfo.find({ orderId: doc[0].orderId }, (err, doc1) => {
           if (doc1) {
-            resDat.push(...doc1);
+            resDat.push(...doc1, {name :req.user.username});
             res.send(resDat);
           } else {
             console.log(err);
@@ -69,7 +69,7 @@ router.get("/babyshower", auth, (req, res) => {
         resDat = [...doc];
         BabyShowerInfo.find({ orderId: doc[0].orderId }, (err, doc1) => {
           if (doc1) {
-            resDat.push(...doc1);
+            resDat.push(...doc1, {name :req.user.username});
             res.send(resDat);
           } else {
             console.log(err);
@@ -90,7 +90,7 @@ router.get("/wedding", auth, (req, res) => {
       resDat = [...doc];
       WeddingInfo.find({ orderId: doc[0].orderId }, (err, doc1) => {
         if (doc1) {
-          resDat.push(...doc1);
+          resDat.push(...doc1, {name :req.user.username});
           res.send(resDat);
         } else {
           console.log(err);
@@ -111,7 +111,7 @@ router.get("/engagement", auth, (req, res) => {
         resDat = [...doc];
         EngagementInfo.find({ orderId: doc[0].orderId }, (err, doc1) => {
           if (doc1) {
-            resDat.push(...doc1);
+            resDat.push(...doc1, {name :req.user.username});
             res.send(resDat);
           } else {
             console.log(err);
@@ -133,7 +133,7 @@ router.get("/postwedding", auth, (req, res) => {
         resDat = [...doc];
         PostWeddinngInfo.find({ orderId: doc[0].orderId }, (err, doc1) => {
           if (doc1) {
-            resDat.push(...doc1);
+            resDat.push(...doc1, {name :req.user.username});
             res.send(resDat);
           } else {
             console.log(err);
@@ -155,7 +155,7 @@ router.get("/birthday", auth, (req, res) => {
         resDat = [...doc];
         BirthdayInfo.find({ orderId: doc[0].orderId }, (err, doc1) => {
           if (doc1) {
-            resDat.push(...doc1);
+            resDat.push(...doc1, {name :req.user.username});
             res.send(resDat);
           } else {
             console.log(err);
@@ -177,7 +177,7 @@ router.get("/corporate", auth, (req, res) => {
         resDat = [...doc];
         CorporateInfo.find({ orderId: doc[0].orderId }, (err, doc1) => {
           if (doc1) {
-            resDat.push(...doc1);
+            resDat.push(...doc1, {name :req.user.username});
             res.send(resDat);
           } else {
             console.log(err);
@@ -191,7 +191,6 @@ router.get("/corporate", auth, (req, res) => {
   });
 });
 router.get("/familyfunction", auth, (req, res) => {
-  console.log("req rec eventinfo");
   FamilyFunctionForm.find({ userId: req.id }, (err, doc) => {
     if (doc) {
       let resDat;
@@ -199,7 +198,7 @@ router.get("/familyfunction", auth, (req, res) => {
         resDat = [...doc];
         FamilyFunctionInfo.find({ orderId: doc[0].orderId }, (err, doc1) => {
           if (doc1) {
-            resDat.push(...doc1);
+            resDat.push(...doc1, {name :req.user.username});
             res.send(resDat);
           } else {
             console.log(err);

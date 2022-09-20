@@ -19,7 +19,7 @@ export function Corporateinfo(props) {
       <>
         <div style={{ minHeight: "100vh" }}>
           <div className="container">
-          <h3
+            <h3
               className=" text-center fw-bold mb-2"
               style={{ fontVariant: "small-caps", display: "block" }}
             >
@@ -33,7 +33,7 @@ export function Corporateinfo(props) {
                 [ {props.personalcorporate.orderId} ]
               </span>
             </h5>
-            
+
             <div className="row justify-content-center mx-4">
               <div className="col-md-8">
                 <table class="table bg-white shadow-3-strong p-5">
@@ -82,7 +82,7 @@ export function Corporateinfo(props) {
           <div class="my-5" />
           <div>
             <div className="row justify-content-center">
-              <div className="col-md-8 text-center">
+              <div className="col-md-8 text-center table-responsive">
                 <table class="table align-middle mb-0 bg-white mb-8">
                   <thead>
                     <tr>

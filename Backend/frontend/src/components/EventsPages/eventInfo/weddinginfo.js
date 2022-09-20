@@ -17,7 +17,7 @@ export function Weddinginfo(props) {
       <>
         <div style={{ minHeight: "100vh" }}>
           <div className="container">
-          <h3
+            <h3
               className=" text-center fw-bold mb-2"
               style={{ fontVariant: "small-caps", display: "block" }}
             >
@@ -90,9 +90,8 @@ export function Weddinginfo(props) {
           </div>
           <div class="my-5" />
           <div>
-            
             <div className="row justify-content-center">
-              <div className="col-md-8 text-center">
+              <div className="col-md-8 text-center table-responsive">
                 <table class="table align-middle mb-0 bg-white mb-8">
                   <thead>
                     <tr>
@@ -774,28 +773,30 @@ export function Weddinginfo(props) {
                   <div>
                     <div class="card w-75">
                       <div class="card-body">
-                        <table class="table">
-                          <tbody>
-                            <tr>
-                              <th scope="row" className="fw-bold">
-                                Cancel Request
-                              </th>
-                              <td colspan="2">
-                                {props.personalwedding.cancelstatus}
-                              </td>
-                            </tr>
-                            {props.personalwedding.canceled && (
+                        <div className="table-responsive">
+                          <table class="table">
+                            <tbody>
                               <tr>
                                 <th scope="row" className="fw-bold">
-                                  Refund Amount
+                                  Cancel Request
                                 </th>
                                 <td colspan="2">
-                                  {props.personalwedding.refund}
+                                  {props.personalwedding.cancelstatus}
                                 </td>
                               </tr>
-                            )}
-                          </tbody>
-                        </table>
+                              {props.personalwedding.canceled && (
+                                <tr>
+                                  <th scope="row" className="fw-bold">
+                                    Refund Amount
+                                  </th>
+                                  <td colspan="2">
+                                    {props.personalwedding.refund}
+                                  </td>
+                                </tr>
+                              )}
+                            </tbody>
+                          </table>
+                        </div>
                       </div>
                     </div>
                   </div>

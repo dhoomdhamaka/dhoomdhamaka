@@ -19,7 +19,7 @@ export function Preweddinginfo(props) {
       <>
         <div style={{ minHeight: "100vh" }}>
           <div className="container">
-          <h3
+            <h3
               className=" text-center fw-bold mb-2"
               style={{ fontVariant: "small-caps", display: "block" }}
             >
@@ -87,7 +87,7 @@ export function Preweddinginfo(props) {
           <div class="my-5" />
           <div>
             <div className="row justify-content-center mx-4">
-              <div className="col-md-8 ">
+              <div className="col-md-8 text-center table-responsive">
                 <table class="table align-middle mb-0 bg-white mb-8">
                   <thead>
                     <tr>
@@ -327,7 +327,7 @@ export function Preweddinginfo(props) {
               </div>
             </div>
           </div>
-          <hr  className="my-4"/>
+          <hr className="my-4" />
         </div>
       </>
     )

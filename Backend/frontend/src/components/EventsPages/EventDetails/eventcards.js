@@ -20,7 +20,7 @@ function Eventcards() {
   const [infoDetail, setInfoDetail] = useState();
   const [display, setDisplay] = useState("ok");
   const [invDisp, setInvDisp] = useState(false);
-
+  const [name , setname] = useState()
   useEffect(() => {
     function doLogout() {
       localStorage.clear("bandhanUserToken");
@@ -60,6 +60,7 @@ function Eventcards() {
         console.log(res.data[0]);
         setEventDetail(res.data[0]);
         setInfoDetail(res.data[1]);
+        setname(res.data[2].name)
         setDisplay("wedding")
       });
     } else if (item.eventName === "Birthday Event") {
@@ -67,6 +68,7 @@ function Eventcards() {
         console.log(res);
         setEventDetail(res.data[0]);
         setInfoDetail(res.data[1]);
+        setname(res.data[2].name)
         setDisplay("birthday")
       });
     } else if (item.eventName.trim() === "BabyShower Event") {
@@ -74,6 +76,7 @@ function Eventcards() {
         console.log(res);
         setEventDetail(res.data[0]);
         setInfoDetail(res.data[1]);
+        setname(res.data[2].name)
         setDisplay("babyshower")
       });
     } else if (item.eventName.trim() === "PreWedding Event") {
@@ -81,6 +84,7 @@ function Eventcards() {
         console.log(res);
         setEventDetail(res.data[0]);
         setInfoDetail(res.data[1]);
+        setname(res.data[2].name)
         setDisplay("prewed")
       });
     } else if (item.eventName.trim() === "PostWedding Event") {
@@ -88,6 +92,7 @@ function Eventcards() {
         console.log(res);
         setEventDetail(res.data[0]);
         setInfoDetail(res.data[1]);
+        setname(res.data[2].name)
         setDisplay("postwed")
       });
     } else if (item.eventName.trim() === "Engagement Event") {
@@ -96,6 +101,7 @@ function Eventcards() {
         console.log(res);
         setEventDetail(res.data[0]);
         setInfoDetail(res.data[1]);
+        setname(res.data[2].name)
         setDisplay("engagement")
       });
     } else if (item.eventName.trim() === "Familyfunction Event") {
@@ -103,6 +109,7 @@ function Eventcards() {
         console.log(res);
         setEventDetail(res.data[0]);
         setInfoDetail(res.data[1]);
+        setname(res.data[2].name)
         setDisplay("family")
       });
     } else if (item.eventName.trim() === "Corporate Event") {
@@ -110,6 +117,7 @@ function Eventcards() {
         console.log(res);
         setEventDetail(res.data[0]);
         setInfoDetail(res.data[1]);
+        setname(res.data[2].name)
         setDisplay("corp")
       });
     }else{
@@ -120,7 +128,7 @@ function Eventcards() {
     setDisplay(true);
     console.log(item);
   }
-
+console.log(name);
   return (
     <div className="mb-10 mt-5" style={{ minHeight: "80vh" }}>
       {invDisp && (
@@ -168,14 +176,14 @@ function Eventcards() {
 
       </div>
       
-      {display === "wedding" && <Weddinginfo wedding={infoDetail} personalwedding={eventDetail} />}
-      {display === "prewed" && <Preweddinginfo prewedding={infoDetail} personalprewedding={eventDetail} />}
-      {display === "postwed" && <Postweddinginfo postwedding={infoDetail} personalpostedding={eventDetail} />}
-      {display === "engagement" && <Engagementinfo engagement={infoDetail} personalengagement={eventDetail} />}
-      {display === "corp" && <Corporateinfo corporate={infoDetail} personalcorporate={eventDetail} />}
-      {display === "family" && <Familyfunctioninfo familyfunction={infoDetail} personalfamily={eventDetail} />}
-      {display === "babyshower" && <Babyshowerinfo babyshower={infoDetail} personalbabyshower={eventDetail} />}
-      {display === "birthday" && <Birthdayinfo birthday={infoDetail} personalbirthday={eventDetail} />}
+      {display === "wedding" && <Weddinginfo wedding={infoDetail} personalwedding={eventDetail} name={name} />}
+      {display === "prewed" && <Preweddinginfo prewedding={infoDetail} personalprewedding={eventDetail} name={name}  />}
+      {display === "postwed" && <Postweddinginfo postwedding={infoDetail} personalpostedding={eventDetail} name={name}  />}
+      {display === "engagement" && <Engagementinfo engagement={infoDetail} personalengagement={eventDetail} name={name}  />}
+      {display === "corp" && <Corporateinfo corporate={infoDetail} personalcorporate={eventDetail} name={name} />}
+      {display === "family" && <Familyfunctioninfo familyfunction={infoDetail} personalfamily={eventDetail} name={name}  />}
+      {display === "babyshower" && <Babyshowerinfo babyshower={infoDetail} personalbabyshower={eventDetail} name={name}  />}
+      {display === "birthday" && <Birthdayinfo birthday={infoDetail} personalbirthday={eventDetail} name={name}  />}
     </div>
   );
 }
