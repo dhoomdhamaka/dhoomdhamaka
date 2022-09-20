@@ -769,10 +769,10 @@ function BabyShowerForm() {
                             aria-label="Default select example"
                           >
                             <option
-                              id={"Romantic Decoration"}
-                              value="Romantic Decoration"
+                              id={"Baby Story Decoration"}
+                              value="Baby Story Decoration"
                             >
-                              Romantic Decoration
+                              Baby Story Decoration
                             </option>
                             <option
                               id={"Musical Decoration"}
@@ -787,6 +787,12 @@ function BabyShowerForm() {
                               Retro Decoration
                             </option>
                             <option
+                              id={"Ballon Decoration"}
+                              value="Ballon Decoration"
+                            >
+                              Ballon Decoration
+                            </option>
+                            <option
                               id={"Single Color Decoration"}
                               value="Single Color Decoration"
                             >
@@ -799,10 +805,10 @@ function BabyShowerForm() {
                               Multi Color Decoration
                             </option>
                             <option
-                              id={"Traditional decoration"}
-                              value="Traditional decoration"
+                              id={"Fairy Tale decoration"}
+                              value="Fairy Tale decoration"
                             >
-                              Traditional decoration
+                              Fairy Tale decoration
                             </option>
                           </select>
                         </div>

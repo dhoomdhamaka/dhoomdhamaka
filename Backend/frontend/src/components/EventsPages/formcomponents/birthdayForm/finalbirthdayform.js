@@ -1181,7 +1181,7 @@ function Finalbirthdayform() {
                     <div class="col-md-6">
                       <div class="mb-3">
                         <label for="exampleInput11" class="form-label">
-                          Minimun
+                          Minimum
                         </label>
                         <input
                           {...register("Estimate_Budget_Minimum")}

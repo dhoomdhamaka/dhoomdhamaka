@@ -135,14 +135,9 @@ function CorporateForm() {
   };
   const decorationoptions = [
     // { label:  'Regular Decoration', value:  'Regular Decoration'  },
-    {
-      label: "Artificial Flowers Decoration",
-      value: "Artificial Flowers Decoration",
-    },
     { label: "Indoor Decoration", value: "Indoor Decoration" },
     { label: "Outdoor Decoration", value: "Outdoor Decoration" },
     { label: "Lightning Decoration", value: "Lightning Decoration" },
-    { label: "Real Flower Decoration", value: "Real Flower Decoration" },
   ];
 
   //decoration ends
@@ -1291,7 +1286,7 @@ function CorporateForm() {
                     <div class="col-md-6">
                       <div class="mb-3">
                         <label HtmlFor="exampleInput11" class="form-label">
-                          Minimun
+                          Minimum
                         </label>
                         <input
                           {...register("Estimate_Budget_Minimum")}

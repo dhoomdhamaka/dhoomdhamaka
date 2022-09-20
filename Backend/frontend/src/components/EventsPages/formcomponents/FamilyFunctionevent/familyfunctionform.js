@@ -806,46 +806,46 @@ function FamilyfunctionForm() {
                             aria-label="Default select example"
                           >
                             <option
-                              value="Traditional_Decoration"
-                              id="Traditional_Decoration"
+                              value="Traditional Decoration"
+                              id="Traditional Decoration"
                             >
-                              Traditional
+                              Traditional Decoration
                             </option>
                             <option
-                              id="SingleColor_Decoration"
-                              value="SingleColor_Decoration"
+                              id="Single Color Decoration"
+                              value="SingleColor Decoration"
                             >
-                              Single Color
+                              Single Color Decoration
                             </option>
                             <option
-                              id="MultiColor_Decoration"
-                              value="MultiColor_Decoration"
+                              id="MultiColor Decoration"
+                              value="MultiColor Decoration"
                             >
-                              Multi Color
+                              Multi Color Decoration
                             </option>
                             <option
-                              id="Musical_Decoration"
-                              value="Musical_Decoration"
+                              id="Musical Decoration"
+                              value="Musical Decoration"
                             >
-                              Musical
+                              Musical Decoration
                             </option>
                             <option
-                              id="FairyTale_Decoration"
-                              value="FairyTale_Decoration"
+                              id="Fairy Tale Decoration"
+                              value="Fairy Tale Decoration"
                             >
-                              Fairy tale
+                              Fairy Tale Decoration
                             </option>
                             <option
-                              id="Devotional_Decoration"
-                              value="Devotional_Decoration"
+                              id="Devotional Decoration"
+                              value="Devotional Decoration"
                             >
-                              Devotional
+                              Devotional Decoration
                             </option>
                             <option
-                              id="Retro_Decoration"
-                              value="Retro_Decoration"
+                              id="Retro Decoration"
+                              value="Retro Decoration"
                             >
-                              Retro
+                              Retro Decoration
                             </option>
                           </select>
                         </div>
@@ -1246,7 +1246,7 @@ function FamilyfunctionForm() {
                     <div class="col-md-6">
                       <div class="mb-3">
                         <label HtmlFor="exampleInput11" class="form-label">
-                          Minimun
+                          Minimum
                         </label>
                         <input
                           {...register("Estimate_Budget_Minimum")}
