@@ -20,14 +20,12 @@ const schema = yup.object().shape({
   fromDate: yup.string().required("From date must be required"),
   ToDate: yup.string().required("To date must be required"),
   ShootingDate: yup.string().required("Shooting date must be required"),
-  BachelorPartyDate: yup
-    .string(),
-    // .required("Bachelor's Party Date must be required"),
+  BachelorPartyDate: yup.string(),
+  // .required("Bachelor's Party Date must be required"),
   city: yup.string().required("city name must be required"),
-  No_Of_Guests: yup
-    .number().__inputTyp,
-    // .typeError("No of Guests must be required"),
-    // .required("No of Guests must be required"),
+  No_Of_Guests: yup.number().__inputTyp,
+  // .typeError("No of Guests must be required"),
+  // .required("No of Guests must be required"),
   Estimate_Budget_Maximum: yup
     .string()
     .required("Estimate Budget Maximum must be required"),
@@ -192,15 +190,15 @@ function PreweddingForm() {
       foodvalue,
     };
     axios
-      .post("/api/prewedding", { data, checkBoxValues,name_Of_The_Event, })
+      .post("/api/prewedding", { data, checkBoxValues, name_Of_The_Event })
       .then((res) => {
         console.log(res.data);
-        if(res.data === "already"){
+        if (res.data === "already") {
           toast.success("Already form submitted", {
             position: toast.POSITION.TOP_RIGHT,
           });
         }
-        if(res.data === "saved"){
+        if (res.data === "saved") {
           if (diffDays <= 6) {
             toast.success("you are under premium booking!!!", {
               position: toast.POSITION.TOP_CENTER,
@@ -210,7 +208,7 @@ function PreweddingForm() {
             position: toast.POSITION.TOP_RIGHT,
           });
           setTimeout(() => {
-            navigate("/")                                 
+            navigate("/");
           }, 2000);
         }
       })
@@ -281,7 +279,7 @@ function PreweddingForm() {
                         />
                       </div>
                     </div>
-                    
+
                     <div class="row">
                       <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
                         <img
@@ -344,7 +342,7 @@ function PreweddingForm() {
                             id="Client_Name"
                             placeholder="Name"
                           />
-                          <label for="floatingInput"> Client Name</label>
+                          <label for="floatingInput"> User Name</label>
                           {errors.Client_Name && (
                             <div class="alert alert-danger mt-2" role="alert">
                               {errors.Client_Name?.message}
@@ -457,7 +455,7 @@ function PreweddingForm() {
                         </div>
                       )}
                     </div>
-{/* 
+                    {/* 
                     <div class="btn-group mb-4">
                       <input
                         type="radio"
@@ -578,7 +576,9 @@ function PreweddingForm() {
             })}
           >
             <div class="card-header bg-light border-0">
-              <h4 class="mb-0 fw-bolder fs-3 text-center">Pre Wedding Booking</h4>
+              <h4 class="mb-0 fw-bolder fs-3 text-center">
+                Pre Wedding Booking
+              </h4>
             </div>
 
             <div class="card-body px-5">
@@ -874,16 +874,13 @@ function PreweddingForm() {
                             value={"veg"}
                           />
 
-                          <label
-                            class="form-check-label"
-                            for="veg"
-                          >
+                          <label class="form-check-label" for="veg">
                             Veg
                           </label>
                         </div>
                       </div>
                     </div>
-                   
+
                     <div class="col-md-4">
                       <div class="mb-3">
                         <div class="form-check">
@@ -896,10 +893,7 @@ function PreweddingForm() {
                             id="jain"
                           />
 
-                          <label
-                            class="form-check-label"
-                            for="jain"
-                          >
+                          <label class="form-check-label" for="jain">
                             Jain
                           </label>
                         </div>
@@ -1369,14 +1363,17 @@ function PreweddingForm() {
                   will contact you within 12-24 hours to discuss in more detail.
                 </strong>
               </h4>
-              <h1 class="my-2" /> 
+              <h1 class="my-2" />
               <h3>
                 <strong>Note 2 : </strong>
               </h3>
               <h4>
                 <strong style={{ color: "red" }}>
                   {" "}
-                  <a href={"/termsandconditions"} > Terms and Conditions apply</a>
+                  <a href={"/termsandconditions"}>
+                    {" "}
+                    Terms and Conditions apply
+                  </a>
                 </strong>
               </h4>
             </div>

@@ -1464,7 +1464,7 @@ function Orderslist(props) {
               <td>{forms[0].BrideName}</td>
             </tr>
             <tr>
-              <th>Client Name</th>
+              <th>User Name </th>
               <td>{forms[0].ClientName}</td>
             </tr>
             <tr>

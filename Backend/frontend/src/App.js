@@ -37,7 +37,7 @@ import BeautyGallery from "./components/serviceGallery/beautyGallery";
 import CateringGallery from "./components/serviceGallery/cateringGallery";
 import Passwordresetsuccess from "./components/passwordReset/passwordresetsuccess";
 import ScrollToTop from "./scrollToTop";
-
+import Privacy from "./components/privacy/privacy";
 
 
 function App() {
@@ -93,6 +93,7 @@ function App() {
         <Route path="/admindashboard" element={<Admindashboard />}></Route>
         <Route path="/passwordresetsuccess" element={<Passwordresetsuccess />}></Route>
         <Route path="/termsandconditions" element={<Termsandcondtions/>}></Route>
+        <Route path="/privacy" element={<Privacy/>}></Route>
         <Route path="*" element={<Events />}></Route>
       </Routes>
     );
@@ -114,6 +115,7 @@ function App() {
         <Route path="/poojagallery" element={<PoojaGallery />}></Route>
         <Route path="/admin" element={<Admin />}></Route>
         <Route path="/termsandconditions" element={<Termsandcondtions/>}></Route>
+        <Route path="/privacy" element={<Privacy/>}></Route>
         {/* <Route path="admindashboard" element={<Admindashboard />}></Route> */}
         <Route path="/poojagallery" element={<PoojaGallery />}></Route>
         <Route path="/passwordresetsuccess" element={<Passwordresetsuccess />}></Route>

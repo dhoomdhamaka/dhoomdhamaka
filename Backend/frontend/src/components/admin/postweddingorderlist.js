@@ -8,7 +8,7 @@ function Orderslist(props) {
   const [updtBtn, setUpdtBtn] = useState(true);
   const [datavoucher, setdatavoucher] = useState("");
   const [postInfo, setPostInfo] = useState("");
-  const [refundamount, setrefundamount]= useState()
+  const [refundamount, setrefundamount] = useState();
   const [additional, setAdditional] = useState(false);
   const [additionalReas, setAdditionalReas] = useState(null);
   const [additionalstats, setAdditionalstats] = useState(null);
@@ -34,17 +34,17 @@ function Orderslist(props) {
   const [subaarambhYatraPromiseDat, setsubaarambhYatraPromiseDate] =
     useState(null);
 
-    const [paymentDetails, setPaymentDetails] = useState(null);
+  const [paymentDetails, setPaymentDetails] = useState(null);
 
-    const [eventCharge, setEventCharge] = useState(null);
-    const [bookingCharge, setBookingCharge] = useState(null);
-    const [confirmationCharge, setConfirmationCharge] = useState(null);
-    const [pendingCharge, setPendingCharge] = useState(null);
-  
-    const [showPaymentStatus, setShowPaymentStatus] = useState(false);
-    const [updtBtnPayment, setUpdtBtnPayment] = useState(true);
-    const [showInvocStatus, setInvocStatus] = useState(false);
-    const [invocDetails, setInvocDetails] = useState(null);
+  const [eventCharge, setEventCharge] = useState(null);
+  const [bookingCharge, setBookingCharge] = useState(null);
+  const [confirmationCharge, setConfirmationCharge] = useState(null);
+  const [pendingCharge, setPendingCharge] = useState(null);
+
+  const [showPaymentStatus, setShowPaymentStatus] = useState(false);
+  const [updtBtnPayment, setUpdtBtnPayment] = useState(true);
+  const [showInvocStatus, setInvocStatus] = useState(false);
+  const [invocDetails, setInvocDetails] = useState(null);
   useEffect(() => {
     axios
       .get(`api/postwedding/paymentDetails/${forms[0].orderId}`)
@@ -58,11 +58,11 @@ function Orderslist(props) {
           setPendingCharge(res.data[0].pendingCharge);
         }
       });
-      axios.get(`api/invoice/getDetails/${forms[0].orderId}`).then((res) => {
-        setInvocDetails(res.data[0]);
-        
-        setInvocStatus(true)
-      });
+    axios.get(`api/invoice/getDetails/${forms[0].orderId}`).then((res) => {
+      setInvocDetails(res.data[0]);
+
+      setInvocStatus(true);
+    });
     axios
       .get(`api/adminuserlist/postweddingpointsvoucher/${forms[0].userId}`)
       .then((res) => {
@@ -135,24 +135,28 @@ function Orderslist(props) {
         }
       });
   }, []);
-  function cancelorder(value){
-    if(value=== "Accepted"){
-      axios.post(`api/eventInfo/postweddingaccepted/${forms[0].orderId}`).then((res) => {
-      });
+  function cancelorder(value) {
+    if (value === "Accepted") {
+      axios
+        .post(`api/eventInfo/postweddingaccepted/${forms[0].orderId}`)
+        .then((res) => {});
     }
-    if(value=== "Declined"){
-      axios.post(`api/eventInfo/postweddingdeclined/${forms[0].orderId}`).then((res) => {
-      });
+    if (value === "Declined") {
+      axios
+        .post(`api/eventInfo/postweddingdeclined/${forms[0].orderId}`)
+        .then((res) => {});
     }
-    if(value=== "Refund"){
-      axios.post(`api/eventInfo/postweddingrefund/${forms[0].orderId}`,{refundamount}).then((res) => {
-      });
+    if (value === "Refund") {
+      axios
+        .post(`api/eventInfo/postweddingrefund/${forms[0].orderId}`, {
+          refundamount,
+        })
+        .then((res) => {});
     }
   }
-  function dlt(){
-    axios.delete(`api/eventInfo/postweddingdlt/${forms[0].orderId}`)
-    window.location.reload(); 
-  
+  function dlt() {
+    axios.delete(`api/eventInfo/postweddingdlt/${forms[0].orderId}`);
+    window.location.reload();
   }
   const orderId = postInfo.orderId;
   function status(value) {
@@ -177,13 +181,13 @@ function Orderslist(props) {
       .then((res) => {
         console.log(res.data);
       });
-      window.location.reload(); 
+    window.location.reload();
   }
   function voucher(val) {
     axios
       .post(`api/adminuserlist/postweddingvoucher/${forms[0].userId}`, { val })
       .then((res) => {});
-      window.location.reload(); 
+    window.location.reload();
   }
   function updateEventDetails() {
     const eventDatas = {
@@ -231,7 +235,7 @@ function Orderslist(props) {
         if (res.status === 200) {
           alert(res.data);
           setUpdtBtnPayment(true);
-          window.location.reload(); 
+          window.location.reload();
         }
       })
       .catch((err) => {
@@ -254,7 +258,7 @@ function Orderslist(props) {
       .post("api/invoice/postwed/updateDetails", { sendUpdInvoice })
       .then((res) => {
         if (res.status === 200) {
-          alert("Invoices Details Updated"); 
+          alert("Invoices Details Updated");
         }
       })
       .catch((err) => {
@@ -265,100 +269,158 @@ function Orderslist(props) {
     <div className="row my-12">
       <h3 className="fs-4 mb-3">Details</h3>
       <div className="col">
-
-      {forms[0] && (<div >
-                <div class="card w-75">
-                <div class="card-body">
+        {forms[0] && (
+          <div>
+            <div class="card w-75">
+              <div class="card-body">
                 <h5 class="card-title red">Delete Order</h5>
                 <table class="table ">
-              <tbody> 
-              <tr>
-              
-            
-<td><button type="button" class="btn btn-danger" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
-Delete
-</button></td>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <button
+                          type="button"
+                          class="btn btn-danger"
+                          data-mdb-toggle="modal"
+                          data-mdb-target="#exampleModal"
+                        >
+                          Delete
+                        </button>
+                      </td>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title " id="exampleModalLabel">Delete User</h5>
-        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">Delete all the order information</div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-warning" data-mdb-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-danger" onClick={(val)=>dlt()}>Delete</button>
-      </div>
-    </div>
-  </div>
-</div>
+                      <div
+                        class="modal fade"
+                        id="exampleModal"
+                        tabindex="-1"
+                        aria-labelledby="exampleModalLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title " id="exampleModalLabel">
+                                Delete User
+                              </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-mdb-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              Delete all the order information
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn btn-warning"
+                                data-mdb-dismiss="modal"
+                              >
+                                Close
+                              </button>
+                              <button
+                                type="button"
+                                class="btn btn-danger"
+                                onClick={(val) => dlt()}
+                              >
+                                Delete
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
 
-              {/* <td><div className='btn btn-warning btn-sm' onClick={(val)=>dlt()}>Delete</div></td> */}
-                  </tr>                
-              
-              </tbody>
-              </table>
-                </div>
-              </div>      
-              
+                      {/* <td><div className='btn btn-warning btn-sm' onClick={(val)=>dlt()}>Delete</div></td> */}
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              
-              
-           )}
+            </div>
+          </div>
+        )}
 
-           
-           <hr class="my-5"/>
+        <hr class="my-5" />
 
-      {forms[0].cancelrequest && (<div >
-                <div class="card w-75">
-                <div class="card-body">
+        {forms[0].cancelrequest && (
+          <div>
+            <div class="card w-75">
+              <div class="card-body">
                 <h5 class="card-title red">Cancel Order</h5>
                 <table class="table ">
-              <tbody> 
-              <tr>
-                    <th scope="row" className="fw-bold col-md-8 ">Cancel Request</th>
-          <td><div className='btn btn-danger btn-sm' onClick={(val)=>cancelorder("Accepted")}>Accept</div></td>
-          <td><div className='btn btn-warning btn-sm' onClick={(val)=>cancelorder("Declined")}>Decline</div></td>
-                  </tr>
-                 <tr>
-                    <td scope="row" className="fw-bold">Refund Amount</td>
-                    <td>
-                  <input
-                 
-                    type={"number"}
-                    placeholder={"enter refund amount"}
-                    // value={refundamount}
-                    onChange={(e) => {
-                      setrefundamount(e.target.value);
-                      // setUpdtBtn(false);
-                    }}
-                  />  
-                  </td>
-                <td><div className='btn btn-warning btn-sm' onClick={(val)=>cancelorder("Refund")}>Refund</div></td>
-                
-                  </tr>
-                  <tr>
-                  <td><div scope="row" className="fw-bold">Refunded Amount : {forms[0].refund}</div></td>
-                  </tr>
-                  <tr>
+                  <tbody>
+                    <tr>
+                      <th scope="row" className="fw-bold col-md-8 ">
+                        Cancel Request
+                      </th>
                       <td>
-                        <div scope="row" className="fw-bold ">
-                         <h4> Cancel Order Status : 
-                          <span className="btn btn-success btn-sm">{forms[0].cancelstatus}</span></h4>
-                           
+                        <div
+                          className="btn btn-danger btn-sm"
+                          onClick={(val) => cancelorder("Accepted")}
+                        >
+                          Accept
+                        </div>
+                      </td>
+                      <td>
+                        <div
+                          className="btn btn-warning btn-sm"
+                          onClick={(val) => cancelorder("Declined")}
+                        >
+                          Decline
                         </div>
                       </td>
                     </tr>
-              </tbody>
-              </table>
-                </div>
-              </div>      
-              <hr class="my-5"/>
+                    <tr>
+                      <td scope="row" className="fw-bold">
+                        Refund Amount
+                      </td>
+                      <td>
+                        <input
+                          type={"number"}
+                          placeholder={"enter refund amount"}
+                          // value={refundamount}
+                          onChange={(e) => {
+                            setrefundamount(e.target.value);
+                            // setUpdtBtn(false);
+                          }}
+                        />
+                      </td>
+                      <td>
+                        <div
+                          className="btn btn-warning btn-sm"
+                          onClick={(val) => cancelorder("Refund")}
+                        >
+                          Refund
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div scope="row" className="fw-bold">
+                          Refunded Amount : {forms[0].refund}
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div scope="row" className="fw-bold ">
+                          <h4>
+                            {" "}
+                            Cancel Order Status :
+                            <span className="btn btn-success btn-sm">
+                              {forms[0].cancelstatus}
+                            </span>
+                          </h4>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              
-           )}
+            </div>
+            <hr class="my-5" />
+          </div>
+        )}
         <table className="table bg-white rounded shadow-sm  table-hover">
           <thead>
             <tr>
@@ -378,7 +440,7 @@ Delete
             </tr>
           </thead>
           <tbody>
-          {!!additional && (
+            {!!additional && (
               <tr>
                 <th>Additional Service</th>
                 <td className="text-start ps-0 ms-0 pe-5">
@@ -719,14 +781,11 @@ Delete
                   350
                 </div>
               </td>
-             
             </tr>
             <tr>
-            <th>&nbsp;&nbsp;&nbsp;</th>
-            <div>
-            &nbsp;&nbsp;&nbsp;
-            </div>
-            <td>
+              <th>&nbsp;&nbsp;&nbsp;</th>
+              <div>&nbsp;&nbsp;&nbsp;</div>
+              <td>
                 <div
                   className="btn btn-success btn-sm"
                   onClick={() => points(400)}
@@ -829,7 +888,7 @@ Delete
               <td>{forms[0].BrideName}</td>
             </tr>
             <tr>
-              <th>Client Name</th>
+              <th>User Name</th>
               <td>{forms[0].ClientName}</td>
             </tr>
             <tr>
@@ -1016,7 +1075,11 @@ Delete
         )}
         <hr className="my-5" />
         {!!showInvocStatus && (
-          <AdminInvoice ordId={forms[0].orderId} details={invocDetails} updateInvoiceDetails={updateInvoiceDetails} />
+          <AdminInvoice
+            ordId={forms[0].orderId}
+            details={invocDetails}
+            updateInvoiceDetails={updateInvoiceDetails}
+          />
         )}
       </div>
     </div>

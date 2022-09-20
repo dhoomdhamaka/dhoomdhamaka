@@ -96,25 +96,53 @@ function Footer() {
             </section>
           </div>
         </div>
-        <div className="row justify-content-center">
+        {/* <div className="row justify-content-center">
           <div className="col-md-12 text-center">
             <p>29 A , Lakshmi Amman Kovil street ,</p>
             <p>Puthagram ,</p>
             <p>Chennai - 600 009</p>
           </div>
-        </div>
-        <div
-          class="text-center p-3 fw-bold"
+        </div> */}
+        {/* <div
+          class="text-center px-3 pt-3 fw-bold"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.2)", color: "limegreen" }}
         >
-          © 2022 ::
-          <Link
+        © 2022 :: Dhoom Dhamaka 
+         
+        </div>
+        <div className="text-end">
+        <Link
             class="ms-1"
             style={{ color: "limegreen" }}
             to="./termsandconditions"
           >
             Terms & Conditions
           </Link>
+        </div> */}
+
+        <div className="row justify-content-center mt-3">
+          <div
+            class="text-xl-end col-md-6 me-xl-5 fw-bold"
+            style={{
+              backgroundColor: "rgba(0, 0, 0, 0.2)",
+              color: "limegreen",
+            }}
+          >
+            © 2022 :: Dhoom Dhamaka
+          </div>
+          <div className="col-md-4 text-xl-end me-xl-4">
+            <Link
+              class="ms-1 me-1"
+              style={{ color: "limegreen" }}
+              to="./termsandconditions"
+            >
+              Terms & Conditions
+            </Link>
+            <span className="text-success"> | </span>
+            <Link class="ms-1" style={{ color: "limegreen" }} to="./privacy">
+              Privacy & Policy
+            </Link>
+          </div>
         </div>
         {/* <!-- Copyright --> */}
       </footer>
