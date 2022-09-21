@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 function PasswordReset() {
   const [email, setEmail] = useState();
+  const [showRes, setShowRes] = useState(false);
   const [errorLogin, setErrorLogin] = useState(null);
   const navigate = useNavigate();
 
@@ -13,19 +14,22 @@ function PasswordReset() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    setShowRes(true);
+
     axios
       .post("api/passwordReset", { email })
       .then((res) => {
         console.log(res.data);
         if (res.status === 200) {
           navigate("/passwordresetsuccess");
+          setShowRes(false);
         }
       })
       .catch((err) => {
         if (err.response.data.error === "user doesn't exists with that email") {
-          setErrorLogin("User doesn't exists with this email")
-        }else{
-          setErrorLogin("Something went wrong. please try again later")
+          setErrorLogin("User doesn't exists with this email");
+        } else {
+          setErrorLogin("Something went wrong. please try again later");
         }
         console.log(err);
       });
@@ -86,16 +90,17 @@ function PasswordReset() {
                                 class="btn btn-lg btn-primary btn-block"
                                 value="Reset Password"
                                 type="submit"
+                                disabled={showRes}
                               />
                             </div>
 
-                            <input
+                            {/* <input
                               type="hidden"
                               class="hide"
                               name="token"
                               id="token"
                               value=""
-                            />
+                            /> */}
                           </form>
                         </div>
                       </div>
