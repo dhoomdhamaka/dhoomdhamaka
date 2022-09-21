@@ -70,7 +70,7 @@ function Footer() {
               <a
                 class="btn text-white btn-floating m-1"
                 style={{ backgroundColor: " #dd4b39" }}
-                href="mailto:Dhoomdhamaka0@gmail.com"
+                href="mailto:dhoomdhamaka0@gmail.com"
                 role="button"
               >
                 <i class="fab fa-google"></i>
@@ -120,9 +120,12 @@ function Footer() {
           </Link>
         </div> */}
 
-        <div className="row justify-content-center mt-3">
+        <div
+          className="row justify-content-center mt-3
+        mb-2"
+        >
           <div
-            class="text-xl-end col-md-6 me-xl-5 fw-bold"
+            class="text-xl-end col-md-7 me-xl-5 pe-xl-4 fw-bold"
             style={{
               backgroundColor: "rgba(0, 0, 0, 0.2)",
               color: "limegreen",
