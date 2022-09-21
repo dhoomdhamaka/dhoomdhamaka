@@ -2,8 +2,9 @@
 
 // const { crypto } = require("crypto");
 const express = require("express");
+const { randomBytes } = require("node:crypto");
 const router = express.Router();
-const crypto = require("node:crypto");
+// const crypto = require("node:crypto");
 const nodemailer = require("nodemailer");
 const { User } = require("../model/user");
 
@@ -22,7 +23,7 @@ var transporter = nodemailer.createTransport({
 router.post("/", (req, res) => {
   //creating random digits using crypto
 
-  crypto.randomBytes(32, (err, buffer) => {
+  randomBytes(32, (err, buffer) => {
     if (err) {
       console.log(err);
     }
