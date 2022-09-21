@@ -2,7 +2,7 @@
 
 // const { crypto } = require("crypto");
 const express = require("express");
-const { randomBytes } = require("randombytes");
+var randomBytes = require("randombytes");
 const router = express.Router();
 // const crypto = require("node:crypto");
 const nodemailer = require("nodemailer");
