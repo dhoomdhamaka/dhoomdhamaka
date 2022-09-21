@@ -2,12 +2,13 @@
 
 // const { crypto } = require("crypto");
 const express = require("express");
-const { randomBytes } = require("node:crypto");
+const { randomBytes } = require("randombytes");
 const router = express.Router();
 // const crypto = require("node:crypto");
 const nodemailer = require("nodemailer");
 const { User } = require("../model/user");
 
+rando;
 //creatingbtransporting our mail nd pass nd service
 
 var transporter = nodemailer.createTransport({
