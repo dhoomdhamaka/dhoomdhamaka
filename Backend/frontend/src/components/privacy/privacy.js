@@ -489,6 +489,62 @@ function Privacy() {
               use commercially acceptable means to protect Your Personal Data,
               We cannot guarantee its absolute security.
             </p>
+            <h2 className="fw-bold my-2">Cancellation Policy :</h2>
+            <h4 className="fw-bold mb-2 ms-1">
+              If any event is canceled under general booking. Following are the
+              guidelines
+            </h4>
+            <ul className="ms-4 mb-2">
+              <li>
+                Any event that is canceled on or before at least 3 days/72 hours
+                is eligible for cancellation and a refund of 40% will be
+                credited and 10% of the booking fee will be charged as
+                cancellation fee.
+              </li>
+              <li>
+                Any event canceled between 24-48 hours will be credited with 35%
+                and 15% of the booking fee will be charged as cancellation.
+              </li>
+              <li>
+                If the customer has paid the confirmation fee in both the cases
+                it will be fully refunded.
+              </li>
+            </ul>
+            <h4 className="fw-bold my-2 ms-1">
+              If any event is canceled under Premium booking. Following are the
+              guidelines
+            </h4>
+            <ul className="ms-4">
+              <li>
+                Under premium booking no booking fee will be refunded even if
+                the customer is canceled on the same day the event was booked.
+              </li>
+              <li>
+                Any event which is canceled on or before at least 3 days/72
+                hours, the customer is eligible to claim the confirmation fee.
+                If this deadline is passed, the Customer may not be entitled to
+                any refund on the Confirmed Booking.
+              </li>
+              <li>
+                Any cancellation before 24 hours will not be accepted. It will
+                charge 50% of the total event payment. In this case only the
+                pending fee will be refunded. No refund for booking and
+                confirmation fee.
+              </li>
+            </ul>
+            <h2 className=" fw-bold my-2">Refund Policy:</h2>
+            <p className="ms-3 mb-2">
+              The refund amount is credited to the customer bank account only.
+              If Customer provides any wrong information to Dhoom Dhamaka team
+              or website, Dhoom Dhamaka is not responsible for the same and in
+              that case refund will not be given to Customer again as Dhoom
+              Dhamaka has already paid. The Customer shall receive such payment,
+              if for any reason the payment fails in the wrong account otherwise
+              it shall not be re-credited to the Customer. If any refund is made
+              by Dhoom Dhamaka, the customer will have to wait for 7-10 days
+              from the date of cancellation.
+            </p>
+
             <h3 className="fw-bold my-2">Children&#x27;s Privacy</h3>
             <p className="ms-3">
               Our Service does not address anyone under the age of 13. We do not
