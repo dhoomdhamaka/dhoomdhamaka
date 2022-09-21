@@ -8,7 +8,6 @@ const router = express.Router();
 const nodemailer = require("nodemailer");
 const { User } = require("../model/user");
 
-rando;
 //creatingbtransporting our mail nd pass nd service
 
 var transporter = nodemailer.createTransport({
