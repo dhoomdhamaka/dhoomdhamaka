@@ -89,8 +89,10 @@ function Invoice() {
           <div className="col-10 col-md-6 col-xl-4">
             <div className="card rounded-5 shadow-3-strong ">
               <div className="card-body text-center">
-                <img src="./images/sademoj.PNG" width={"150px"} className="text-center"/>
-                <h1 className="fs-1 fw-bold text-center text-black">OOPS !!!</h1>
+                {/* <img src="./images/sademoj.PNG" width={"150px"} className="text-center"/> */}
+                <h1 className="fs-1 fw-bold text-center text-black">
+                  OOPS !!!
+                </h1>
                 <p className="text-muted">No events booked Yet</p>
               </div>
             </div>

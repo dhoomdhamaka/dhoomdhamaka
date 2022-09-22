@@ -44,6 +44,7 @@ function Eventcarousel() {
                 style={{ backgroundImage: "url(" + "images/img6.jpg" + ")" }}
               ></li>
               <li
+                className="d-sm-none"
                 data-mdb-target="#carousel"
                 data-mdb-slide-to="6"
                 style={{ backgroundImage: "url(" + "images/img7.jpg" + ")" }}
@@ -184,7 +185,7 @@ function Eventcarousel() {
                 class="d-block w-100"
                 src="images/img7.jpg"
               />
-              <div class="container">
+              <div class="container d-sm-none">
                 <h2>corporate function</h2>
                 <p>
                   “Your most unhappy customers are your greatest source of

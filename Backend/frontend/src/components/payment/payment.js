@@ -14,7 +14,6 @@ function Payment() {
   const [display, setDisplay] = useState(false);
   const [invDisp, setInvDisp] = useState(false);
 
-
   useEffect(() => {
     function doLogout() {
       localStorage.clear("bandhanUserToken");
@@ -66,42 +65,44 @@ function Payment() {
   }
 
   return (
-    <div className="mb-10 mt-5" style={{minHeight: "80vh"}}>
-      {invDisp && <div className="row justify-content-center mx-5">
-        {datas.map((item, i) => {
-          return (
-            <div className="col-md-4" key={i}>
-              <div className="card rounded shadow-4-strong">
-                <div className="card-body text-center">
-                  <h3 className="mb-4 fw-bold">{item.eventName}</h3>
-                  <button
-                    type="button"
-                    className="btn btn-secondary"
-                    onClick={() => detailsCall121(item)}
-                  >
-                    Details
-                  </button>
+    <div className="mb-10 mt-5" style={{ minHeight: "80vh" }}>
+      {invDisp && (
+        <div className="row justify-content-center mx-5">
+          {datas.map((item, i) => {
+            return (
+              <div className="col-md-4" key={i}>
+                <div className="card rounded shadow-4-strong">
+                  <div className="card-body text-center">
+                    <h3 className="mb-4 fw-bold">{item.eventName}</h3>
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      onClick={() => detailsCall121(item)}
+                    >
+                      Details
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
-        
-      </div>}
+            );
+          })}
+        </div>
+      )}
       {!invDisp && (
         <div className="row justify-content-center mt-5 my-auto">
           <div className="col-10 col-md-6 col-xl-4">
             <div className="card rounded-5 shadow-3-strong ">
               <div className="card-body text-center">
-                <img src="./images/sademoj.PNG" width={"150px"} className="text-center"/>
-                <h1 className="fs-1 fw-bold text-center text-black">OOPS !!!</h1>
+                {/* <img src="./images/sademoj.PNG" width={"150px"} className="text-center"/> */}
+                <h1 className="fs-1 fw-bold text-center text-black">
+                  OOPS !!!
+                </h1>
                 <p className="text-muted">No events booked Yet</p>
               </div>
             </div>
           </div>
         </div>
       )}
-
 
       {display && <PaymentDetail data={currentDetail} />}
     </div>
