@@ -28,8 +28,10 @@ function PasswordReset() {
       .catch((err) => {
         if (err.response.data.error === "user doesn't exists with that email") {
           setErrorLogin("User doesn't exists with this email");
+          setShowRes(false);
         } else {
           setErrorLogin("Something went wrong. please try again later");
+          setShowRes(false);
         }
         console.log(err);
       });
