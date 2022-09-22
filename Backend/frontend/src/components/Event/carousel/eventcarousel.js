@@ -177,7 +177,7 @@ function Eventcarousel() {
               </div>
             </div>
             <div
-              class="carousel-item ct7"
+              class="carousel-item ct7 d-md-block d-xl-block d-none"
               // style={{ backgroundImage: "url(" + "images/img7.jpg" + ")" }}
             >
               <img
