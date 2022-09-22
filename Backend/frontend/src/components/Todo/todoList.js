@@ -4,14 +4,12 @@ import React from "react";
 function TodoList(props) {
   const { id, todoText } = props;
   function handleDel(e) {
-    console.log("del called");
     const todoID = id;
     //req del sending
     axios
       .delete(`api/todo/${id}`)
       .then((res) => {
-        props.delFunc(res.data)
-        console.log(res);
+        props.delFunc(res.data);
       })
       .catch((err) => console.log(err));
   }

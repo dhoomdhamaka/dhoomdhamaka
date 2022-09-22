@@ -73,9 +73,6 @@ function Orderslist(props) {
     axios
       .get(`api/postwedding/postweddingInfo/${forms[0].orderId}`)
       .then((res) => {
-        // setdatapoints(res.data[0].points)
-        // setdatavoucher(res.data[0].voucher)
-        // console.log(res.data[0]);
         setPostInfo(res.data[0]);
         if (res.data[0].honeymoonConfirmation) {
           setHoneymoonReas(res.data[0].honeymoonReason);
@@ -98,14 +95,8 @@ function Orderslist(props) {
         } else {
           setAdditional(false);
         }
-        // console.log(res.data[0].muh_DikhaiConfirmation);
 
-        if (
-          // res.data[0].muh_DikhaiReason ||
-          res.data[0].muh_DikhaiConfirmation
-          // res.data[0].muh_DikhaiPromiseDate ||
-          // res.data[0].muh_Dikhaistatus
-        ) {
+        if (res.data[0].muh_DikhaiConfirmation) {
           setmuh_DikhaiReas(res.data[0].muh_DikhaiReason);
           setmuh_DikhaiConf(res.data[0].muh_DikhaiConfirmation);
           setmuh_DikhaiPromiseDate(res.data[0].muh_DikhaiPromiseDate);
@@ -165,9 +156,7 @@ function Orderslist(props) {
         .post(
           `api/adminuserlist/postweddingchangehonneymoon/${forms[0].orderId}`
         )
-        .then((res) => {
-          console.log(res.data);
-        });
+        .then((res) => {});
     }
     if (value === "catering") {
       axios
@@ -178,9 +167,7 @@ function Orderslist(props) {
   function points(val) {
     axios
       .post(`api/adminuserlist/postweddingpoints/${forms[0].userId}`, { val })
-      .then((res) => {
-        console.log(res.data);
-      });
+      .then((res) => {});
     window.location.reload();
   }
   function voucher(val) {
@@ -212,9 +199,7 @@ function Orderslist(props) {
 
     axios
       .post("/api/postwedding/updateInfos", { eventDatas })
-      .then((res) => {
-        console.log(res);
-      })
+      .then((res) => {})
       .catch((err) => {
         console.log(err);
       });
@@ -231,7 +216,6 @@ function Orderslist(props) {
     axios
       .post("/api/postwedding/updatePaymentDetails", { paymentUpdation })
       .then((res) => {
-        // console.log(res);
         if (res.status === 200) {
           alert(res.data);
           setUpdtBtnPayment(true);
@@ -253,7 +237,6 @@ function Orderslist(props) {
       emergency: invoiceDet.emergency,
     };
 
-    // console.log(sendUpdInvoice.addtional);
     axios
       .post("api/invoice/postwed/updateDetails", { sendUpdInvoice })
       .then((res) => {

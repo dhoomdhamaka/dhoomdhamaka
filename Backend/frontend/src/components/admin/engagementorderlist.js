@@ -114,7 +114,6 @@ function Orderslist(props) {
           .then((res) => {
             let resDat = res.data[0];
             setPostInfo(res.data[0]);
-            console.log(resDat);
 
             if (resDat.AdditionalReason != null) {
               setAdditional(true);
@@ -167,7 +166,6 @@ function Orderslist(props) {
             }
 
             if (resDat.cateringReason != null) {
-              console.log("fbjfhb");
               setCatering(true);
               setCateringConf(res.data[0].cateringService);
               setCateringPromiseDate(resDat.cateringPromiseDate);
@@ -347,7 +345,6 @@ function Orderslist(props) {
     axios
       .post("/api/engagement/updateInfos", { eventDatas })
       .then((res) => {
-        // console.log(res);
         if (res.status === 200) {
           alert("success");
           setUpdtBtn(true);
@@ -397,8 +394,6 @@ function Orderslist(props) {
       premium: invoiceDet.premium,
       emergency: invoiceDet.emergency,
     };
-
-    // console.log(sendUpdInvoice.addtional);
     axios
       .post("api/invoice/eng/updateDetails", { sendUpdInvoice })
       .then((res) => {

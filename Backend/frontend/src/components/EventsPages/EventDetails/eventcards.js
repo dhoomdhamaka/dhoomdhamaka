@@ -26,7 +26,6 @@ function Eventcards() {
       localStorage.clear("bandhanUserToken");
       dispatch(authActions.logout());
       navigate("/login");
-      console.log("Succesfully logged out");
     }
 
     if (!!localStorage.getItem("bandhanUserToken")) {
@@ -34,7 +33,6 @@ function Eventcards() {
         .get("api/login/getLoginStatus")
         .then((res) => {
           if (res.status === 200) {
-            console.log("soop...");
           } else {
             doLogout();
           }
@@ -57,7 +55,6 @@ function Eventcards() {
     // setCurrentDetail(item);
     if (item.eventName.trim() === "Wedding Event") {
       axios.get(`api/eventInfo/wedding`).then((res) => {
-        console.log(res.data[0]);
         setEventDetail(res.data[0]);
         setInfoDetail(res.data[1]);
         setname(res.data[2].name);
@@ -65,7 +62,6 @@ function Eventcards() {
       });
     } else if (item.eventName === "Birthday Event") {
       axios.get(`api/eventInfo/birthday`).then((res) => {
-        console.log(res);
         setEventDetail(res.data[0]);
         setInfoDetail(res.data[1]);
         setname(res.data[2].name);
@@ -73,7 +69,6 @@ function Eventcards() {
       });
     } else if (item.eventName.trim() === "BabyShower Event") {
       axios.get(`api/eventInfo/babyshower`).then((res) => {
-        console.log(res);
         setEventDetail(res.data[0]);
         setInfoDetail(res.data[1]);
         setname(res.data[2].name);
@@ -81,7 +76,6 @@ function Eventcards() {
       });
     } else if (item.eventName.trim() === "PreWedding Event") {
       axios.get(`api/eventInfo/prewedding`).then((res) => {
-        console.log(res);
         setEventDetail(res.data[0]);
         setInfoDetail(res.data[1]);
         setname(res.data[2].name);
@@ -89,16 +83,13 @@ function Eventcards() {
       });
     } else if (item.eventName.trim() === "PostWedding Event") {
       axios.get(`api/eventInfo/postwedding`).then((res) => {
-        console.log(res);
         setEventDetail(res.data[0]);
         setInfoDetail(res.data[1]);
         setname(res.data[2].name);
         setDisplay("postwed");
       });
     } else if (item.eventName.trim() === "Engagement Event") {
-      console.log("eng");
       axios.get(`api/eventInfo/engagement`).then((res) => {
-        console.log(res);
         setEventDetail(res.data[0]);
         setInfoDetail(res.data[1]);
         setname(res.data[2].name);
@@ -106,7 +97,6 @@ function Eventcards() {
       });
     } else if (item.eventName.trim() === "Familyfunction Event") {
       axios.get(`api/eventInfo/familyfunction`).then((res) => {
-        console.log(res);
         setEventDetail(res.data[0]);
         setInfoDetail(res.data[1]);
         setname(res.data[2].name);
@@ -114,20 +104,16 @@ function Eventcards() {
       });
     } else if (item.eventName.trim() === "Corporate Event") {
       axios.get(`api/eventInfo/corporate`).then((res) => {
-        console.log(res);
         setEventDetail(res.data[0]);
         setInfoDetail(res.data[1]);
         setname(res.data[2].name);
         setDisplay("corp");
       });
     } else {
-      console.log("illa no");
     }
 
     setDisplay(true);
-    console.log(item);
   }
-  console.log(name);
   return (
     <div className="mb-10 mt-5" style={{ minHeight: "80vh" }}>
       {invDisp && (

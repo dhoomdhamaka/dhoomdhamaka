@@ -42,8 +42,6 @@ function FamilyfunctionForm() {
     setvalue(val);
   };
 
-  console.log(errors);
-
   const options = [
     { label: "Folk", value: "Folk" },
     { label: "Indian", value: "Indian" },
@@ -174,12 +172,9 @@ function FamilyfunctionForm() {
     localStorage.clear("bandhanUserToken");
     dispatch(authActions.logout());
     navigate("/login");
-    console.log("Succesfully logged out");
   }
 
   function handleSubmit2(data) {
-    console.log(data);
-
     const name_Of_The_Event = "familyfunctionforms";
     const checkBoxValues = {
       name_Of_The_Event,
@@ -194,7 +189,6 @@ function FamilyfunctionForm() {
 
       // mehandioptions
     };
-    console.log(checkBoxValues);
     const userDate = data.date;
     const changeFormat = new Date(userDate);
     var usermonth = changeFormat.getUTCMonth() + 1; //months from 1-12
@@ -212,18 +206,9 @@ function FamilyfunctionForm() {
     const date2 = new Date(currentDate);
     const diffTime = Math.abs(date2 - date1);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    // console.log(diffTime + " milliseconds");
-    // console.log(diffDays + " days");
-
-    // if (diffDays < 5) {
-    //   toast.success("you are under premium booking!!!", {
-    //     position: toast.POSITION.TOP_CENTER,
-    //   });
-    // }
     axios
       .post("/api/familyfunction", { data, checkBoxValues })
       .then((res) => {
-        console.log(res.data);
         if (res.data === "already") {
           toast.success("Already form submitted", {
             position: toast.POSITION.TOP_RIGHT,
@@ -245,7 +230,6 @@ function FamilyfunctionForm() {
       })
       .catch((err) => {
         if (err.response.data === "Accesss Denied. No Token Provided") {
-          console.log(err.response.data);
           doLogout();
         } else {
           if (err.response.data === "Invalid Token") {

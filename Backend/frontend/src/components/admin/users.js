@@ -3,21 +3,7 @@ import axios from "axios";
 
 function Users(props) {
   var datas = props.users;
-  async function funn() {
-    // const datavalue = await axios.get("/api/adminuserlist");
-    // const final = datavalue.data;
-    // return final;
-    // axios.get("/api/adminuserlist"))
-  }
-
-  //   useEffect(() => {
-  //     axios.get("api/adminuserlist").then((res) => {
-  //       console.log(res.data);
-  //       setdatas(res.data);
-  //     });
-  //   }, [0]);
-  // datas.map((item, index)=>(console.log(item)))
-  //   console.log("summ", datas);
+  async function funn() {}
 
   return (
     <div className="row my-5">

@@ -18,7 +18,6 @@ function Invoice() {
       localStorage.clear("bandhanUserToken");
       dispatch(authActions.logout());
       navigate("/login");
-      console.log("Succesfully logged out");
     }
 
     if (!!localStorage.getItem("bandhanUserToken")) {
@@ -26,7 +25,6 @@ function Invoice() {
         .get("api/login/getLoginStatus")
         .then((res) => {
           if (res.status === 200) {
-            console.log("soop...");
           } else {
             doLogout();
           }
@@ -41,20 +39,15 @@ function Invoice() {
         if (res.data.length > 0) {
           setInvDisp(true);
         }
-        // console.log("no data",res.data);
       }
     });
 
-    return () => {
-      console.log("This will be logged on unmount");
-    };
+    return () => {};
   }, []);
-  // console.log(InvoiceDatas);
 
   async function detailsCall121(item) {
     setCurrentInvoc(item);
     setDisplay(true);
-    // console.log(currentDetail);
   }
 
   return (

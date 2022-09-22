@@ -97,7 +97,6 @@ function Orderslist(props) {
         axios.get(`api/birthday/birthdayInfo/${forms[0].orderId}`).then((res) => {
           let resDat = res.data[0];
           setPostInfo(res.data[0]);
-          console.log(resDat);
     
           if (resDat.invitationService != null) {
             setInvitation(true);
@@ -148,7 +147,6 @@ function Orderslist(props) {
             setAdditional(false);
           }
           if (resDat.cateringReason != null) {
-            console.log("fbjfhb");
             setCatering(true);
             setCateringConf(res.data[0].cateringService);
             setCateringPromiseDate(resDat.cateringPromiseDate);
@@ -185,7 +183,6 @@ function Orderslist(props) {
     function cancelorder(value){
       if(value=== "Accepted"){
         axios.post(`api/eventInfo/birthdayaccepted/${forms[0].orderId}`).then((res) => {
-          console.log(res);
         });
       }
       if(value=== "Declined"){
@@ -217,7 +214,6 @@ function Orderslist(props) {
         emergency: invoiceDet.emergency,
       };
   
-      // console.log(sendUpdInvoice.addtional);
       axios
         .post("api/invoice/bdy/updateDetails", { sendUpdInvoice })
         .then((res) => {
@@ -304,7 +300,6 @@ function Orderslist(props) {
       axios
         .post("/api/birthday/updateInfos", { eventDatas })
         .then((res) => {
-          // console.log(res);
           if (res.status===200) {
             alert("success")
             setUpdtBtn(true)
@@ -326,7 +321,6 @@ function Orderslist(props) {
       axios
         .post("/api/birthday/updatePaymentDetails", { paymentUpdation })
         .then((res) => {
-          // console.log(res);
           if (res.status === 200) {
             alert(res.data);
             setUpdtBtnPayment(true);

@@ -49,7 +49,6 @@ function Finalbirthdayform() {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  // console.log(errors);
   const [value, setvalue] = useState("");
   const handleOnchange = (val) => {
     setvalue(val);
@@ -157,7 +156,6 @@ function Finalbirthdayform() {
     localStorage.clear("bandhanUserToken");
     dispatch(authActions.logout());
     navigate("/login");
-    console.log("Succesfully logged out");
   }
 
   const handleSubmit2 = (data) => {
@@ -179,19 +177,9 @@ function Finalbirthdayform() {
     const date2 = new Date(currentDate);
     const diffTime = Math.abs(date2 - date1);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    console.log(diffTime + " milliseconds");
-    console.log(diffDays + " days");
-
-    // if (diffDays < 5) {
-    //   toast.success("you are under premium booking!!!", {
-    //     position: toast.POSITION.TOP_CENTER,
-    //   });
-    // }
-    console.log(data);
 
     const name_Of_The_Event = "birthdayforms";
 
-    // console.log(foodvalue);
     const checkBoxValues = {
       name_Of_The_Event,
       musicvalue,
@@ -201,17 +189,16 @@ function Finalbirthdayform() {
       invitationvalue,
       dancevalue,
     };
-    console.log(checkBoxValues);
+
     axios
       .post("/api/birthday", { data, checkBoxValues })
       .then((res) => {
-        console.log(res.data);
-        if(res.data === "already"){
+        if (res.data === "already") {
           toast.success("Already form submitted", {
             position: toast.POSITION.TOP_RIGHT,
           });
         }
-        if(res.data === "saved"){
+        if (res.data === "saved") {
           if (diffDays <= 5) {
             toast.success("you are under premium booking!!!", {
               position: toast.POSITION.TOP_CENTER,
@@ -221,23 +208,20 @@ function Finalbirthdayform() {
             position: toast.POSITION.TOP_RIGHT,
           });
           setTimeout(() => {
-            navigate("/")                                 
+            navigate("/");
           }, 2000);
         }
       })
       .catch((err) => {
         if (err.response.data === "Accesss Denied. No Token Provided") {
-          console.log(err.response.data);
           doLogout();
         } else {
           if (err.response.data === "Invalid Token") {
             console.log(err);
             doLogout();
           }
-          console.log(err);
         }
       });
-    // console.log(organizeValues.checkBoxValues);
   };
 
   return (
@@ -874,7 +858,6 @@ function Finalbirthdayform() {
                             class="form-check-label"
                             // HtmlFor="Veg"
                             for="veg"
-                           
                           >
                             Veg
                           </label>
@@ -894,10 +877,7 @@ function Finalbirthdayform() {
                             id="jain"
                           />
 
-                          <label
-                            class="form-check-label"
-                            for="jain"
-                          >
+                          <label class="form-check-label" for="jain">
                             Jain
                           </label>
                         </div>
@@ -1258,14 +1238,17 @@ function Finalbirthdayform() {
                   will contact you within 12-24 hours to discuss in more detail.
                 </strong>
               </h4>
-              <h1 class="my-2" /> 
+              <h1 class="my-2" />
               <h3>
                 <strong>Note 2 : </strong>
               </h3>
               <h4>
                 <strong style={{ color: "red" }}>
                   {" "}
-                  <a href={"/termsandconditions"} > Terms and Conditions apply</a>
+                  <a href={"/termsandconditions"}>
+                    {" "}
+                    Terms and Conditions apply
+                  </a>
                 </strong>
               </h4>
             </div>

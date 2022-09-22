@@ -18,12 +18,9 @@ function PaymentDetail(props) {
     };
     script.onload = async () => {
       try {
-        const result = await axios.post(
-          "api/payment/create-order",
-          {
-            amount: orderAmount * 100,
-          }
-        );
+        const result = await axios.post("api/payment/create-order", {
+          amount: orderAmount * 100,
+        });
         const { amount, id: order_id, currency } = result.data;
         const {
           data: { key: razorpayKey },
@@ -47,7 +44,6 @@ function PaymentDetail(props) {
             });
 
             if (result.status === 200) {
-              console.log("ok");
               window.location.reload();
             }
           },
@@ -74,7 +70,7 @@ function PaymentDetail(props) {
 
   return (
     <div className="row justify-content-center m-2 m-xl-0 m-md-0 my-4">
-    <h1 className="fw-bolder mb-3 text-center">Payment Status</h1>
+      <h1 className="fw-bolder mb-3 text-center">Payment Status</h1>
       <div className="col-xl-6 col-md-8">
         <div className="card border border-2 rounded shadow-3-strong border-dark p-md-4 ">
           <table className="table table-borderless mb-5">
@@ -92,140 +88,140 @@ function PaymentDetail(props) {
                 </td>
               </tr>
             </tbody>
-          </table>  
-          <div className="table-responsive">
-          <table class="table">
-            <thead class="table">
-              <tr className="bg-light">
-                <th className="fw-bold" scope="col">
-                  Payable
-                </th>
-                <th className="fw-bold" scope="col">
-                  Amount
-                </th>
-                <th className="fw-bold" scope="col">
-                  Status
-                </th>
-                {paidBtn && (
-                  <th className="fw-bold" scope="col">
-                    Action
-                  </th>
-                )}
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="fw-bold">Booking Charge</td>
-                <td>{props.data.bookingCharge}</td>
-                {props.data.booking.booking_isPaid && (
-                  <td>
-                    <span class="badge badge-success rounded-pill d-inline">
-                      Paid
-                    </span>
-                  </td>
-                )}
-                {!props.data.booking.booking_isPaid && (
-                  <td>
-                    <span class="badge badge-danger rounded-pill d-inline">
-                      Not Paid
-                    </span>
-                  </td>
-                )}
-                {paidBtn && (
-                  <td>
-                    <button
-                      type="button"
-                      disabled={props.data.booking.booking_isPaid}
-                      onClick={() => {
-                        loadRazorpay(
-                          props.data.bookingCharge,
-                          props.data.orderId,
-                          "Booking Charge"
-                        );
-                      }}
-                      className="btn btn-sm btn-warning"
-                    >
-                      Pay
-                    </button>
-                  </td>
-                )}
-              </tr>
-              <tr>
-                {/* <th scope="row">2</th> */}
-                <td className="fw-bold">Confirmation Charge</td>
-                <td>{props.data.confirmationCharge}</td>
-                {props.data.confirmation.confirmation_isPaid && (
-                  <td>
-                    <span class="badge badge-success rounded-pill d-inline">
-                      Paid
-                    </span>
-                  </td>
-                )}
-                {!props.data.confirmation.confirmation_isPaid && (
-                  <td>
-                    <span class="badge badge-danger rounded-pill d-inline">
-                      Not Paid
-                    </span>
-                  </td>
-                )}
-                {paidBtn && (
-                  <td>
-                    <button
-                      type="button"
-                      disabled={props.data.confirmation.confirmation_isPaid}
-                      onClick={() => {
-                        loadRazorpay(
-                          props.data.confirmationCharge,
-                          props.data.orderId,
-                          "Confirmation Charge"
-                        );
-                      }}
-                      className="btn btn-sm btn-warning"
-                    >
-                      Pay
-                    </button>
-                  </td>
-                )}
-              </tr>
-              <tr>
-                {/* <th scope="row">3</th> */}
-                <td className="fw-bold">Pending Charge</td>
-                <td>{props.data.pendingCharge}</td>
-                {props.data.pending.pending_isPaid && (
-                  <td>
-                    <span class="badge badge-success rounded-pill d-inline">
-                      Paid
-                    </span>
-                  </td>
-                )}
-                {!props.data.pending.pending_isPaid && (
-                  <td>
-                    <span class="badge badge-danger rounded-pill d-inline">
-                      Not Paid
-                    </span>
-                  </td>
-                )}
-                {paidBtn && (
-                  <td>
-                    <button
-                      type="button"
-                      disabled={props.data.pending.pending_isPaid}
-                      onClick={() => {
-                        loadRazorpay(
-                          props.data.pendingCharge,
-                          props.data.orderId,
-                          "Pending Charge"
-                        );
-                      }}
-                      className="btn btn-sm btn-warning"
-                    >
-                      Pay
-                    </button>
-                  </td>
-                )}
-              </tr>
-            </tbody>{" "}
           </table>
+          <div className="table-responsive">
+            <table class="table">
+              <thead class="table">
+                <tr className="bg-light">
+                  <th className="fw-bold" scope="col">
+                    Payable
+                  </th>
+                  <th className="fw-bold" scope="col">
+                    Amount
+                  </th>
+                  <th className="fw-bold" scope="col">
+                    Status
+                  </th>
+                  {paidBtn && (
+                    <th className="fw-bold" scope="col">
+                      Action
+                    </th>
+                  )}
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="fw-bold">Booking Charge</td>
+                  <td>{props.data.bookingCharge}</td>
+                  {props.data.booking.booking_isPaid && (
+                    <td>
+                      <span class="badge badge-success rounded-pill d-inline">
+                        Paid
+                      </span>
+                    </td>
+                  )}
+                  {!props.data.booking.booking_isPaid && (
+                    <td>
+                      <span class="badge badge-danger rounded-pill d-inline">
+                        Not Paid
+                      </span>
+                    </td>
+                  )}
+                  {paidBtn && (
+                    <td>
+                      <button
+                        type="button"
+                        disabled={props.data.booking.booking_isPaid}
+                        onClick={() => {
+                          loadRazorpay(
+                            props.data.bookingCharge,
+                            props.data.orderId,
+                            "Booking Charge"
+                          );
+                        }}
+                        className="btn btn-sm btn-warning"
+                      >
+                        Pay
+                      </button>
+                    </td>
+                  )}
+                </tr>
+                <tr>
+                  {/* <th scope="row">2</th> */}
+                  <td className="fw-bold">Confirmation Charge</td>
+                  <td>{props.data.confirmationCharge}</td>
+                  {props.data.confirmation.confirmation_isPaid && (
+                    <td>
+                      <span class="badge badge-success rounded-pill d-inline">
+                        Paid
+                      </span>
+                    </td>
+                  )}
+                  {!props.data.confirmation.confirmation_isPaid && (
+                    <td>
+                      <span class="badge badge-danger rounded-pill d-inline">
+                        Not Paid
+                      </span>
+                    </td>
+                  )}
+                  {paidBtn && (
+                    <td>
+                      <button
+                        type="button"
+                        disabled={props.data.confirmation.confirmation_isPaid}
+                        onClick={() => {
+                          loadRazorpay(
+                            props.data.confirmationCharge,
+                            props.data.orderId,
+                            "Confirmation Charge"
+                          );
+                        }}
+                        className="btn btn-sm btn-warning"
+                      >
+                        Pay
+                      </button>
+                    </td>
+                  )}
+                </tr>
+                <tr>
+                  {/* <th scope="row">3</th> */}
+                  <td className="fw-bold">Pending Charge</td>
+                  <td>{props.data.pendingCharge}</td>
+                  {props.data.pending.pending_isPaid && (
+                    <td>
+                      <span class="badge badge-success rounded-pill d-inline">
+                        Paid
+                      </span>
+                    </td>
+                  )}
+                  {!props.data.pending.pending_isPaid && (
+                    <td>
+                      <span class="badge badge-danger rounded-pill d-inline">
+                        Not Paid
+                      </span>
+                    </td>
+                  )}
+                  {paidBtn && (
+                    <td>
+                      <button
+                        type="button"
+                        disabled={props.data.pending.pending_isPaid}
+                        onClick={() => {
+                          loadRazorpay(
+                            props.data.pendingCharge,
+                            props.data.orderId,
+                            "Pending Charge"
+                          );
+                        }}
+                        className="btn btn-sm btn-warning"
+                      >
+                        Pay
+                      </button>
+                    </td>
+                  )}
+                </tr>
+              </tbody>{" "}
+            </table>
           </div>
         </div>
       </div>

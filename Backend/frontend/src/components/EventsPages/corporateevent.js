@@ -18,7 +18,6 @@ export default function Corporateevent() {
       localStorage.clear("bandhanUserToken");
       dispatch(authActions.logout());
       navigate("/login");
-      console.log("Succesfully logged out");
     }
 
     if (!!localStorage.getItem("bandhanUserToken")) {
@@ -26,7 +25,6 @@ export default function Corporateevent() {
         .get("api/login/getLoginStatus")
         .then((res) => {
           if (res.status === 200) {
-            console.log("soop...");
             setDisplayEve(true);
           } else {
             doLogout();
@@ -39,9 +37,9 @@ export default function Corporateevent() {
   }, []);
   return (
     <div>
-    <Corporatecarousel />
-    <Corporateeventprotofolio />
-     <CorporateForm/>
+      <Corporatecarousel />
+      <Corporateeventprotofolio />
+      <CorporateForm />
     </div>
   );
 }

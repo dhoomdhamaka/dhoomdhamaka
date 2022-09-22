@@ -112,7 +112,6 @@ function Orderslist(props) {
       setInvocDetails(res.data[0]);
 
       setInvocStatus(true);
-      console.log("aaguthu");
     });
     axios
       .get(`api/adminuserlist/weddingpointsvoucher/${forms[0].userId}`)
@@ -124,7 +123,6 @@ function Orderslist(props) {
     axios.get(`api/wedding/weddingInfo/${forms[0].orderId}`).then((res) => {
       let resDat = res.data[0];
       setPostInfo(res.data[0]);
-      console.log(resDat);
 
       if (resDat.invitationService != null) {
         setInvitation(true);
@@ -177,7 +175,7 @@ function Orderslist(props) {
       }
 
       if (resDat.cateringReason != null) {
-        console.log("fbjfhb");
+
         setCatering(true);
         setCateringConf(res.data[0].cateringService);
         setCateringPromiseDate(resDat.cateringPromiseDate);
@@ -364,7 +362,7 @@ function Orderslist(props) {
     axios
       .post("/api/wedding/updateInfos", { eventDatas })
       .then((res) => {
-        // console.log(res);
+
         if (res.status === 200) {
           alert("success");
           setUpdtBtn(true);
@@ -387,7 +385,6 @@ function Orderslist(props) {
     axios
       .post("/api/wedding/updatePaymentDetails", { paymentUpdation })
       .then((res) => {
-        // console.log(res);
         if (res.status === 200) {
           alert(res.data);
           setUpdtBtnPayment(true);
@@ -417,7 +414,6 @@ function Orderslist(props) {
       emergency: invoiceDet.emergency,
     };
 
-    // console.log(sendUpdInvoice.addtional);
     axios
       .post("api/invoice/wed/updateDetails", { sendUpdInvoice })
       .then((res) => {

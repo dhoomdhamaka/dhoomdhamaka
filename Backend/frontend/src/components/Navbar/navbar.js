@@ -5,19 +5,17 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { authActions } from "../../store";
-import './navbar.css'
+import "./navbar.css";
 const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
-  console.log(isLoggedIn);
 
   const handleLogout = () => {
     axios
       .get("api/logout/user", null)
       .then((res) => {
-        console.log(res);
         localStorage.clear("bandhanUserToken");
         dispatch(authActions.logout());
         navigate("/login");
@@ -33,7 +31,11 @@ const Navbar = () => {
     <nav className=" navbar fixed-top  navbar-expand-lg mb-0 navbar-light bg-light">
       <div className="container-fluid">
         <a className="navbar-brand  ms-5 text-white " href="#">
-          <img src="./images/newlogo.jpg" className="rounded-circle z-depth-2" style={{ width: "50px"}} />
+          <img
+            src="./images/newlogo.jpg"
+            className="rounded-circle z-depth-2"
+            style={{ width: "50px" }}
+          />
           <span
             className=" fs-4 fw-bold text-black "
             style={{ fontVariant: "small-caps" }}
@@ -68,35 +70,23 @@ const Navbar = () => {
               </Link>
             </li>
             <li class="nav-item mb-3 mb-md-2 mb-xl-2">
-              <Link
-                to="/events"
-                type="button"
-                class=" nvbrBtn   me-4"
-              >
+              <Link to="/events" type="button" class=" nvbrBtn   me-4">
                 Events
               </Link>
             </li>
             <li class="nav-item mb-3 mb-md-2 mb-xl-2">
-              <Link
-                to="/becomevendor"
-                type="button"
-                class=" nvbrBtn   me-4"
-              >
+              <Link to="/becomevendor" type="button" class=" nvbrBtn   me-4">
                 Become a Vendor
               </Link>
             </li>
             {!isLoggedIn && (
               <li class="nav-item mb-3 mb-md-2 mb-xl-2">
-                <Link
-                  to="/login"
-                  type="button"
-                  class="   nvbrBtn  me-4"
-                >
+                <Link to="/login" type="button" class="   nvbrBtn  me-4">
                   LOGIN
                 </Link>
               </li>
             )}
-             {!isLoggedIn && (
+            {!isLoggedIn && (
               <li className="nav-item mb-3 mb-md-2 mb-xl-2">
                 <Link
                   to="/register"
@@ -109,11 +99,7 @@ const Navbar = () => {
             )}
             {!!isLoggedIn && (
               <li class="nav-item mb-3 mb-md-2 mb-xl-2">
-                <Link 
-                  to="/myacc"
-                  type="button"
-                  class=" me-2   me-4 nvbrBtn"
-                >
+                <Link to="/myacc" type="button" class=" me-2   me-4 nvbrBtn">
                   My profile
                 </Link>
               </li>

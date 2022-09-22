@@ -176,7 +176,6 @@ function EngagementForm() {
     localStorage.clear("bandhanUserToken");
     dispatch(authActions.logout());
     navigate("/login");
-    console.log("Succesfully logged out");
   }
 
   const name_Of_The_Event = "engagementforms";
@@ -211,20 +210,9 @@ function EngagementForm() {
     const date2 = new Date(currentDate);
     const diffTime = Math.abs(date2 - date1);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    console.log(diffTime + " milliseconds");
-    console.log(diffDays + " days");
-
-    // if (diffDays < 5) {
-    //   toast.success("you are under premium booking!!!", {
-    //     position: toast.POSITION.TOP_CENTER,
-    //   });
-    // }
-    console.log(checkBoxValues);
-    console.log(data);
     axios
       .post("/api/engagement", { data, checkBoxValues })
       .then((res) => {
-        console.log(res.data);
         if (res.data === "already") {
           toast.success("Already form submitted", {
             position: toast.POSITION.TOP_RIGHT,
@@ -246,7 +234,6 @@ function EngagementForm() {
       })
       .catch((err) => {
         if (err.response.data === "Accesss Denied. No Token Provided") {
-          console.log(err.response.data);
           doLogout();
         } else {
           if (err.response.data === "Invalid Token") {

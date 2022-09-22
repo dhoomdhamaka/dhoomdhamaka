@@ -13,7 +13,6 @@ function Familyfunctioninfo(props) {
 
     window.location.reload();
   }
-  console.log("vanthutu", props.familyfunction);
   return (
     props.familyfunction && (
       <>

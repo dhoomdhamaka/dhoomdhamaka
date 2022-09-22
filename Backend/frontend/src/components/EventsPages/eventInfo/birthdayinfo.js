@@ -13,7 +13,6 @@ export function Birthdayinfo(props) {
     window.location.reload();
   }
 
-  console.log("vanthutu", props.birthday);
   return (
     props.birthday && (
       <>

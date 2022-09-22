@@ -76,7 +76,6 @@ function EventInfo() {
         .then((res) => {
           const ll = res.data;
           if (ll.length > 0) {
-            // console.log(ll);
             setengagementdata(ll[0]);
             setInvDisp(true);
           } else {
@@ -147,7 +146,6 @@ function EventInfo() {
           if (ll.length > 0) {
             setpostweddingdata(ll[0]);
             setInvDisp(true);
-            // console.log(datas);
           } else {
             setpostweddingdata([]);
           }
@@ -160,7 +158,7 @@ function EventInfo() {
 
   return (
     <div className=" mt-5 mb-5 ps-5 pe-5 ms-3 me-3 pb-5 pt-3">
-      <div className=" " style={{minHeight:"100vh"}}>
+      <div className=" " style={{ minHeight: "100vh" }}>
         {invDisp && (
           <EventTable
             prewedding={

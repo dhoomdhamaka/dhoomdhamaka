@@ -45,24 +45,6 @@ function App() {
     dispatch(authActions.login());
   }
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
-  // console.log(isLoggedIn);
-
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  // useEffect(() => {
-  //   axios.get("api/setUser").then((res) => {
-  //     console.log(res.data);
-  //   }).catch((err) => {
-  //     console.log(err);
-  //   })
-  // })
-
-  // const login = useCallback(() => {
-  //   setIsLoggedIn(true);
-  // });
-  // const logout = useCallback(() => {
-  //   setIsLoggedIn(false);
-  // });
 
   let loginRoutes;
 

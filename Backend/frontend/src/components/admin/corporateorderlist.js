@@ -99,7 +99,6 @@ function Orderslist(props) {
           .then((res) => {
             let resDat = res.data[0];
             setPostInfo(res.data[0]);
-            console.log(resDat);
 
             if (resDat.invitationService != null) {
               setInvitation(true);
@@ -141,7 +140,6 @@ function Orderslist(props) {
             }
 
             if (resDat.cateringReason != null) {
-              console.log("fbjfhb");
               setCatering(true);
               setCateringConf(res.data[0].cateringService);
               setCateringPromiseDate(resDat.cateringPromiseDate);
@@ -334,7 +332,6 @@ function Orderslist(props) {
       emergency: invoiceDet.emergency,
     };
 
-    // console.log(sendUpdInvoice.addtional);
     axios
       .post("api/invoice/corp/updateDetails", { sendUpdInvoice })
       .then((res) => {
@@ -487,9 +484,13 @@ function Orderslist(props) {
                     <tr>
                       <td>
                         <div scope="row" className="fw-bold ">
-                         <h4> Cancel Order Status : 
-                          <span className="btn btn-success btn-sm">{forms[0].cancelstatus}</span></h4>
-                           
+                          <h4>
+                            {" "}
+                            Cancel Order Status :
+                            <span className="btn btn-success btn-sm">
+                              {forms[0].cancelstatus}
+                            </span>
+                          </h4>
                         </div>
                       </td>
                     </tr>
@@ -1108,14 +1109,11 @@ function Orderslist(props) {
                   350
                 </div>
               </td>
-             
             </tr>
             <tr>
-            <th>&nbsp;&nbsp;&nbsp;</th>
-            <div>
-            &nbsp;&nbsp;&nbsp;
-            </div>
-            <td>
+              <th>&nbsp;&nbsp;&nbsp;</th>
+              <div>&nbsp;&nbsp;&nbsp;</div>
+              <td>
                 <div
                   className="btn btn-success btn-sm"
                   onClick={() => points(400)}

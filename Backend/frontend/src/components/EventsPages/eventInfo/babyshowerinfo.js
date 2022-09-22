@@ -13,7 +13,6 @@ export function Babyshowerinfo(props) {
     window.location.reload();
   }
 
-  console.log("vanthutu", props.babyshower);
   return (
     props.babyshower && (
       <>

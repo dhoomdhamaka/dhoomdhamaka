@@ -13,7 +13,6 @@ export function Corporateinfo(props) {
 
     window.location.reload();
   }
-  console.log("vanthutu", props.corporate);
   return (
     props.corporate && (
       <>

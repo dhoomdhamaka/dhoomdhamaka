@@ -19,7 +19,6 @@ function Todo() {
       localStorage.clear("bandhanUserToken");
       dispatch(authActions.logout());
       navigate("/login");
-      console.log("Succesfully logged out");
     }
 
     if (!!localStorage.getItem("bandhanUserToken")) {
@@ -27,7 +26,6 @@ function Todo() {
         .get("api/login/getLoginStatus")
         .then((res) => {
           if (res.status === 200) {
-            console.log("soop...");
           } else {
             doLogout();
           }
@@ -37,29 +35,22 @@ function Todo() {
         });
     }
     axios.get("api/todo").then((res) => {
-      // console.log(res.data);
-      // console.log(res.data);
       setItemTodo(res.data);
     });
   }, [0]);
-  // console.log(todoItem);
 
   function handleText(e) {
     settodoTxt(e.target.value);
   }
 
   function delFunc(data) {
-
-    const newTodos = todoItem.filter(item => !(item._id === data._id))
+    const newTodos = todoItem.filter((item) => !(item._id === data._id));
     setItemTodo(newTodos);
-    // console.log(data);
-    console.log("del updated");
   }
 
   function handleSubTodo(e) {
     e.preventDefault();
     axios.post("api/todo", { todoTxt }).then((res) => {
-      console.log(res);
       setItemTodo((pv) => {
         return [...pv, res.data];
       });
@@ -73,9 +64,8 @@ function Todo() {
       style={{
         backgroundImage:
           "-webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%)",
-          minHeight: "100vh"
+        minHeight: "100vh",
       }}
-      
     >
       <div
         className="row justify-content-center"

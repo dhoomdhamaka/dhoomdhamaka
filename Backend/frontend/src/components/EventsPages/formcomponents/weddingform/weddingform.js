@@ -254,13 +254,11 @@ function Weddingform() {
     localStorage.clear("bandhanUserToken");
     dispatch(authActions.logout());
     navigate("/login");
-    console.log("Succesfully logged out");
   }
 
   const name_Of_The_Event = "weddingforms";
 
   const handleSubmit2 = (data) => {
-    console.log(data);
     const checkBoxValues = {
       name_Of_The_Event,
       musicvalue,
@@ -292,20 +290,9 @@ function Weddingform() {
     const date2 = new Date(currentDate);
     const diffTime = Math.abs(date2 - date1);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    console.log(diffTime + " milliseconds");
-    console.log(diffDays + " days");
-
-    // if (diffDays < 7) {
-    //   toast.success("you are under premium booking!!!", {
-    //     position: toast.POSITION.TOP_CENTER,
-    //   });
-    // }
-    console.log(checkBoxValues);
-    console.log(data);
     axios
       .post("/api/wedding", { data, checkBoxValues })
       .then((res) => {
-        console.log(res.data);
         if (res.data === "already") {
           toast.success("Already form submitted", {
             position: toast.POSITION.TOP_RIGHT,
@@ -327,7 +314,6 @@ function Weddingform() {
       })
       .catch((err) => {
         if (err.response.data === "Accesss Denied. No Token Provided") {
-          console.log(err.response.data);
           doLogout();
         } else {
           if (err.response.data === "Invalid Token") {
@@ -338,10 +324,7 @@ function Weddingform() {
         }
       });
   };
-  // function handleSubmit2(data) {
-  //   console.log(data);
-  // }
-  console.log(errors);
+
 
   return (
     <section class="h-50">

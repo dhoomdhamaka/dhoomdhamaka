@@ -37,9 +37,7 @@ function BabyShowerForm() {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  console.log(errors);
   const [value, setvalue] = useState("");
-
 
   const handleOnchange = (val) => {
     setvalue(val);
@@ -147,11 +145,9 @@ function BabyShowerForm() {
     localStorage.clear("bandhanUserToken");
     dispatch(authActions.logout());
     navigate("/login");
-    console.log("Succesfully logged out");
   }
 
   function handleSubmit2(data) {
-    console.log(data);
     const name_Of_The_Event = "babyshowerforms";
     const checkBoxValues = {
       name_Of_The_Event,
@@ -179,20 +175,16 @@ function BabyShowerForm() {
     const date2 = new Date(currentDate);
     const diffTime = Math.abs(date2 - date1);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    console.log(diffTime + " milliseconds");
-    console.log(diffDays + " days");
 
-    
     axios
       .post("/api/babyshower", { data, checkBoxValues })
       .then((res) => {
-        console.log(res.data);
-        if(res.data === "already"){
+        if (res.data === "already") {
           toast.success("Already form submitted", {
             position: toast.POSITION.TOP_RIGHT,
           });
         }
-        if(res.data === "saved"){
+        if (res.data === "saved") {
           if (diffDays <= 5) {
             toast.success("you are under premium booking!!!", {
               position: toast.POSITION.TOP_CENTER,
@@ -202,24 +194,19 @@ function BabyShowerForm() {
             position: toast.POSITION.TOP_RIGHT,
           });
           setTimeout(() => {
-            navigate("/")                                 
+            navigate("/");
           }, 2000);
         }
-        
       })
       .catch((err) => {
         if (err.response.data === "Accesss Denied. No Token Provided") {
-          console.log(err.response.data);
           doLogout();
         } else {
           if (err.response.data === "Invalid Token") {
-            console.log(err);
             doLogout();
           }
-          console.log(err);
         }
       });
-    console.log(checkBoxValues);
   }
 
   return (
@@ -526,7 +513,9 @@ function BabyShowerForm() {
             })}
           >
             <div class="card-header py-4 px-5 bg-light border-0">
-              <h4 class="mb-0 fw-bolder fs-3 text-center">Baby Shower Event Booking</h4>
+              <h4 class="mb-0 fw-bolder fs-3 text-center">
+                Baby Shower Event Booking
+              </h4>
             </div>
 
             <div class="card-body px-5">
@@ -845,16 +834,13 @@ function BabyShowerForm() {
                             value={"veg"}
                           />
 
-                          <label
-                            class="form-check-label"
-                            for="veg"
-                          >
+                          <label class="form-check-label" for="veg">
                             Veg
                           </label>
                         </div>
                       </div>
                     </div>
-                    
+
                     <div class="col-md-4">
                       <div class="mb-3">
                         <div class="form-check">
@@ -867,10 +853,7 @@ function BabyShowerForm() {
                             id="jain"
                           />
 
-                          <label
-                            class="form-check-label"
-                            for="jain"
-                          >
+                          <label class="form-check-label" for="jain">
                             Jain
                           </label>
                         </div>
@@ -1292,14 +1275,17 @@ function BabyShowerForm() {
                   will contact you within 12-24 hours to discuss in more detail.
                 </strong>
               </h4>
-              <h1 class="my-2" /> 
+              <h1 class="my-2" />
               <h3>
                 <strong>Note 2 : </strong>
               </h3>
               <h4>
                 <strong style={{ color: "red" }}>
                   {" "}
-                  <a href={"/termsandconditions"} > Terms and Conditions apply</a>
+                  <a href={"/termsandconditions"}>
+                    {" "}
+                    Terms and Conditions apply
+                  </a>
                 </strong>
               </h4>
             </div>

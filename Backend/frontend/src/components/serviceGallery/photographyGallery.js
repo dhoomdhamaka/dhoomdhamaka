@@ -9,9 +9,7 @@ import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgZoom from "lightgallery/plugins/zoom";
 
 function PhotographyGallery() {
-  const onInit = () => {
-    console.log("lightGallery has been initialized");
-  };
+  const onInit = () => {};
 
   return (
     <div className="p-md-5 m-md-5">

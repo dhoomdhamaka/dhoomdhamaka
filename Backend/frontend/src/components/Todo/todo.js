@@ -10,23 +10,17 @@ function Todo() {
 
   useEffect(() => {
     axios.get("api/todo").then((res) => {
-      // console.log(res.data);
-      // console.log(res.data);
       setItemTodo(res.data);
     });
   }, [0]);
-  // console.log(todoItem);
 
   function handleText(e) {
     settodoTxt(e.target.value);
   }
 
   function delFunc(data) {
-
-    const newTodos = todoItem.filter(item => !(item._id === data._id))
+    const newTodos = todoItem.filter((item) => !(item._id === data._id));
     setItemTodo(newTodos);
-    // console.log(data);
-    console.log("del updated");
   }
 
   function handleSubTodo(e) {

@@ -1,23 +1,20 @@
 import React, { useState } from "react";
 import { Navigate, NavLink, useNavigate } from "react-router-dom";
 import * as yup from "yup";
-import { useDispatch } from 'react-redux'
+import { useDispatch } from "react-redux";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { authActions } from "../../store";
-
-
 
 const schema = yup.object().shape({
   email: yup.string().required("Type of Function must be required"),
   password: yup.string().required("Type of Function must be required"),
 });
 function Admin() {
-  
-const disspatch = useDispatch();
+  const disspatch = useDispatch();
 
-const navigate = useNavigate();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -32,7 +29,6 @@ const navigate = useNavigate();
       .post("api/login", { data })
       .then((res) => {
         const lctTok = res.data.jsonToken;
-        console.log(res);
         localStorage.setItem("bandhanUserToken", lctTok);
         disspatch(authActions.login());
         navigate("/admindashboard");
@@ -42,16 +38,6 @@ const navigate = useNavigate();
         console.log(err);
         navigate("/");
       });
-    // if (data.email === "demo@gmail.com") {
-    //   if (data.password === "demo") {
-    //     console.log("inn");
-    //     navigate("/admindashboard");
-    //   } else {
-    //     navigate("/admin");
-    //   }
-    // } else {
-    //   navigate("/admin");
-    // }
   };
   return (
     <div className="Auth-form-container">

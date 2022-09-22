@@ -11,16 +11,20 @@ import lgZoom from "lightgallery/plugins/zoom";
 // import "./serviceGallery.css";
 
 function DecorationGallery() {
-  const onInit = () => {
-    console.log("lightGallery has been initialized");
-  };
+  const onInit = () => {};
 
   return (
     <div className="p-md-5 m-md-5">
       {/* <!-- Gallery --> */}
-      <p className=" text-center pb-5" style={{ fontSize:"32px" ,fontWeight:"bolder" }}>
+      <p
+        className=" text-center pb-5"
+        style={{ fontSize: "32px", fontWeight: "bolder" }}
+      >
         IT'S TIME TO EXPLORE{" "}
-        <span className="" style={{ fontSize:"32px" ,fontWeight:"bold" ,color: "limegreen" }}>
+        <span
+          className=""
+          style={{ fontSize: "32px", fontWeight: "bold", color: "limegreen" }}
+        >
           {" "}
           OUR GALLERY
         </span>
@@ -226,7 +230,8 @@ function DecorationGallery() {
             onInit={onInit}
             speed={500}
             plugins={[lgThumbnail, lgZoom]}
-          ><a href="https://bit.ly/3BawL53" className=" d-none">
+          >
+            <a href="https://bit.ly/3BawL53" className=" d-none">
               <img
                 src="https://bit.ly/3BawL53"
                 class="w-100 shadow-4-strong rounded mb-4"

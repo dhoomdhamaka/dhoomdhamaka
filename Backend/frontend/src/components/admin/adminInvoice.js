@@ -30,9 +30,7 @@ function AdminInvoice(props) {
   const [updtBtnInvoice, setUpdtBtnInvoice] = useState(true);
 
   useEffect(() => {
-    console.log(props);
     if (props.details.shows != undefined) {
-      console.log("bbsbs");
       setShows(props.details.shows);
     }
     if (props.details.decoration != undefined) {
@@ -115,7 +113,6 @@ function AdminInvoice(props) {
       premium,
       emergency,
     };
-    // console.log(addtional);
     props.updateInvoiceDetails(invoiceDet);
   }
 

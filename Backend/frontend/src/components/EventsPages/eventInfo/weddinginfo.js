@@ -11,7 +11,6 @@ export function Weddinginfo(props) {
 
     window.location.reload();
   }
-  console.log("vanthutu", props.wedding);
   return (
     props.wedding && (
       <>

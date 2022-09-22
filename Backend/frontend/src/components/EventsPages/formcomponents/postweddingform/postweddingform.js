@@ -152,7 +152,6 @@ function PostweddingForm() {
     localStorage.clear("bandhanUserToken");
     dispatch(authActions.logout());
     navigate("/login");
-    console.log("Succesfully logged out");
   }
 
   const name_Of_The_Event = "postweddingforms";
@@ -181,17 +180,7 @@ function PostweddingForm() {
     const date2 = new Date(currentDate);
     const diffTime = Math.abs(date2 - date1);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    console.log(diffTime + " milliseconds");
-    console.log(diffDays + " days");
 
-    // if (diffDays < 6) {
-    //   toast.success("you are under premium booking!!!", {
-    //     position: toast.POSITION.TOP_CENTER,
-    //   });
-    // }
-    console.log(checkBoxValues);
-    // console.log(checkBoxValues.dancevalue);
-    console.log(data);
     axios
       .post("/api/postwedding", { data, checkBoxValues })
       .then((res) => {
@@ -213,11 +202,9 @@ function PostweddingForm() {
             navigate("/");
           }, 2000);
         }
-        console.log(res.data);
       })
       .catch((err) => {
         if (err.response.data === "Accesss Denied. No Token Provided") {
-          console.log(err.response.data);
           doLogout();
         } else {
           if (err.response.data === "Invalid Token") {

@@ -13,7 +13,6 @@ export function Postweddinginfo(props) {
 
     window.location.reload();
   }
-  console.log("vanthutu", props.postwedding);
   return (
     props.postwedding && (
       <>

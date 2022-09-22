@@ -18,7 +18,6 @@ function Engagement() {
       localStorage.clear("bandhanUserToken");
       dispatch(authActions.logout());
       navigate("/login");
-      console.log("Succesfully logged out");
     }
 
     if (!!localStorage.getItem("bandhanUserToken")) {
@@ -26,7 +25,6 @@ function Engagement() {
         .get("api/login/getLoginStatus")
         .then((res) => {
           if (res.status === 200) {
-            console.log("soop...");
             setDisplayEve(true);
           } else {
             doLogout();

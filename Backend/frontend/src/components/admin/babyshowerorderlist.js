@@ -117,7 +117,6 @@ function Orderslist(props) {
           .then((res) => {
             let resDat = res.data[0];
             setPostInfo(res.data[0]);
-            console.log(resDat);
 
             if (resDat.invitationService != null) {
               setInvitation(true);
@@ -169,7 +168,6 @@ function Orderslist(props) {
             }
 
             if (resDat.cateringReason != null) {
-              console.log("fbjfhb");
               setCatering(true);
               setCateringConf(res.data[0].cateringService);
               setCateringPromiseDate(resDat.cateringPromiseDate);
@@ -237,21 +235,21 @@ function Orderslist(props) {
       axios
         .post(`api/eventInfo/babyaccepted/${forms[0].orderId}`)
         .then((res) => {
-          window.location.reload(); 
+          window.location.reload();
         });
     }
     if (value === "Declined") {
       axios
         .post(`api/eventInfo/babydeclined/${forms[0].orderId}`)
         .then((res) => {
-          window.location.reload(); 
+          window.location.reload();
         });
     }
     if (value === "Refund") {
       axios
         .post(`api/eventInfo/babyrefund/${forms[0].orderId}`, { refundamount })
         .then((res) => {
-          window.location.reload(); 
+          window.location.reload();
         });
     }
   }
@@ -278,7 +276,6 @@ function Orderslist(props) {
       emergency: invoiceDet.emergency,
     };
 
-    // console.log(sendUpdInvoice.addtional);
     axios
       .post("api/invoice/bby/updateDetails", { sendUpdInvoice })
       .then((res) => {
@@ -321,13 +318,12 @@ function Orderslist(props) {
     axios
       .post(`api/adminuserlist/babyshowerpoints/${forms[0].userId}`, { val })
       .then((res) => {});
-      window.location.reload();
+    window.location.reload();
   }
   function voucher(val) {
     axios
       .post(`api/adminuserlist/babyshowervoucher/${forms[0].userId}`, { val })
       .then((res) => {
-        console.log(res.data);
         window.location.reload();
       });
   }
@@ -388,7 +384,6 @@ function Orderslist(props) {
     axios
       .post("/api/babyshower/updateInfos", { eventDatas })
       .then((res) => {
-        // console.log(res);
         if (res.status === 200) {
           alert("success");
           setUpdtBtn(true);
@@ -411,7 +406,6 @@ function Orderslist(props) {
     axios
       .post("/api/babyShower/updatePaymentDetails", { paymentUpdation })
       .then((res) => {
-        // console.log(res);
         if (res.status === 200) {
           alert(res.data);
           setUpdtBtnPayment(true);
@@ -561,9 +555,13 @@ function Orderslist(props) {
                     <tr>
                       <td>
                         <div scope="row" className="fw-bold ">
-                         <h4> Cancel Order Status : 
-                          <span className="btn btn-success btn-sm">{forms[0].cancelstatus}</span></h4>
-                           
+                          <h4>
+                            {" "}
+                            Cancel Order Status :
+                            <span className="btn btn-success btn-sm">
+                              {forms[0].cancelstatus}
+                            </span>
+                          </h4>
                         </div>
                       </td>
                     </tr>
@@ -1374,11 +1372,9 @@ function Orderslist(props) {
             </tr>
 
             <tr>
-            <th>&nbsp;&nbsp;&nbsp;</th>
-            <div>
-            &nbsp;&nbsp;&nbsp;
-            </div>
-            <td>
+              <th>&nbsp;&nbsp;&nbsp;</th>
+              <div>&nbsp;&nbsp;&nbsp;</div>
+              <td>
                 <div
                   className="btn btn-success btn-sm"
                   onClick={() => points(400)}

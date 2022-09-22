@@ -13,7 +13,6 @@ export function Preweddinginfo(props) {
 
     window.location.reload();
   }
-  // console.log("vanthutu",props.prewedding);
   return (
     props.prewedding && (
       <>

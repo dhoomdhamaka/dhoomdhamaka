@@ -13,7 +13,6 @@ export function Engagementinfo(props) {
 
     window.location.reload();
   }
-  console.log("vanthutu", props.engagement);
   return (
     props.engagement && (
       <>

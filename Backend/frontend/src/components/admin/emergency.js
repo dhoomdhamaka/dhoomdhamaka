@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 function Emergency(props) {
-    var datas = props.users;
+  var datas = props.users;
   return (
     <div className="row my-5">
       <h3 className="fs-4 mb-3">Emergency forms</h3>
@@ -35,7 +35,6 @@ function Emergency(props) {
           </thead>
           <tbody>
             {datas.map((user, i) => {
-              console.log(user.username);
               return (
                 <tr key={i}>
                   <th scope="row">{i + 1}</th>

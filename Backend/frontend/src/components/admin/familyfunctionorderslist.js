@@ -119,7 +119,6 @@ function Orderslist(props) {
         axios.get(`api/familyFunction/familyfunctionInfo/${forms[0].orderId}`).then((res) => {
           let resDat = res.data[0];
           setPostInfo(res.data[0]);
-          console.log(resDat);
     
           if (resDat.invitationService != null) {
             setInvitation(true);
@@ -171,7 +170,6 @@ function Orderslist(props) {
           }
     
           if (resDat.cateringReason != null) {
-            console.log("fbjfhb");
             setCatering(true);
             setCateringConf(res.data[0].cateringService);
             setCateringPromiseDate(resDat.cateringPromiseDate);
@@ -255,7 +253,6 @@ function Orderslist(props) {
     function status(value){
       if(value === "venue"){
         axios.post(`api/adminuserlist/familyfunctionchangevenue/${forms[0].orderId}`).then((res) => {
-          console.log(res.data);
         });
       }
       if(value === "decoration"){
@@ -338,7 +335,6 @@ function Orderslist(props) {
       axios
         .post("/api/familyFunction/updateInfos", { eventDatas })
         .then((res) => {
-          // console.log(res);
           if (res.status===200) {
             alert("success")
             setUpdtBtn(true)
@@ -360,7 +356,6 @@ function Orderslist(props) {
       axios
         .post("/api/familyFunction/updatePaymentDetails", { paymentUpdation })
         .then((res) => {
-          // console.log(res);
           if (res.status === 200) {
             alert(res.data);
             setUpdtBtnPayment(true);
@@ -388,8 +383,6 @@ function Orderslist(props) {
         premium: invoiceDet.premium,
         emergency: invoiceDet.emergency,
       };
-  
-      // console.log(sendUpdInvoice.addtional);
       axios
         .post("api/invoice/fam/updateDetails", { sendUpdInvoice })
         .then((res) => {

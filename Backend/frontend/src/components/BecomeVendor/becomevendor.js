@@ -8,7 +8,6 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 function LoginReducer(state, action) {
   switch (action.type) {
     case "field": {
-      // console.log("hii");
       return {
         ...state,
         [action.fieldName]: action.payload,
@@ -36,7 +35,7 @@ export default function Becomevendor() {
   const [state, dispatch] = useReducer(LoginReducer, initialState);
   const { name, email, city, vendorType, area, phoneNo } = state;
   // const [file, setFile] = useState();
-      // const [fileName, setFileName] = useState("");
+  // const [fileName, setFileName] = useState("");
   axios.defaults.withCredentials = true;
 
   const handleChange = (e) => {
@@ -47,15 +46,14 @@ export default function Becomevendor() {
     });
   };
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
-  
   // const saveFile = (e) => {
   //   setFile(e.target.files[0]);
   //   setFileName(e.target.files[0].name);
   // };
 
-  const handleSub = async(e) => {
+  const handleSub = async (e) => {
     e.preventDefault();
     const frmDet = {
       name,
@@ -66,33 +64,29 @@ export default function Becomevendor() {
       phoneNo,
       // year,
     };
-    console.log(frmDet);
+
     const formData = new FormData();
-        // formData.append("file", file);
-        // formData.append("fileName", fileName);
-        formData.append("name", name)
-        formData.append("city", city)
-        formData.append("email", email)
-        formData.append("vendorType", vendorType)
-        formData.append("area", area)
-        formData.append("phoneNo", phoneNo)
-        // formData.append("year", year)
-        try {
-          const res = await axios.post(
-            "/api/becomeVendor",
-            formData
-          );
-          toast.success("Form submitted Successfully", {
-            position: toast.POSITION.TOP_RIGHT,
-          });
-          setTimeout(() => {
-            navigate("/")                                 
-          }, 2000);
-          console.log(res);
-        } catch (ex) {
-          console.log(ex);
-        }
-  }
+    // formData.append("file", file);
+    // formData.append("fileName", fileName);
+    formData.append("name", name);
+    formData.append("city", city);
+    formData.append("email", email);
+    formData.append("vendorType", vendorType);
+    formData.append("area", area);
+    formData.append("phoneNo", phoneNo);
+    // formData.append("year", year)
+    try {
+      const res = await axios.post("/api/becomeVendor", formData);
+      toast.success("Form submitted Successfully", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+    } catch (ex) {
+      console.log(ex);
+    }
+  };
 
   return (
     <div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo  m-2">
@@ -172,17 +166,23 @@ export default function Becomevendor() {
                   </div>
                 </div>
               </div>
-              
+
               <div>
-              {/* <span className="fs-2">Note</span> */}
-              <p className="text-danger fw-bold" > <span className="fs-5 text-dark">Note : </span> Send images to <a href="mailto:Dhoomdhamaka0@gmail.com"> dhoomdhamaka0@gmail.com</a></p>
+                {/* <span className="fs-2">Note</span> */}
+                <p className="text-danger fw-bold">
+                  {" "}
+                  <span className="fs-5 text-dark">Note : </span> Send images to{" "}
+                  <a href="mailto:Dhoomdhamaka0@gmail.com">
+                    {" "}
+                    dhoomdhamaka0@gmail.com
+                  </a>
+                </p>
               </div>
 
               <div class="p-t-20">
                 <button class="btn btn--radius btn-success" type="submit">
                   Submit
                 </button>
-               
               </div>
             </form>
           </div>

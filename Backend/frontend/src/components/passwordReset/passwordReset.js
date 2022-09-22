@@ -19,7 +19,6 @@ function PasswordReset() {
     axios
       .post("api/passwordReset", { email })
       .then((res) => {
-        console.log(res.data);
         if (res.status === 200) {
           navigate("/passwordresetsuccess");
           setShowRes(false);

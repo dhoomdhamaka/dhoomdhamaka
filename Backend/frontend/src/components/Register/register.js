@@ -9,7 +9,6 @@ import "./register.css";
 function LoginReducer(state, action) {
   switch (action.type) {
     case "field": {
-      // console.log("hii");
       return {
         ...state,
         [action.fieldName]: action.payload,
@@ -56,14 +55,11 @@ export default function Register() {
     axios
       .post("api/register", { data })
       .then((res) => {
-        console.log(res.data);
         if (res.status === 200) {
-          console.log("user registered successfully");
           navigate("/login");
         }
       })
       .catch((err) => {
-        // console.log(err.response);
         if (err.response.status === 400) {
           if (err.response.data === "User already registered...") {
             setErrorReg("Email Id is already in use");

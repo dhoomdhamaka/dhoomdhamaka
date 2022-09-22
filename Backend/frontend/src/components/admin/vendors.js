@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 function Vendors(props) {
-    var datas = props.vendordata;
-  
+  var datas = props.vendordata;
+
   return (
     <div className="row my-5">
       <h3 className="fs-4 mb-3">Vendors forms</h3>
@@ -36,7 +36,6 @@ function Vendors(props) {
           </thead>
           <tbody>
             {datas.map((user, i) => {
-              console.log(user.username);
               return (
                 <tr key={i}>
                   <th scope="row">{i + 1}</th>
