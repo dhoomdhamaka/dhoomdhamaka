@@ -185,7 +185,7 @@ function Eventcarousel() {
                 class="d-block w-100"
                 src="images/img7.jpg"
               />
-              <div class="container d-sm-none">
+              <div class="container d-md-block d-xl-block d-none">
                 <h2>corporate function</h2>
                 <p>
                   “Your most unhappy customers are your greatest source of
