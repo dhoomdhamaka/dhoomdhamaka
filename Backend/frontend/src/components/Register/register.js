@@ -63,6 +63,8 @@ export default function Register() {
         if (err.response.status === 400) {
           if (err.response.data === "User already registered...") {
             setErrorReg("Email Id is already in use");
+          } else if (err.response.data === "Phone no already in use...") {
+            setErrorReg(err.response.data);
           } else {
             setErrorReg(err.response.data);
           }
