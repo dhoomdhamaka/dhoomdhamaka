@@ -48,6 +48,9 @@ router.post("/", async (req, res) => {
   let user = await User.findOne({ email: req.body.data.email });
   if (user) return res.status(400).send("User already registered...");
 
+  let mobileNo = await User.findOne({ phone: req.body.data.phone });
+  if (mobileNo) return res.status(400).send("Phone no already in use...");
+  
   // user = new User(_.pick(req.body.data, ["username", "email","phone", "password","points", "voucher"]));
   user = new User({username,email,phone,password,points,voucher, isadmin});
 
